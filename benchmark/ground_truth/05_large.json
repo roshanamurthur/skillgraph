@@ -1,0 +1,483 @@
+{
+  "source_file": "05_large.csv",
+  "per_student": {
+    "S001": {
+      "scores": [
+        72.0,
+        75.0,
+        78.0,
+        74.0,
+        80.0
+      ],
+      "average": 75.8,
+      "letter_grade": "C",
+      "slope": 1.5,
+      "std_dev": 3.193744,
+      "highest_score": 80.0,
+      "lowest_score": 72.0,
+      "rank": 15,
+      "above_class_average": true
+    },
+    "S002": {
+      "scores": [
+        88.0,
+        91.0,
+        85.0,
+        92.0,
+        89.0
+      ],
+      "average": 89.0,
+      "letter_grade": "B+",
+      "slope": 0.3,
+      "std_dev": 2.738613,
+      "highest_score": 92.0,
+      "lowest_score": 85.0,
+      "rank": 6,
+      "above_class_average": true
+    },
+    "S003": {
+      "scores": [
+        61.0,
+        58.0,
+        64.0,
+        60.0,
+        63.0
+      ],
+      "average": 61.2,
+      "letter_grade": "D-",
+      "slope": 0.6,
+      "std_dev": 2.387467,
+      "highest_score": 64.0,
+      "lowest_score": 58.0,
+      "rank": 20,
+      "above_class_average": false
+    },
+    "S004": {
+      "scores": [
+        95.0,
+        93.0,
+        97.0,
+        94.0,
+        96.0
+      ],
+      "average": 95.0,
+      "letter_grade": "A",
+      "slope": 0.3,
+      "std_dev": 1.581139,
+      "highest_score": 97.0,
+      "lowest_score": 93.0,
+      "rank": 2,
+      "above_class_average": true
+    },
+    "S005": {
+      "scores": [
+        45.0,
+        50.0,
+        48.0,
+        52.0,
+        47.0
+      ],
+      "average": 48.4,
+      "letter_grade": "F",
+      "slope": 0.6,
+      "std_dev": 2.701851,
+      "highest_score": 52.0,
+      "lowest_score": 45.0,
+      "rank": 24,
+      "above_class_average": false
+    },
+    "S006": {
+      "scores": [
+        78.0,
+        80.0,
+        76.0,
+        82.0,
+        79.0
+      ],
+      "average": 79.0,
+      "letter_grade": "C+",
+      "slope": 0.4,
+      "std_dev": 2.236068,
+      "highest_score": 82.0,
+      "lowest_score": 76.0,
+      "rank": 12,
+      "above_class_average": true
+    },
+    "S007": {
+      "scores": [
+        83.0,
+        85.0,
+        88.0,
+        84.0,
+        87.0
+      ],
+      "average": 85.4,
+      "letter_grade": "B",
+      "slope": 0.7,
+      "std_dev": 2.073644,
+      "highest_score": 88.0,
+      "lowest_score": 83.0,
+      "rank": 10,
+      "above_class_average": true
+    },
+    "S008": {
+      "scores": [
+        67.0,
+        70.0,
+        65.0,
+        68.0,
+        72.0
+      ],
+      "average": 68.4,
+      "letter_grade": "D+",
+      "slope": 0.8,
+      "std_dev": 2.701851,
+      "highest_score": 72.0,
+      "lowest_score": 65.0,
+      "rank": 17,
+      "above_class_average": false
+    },
+    "S009": {
+      "scores": [
+        91.0,
+        89.0,
+        93.0,
+        90.0,
+        94.0
+      ],
+      "average": 91.4,
+      "letter_grade": "A-",
+      "slope": 0.7,
+      "std_dev": 2.073644,
+      "highest_score": 94.0,
+      "lowest_score": 89.0,
+      "rank": 5,
+      "above_class_average": true
+    },
+    "S010": {
+      "scores": [
+        55.0,
+        58.0,
+        56.0,
+        60.0,
+        54.0
+      ],
+      "average": 56.6,
+      "letter_grade": "F",
+      "slope": 0.0,
+      "std_dev": 2.408319,
+      "highest_score": 60.0,
+      "lowest_score": 54.0,
+      "rank": 22,
+      "above_class_average": false
+    },
+    "S011": {
+      "scores": [
+        74.0,
+        77.0,
+        80.0,
+        75.0,
+        78.0
+      ],
+      "average": 76.8,
+      "letter_grade": "C+",
+      "slope": 0.6,
+      "std_dev": 2.387467,
+      "highest_score": 80.0,
+      "lowest_score": 74.0,
+      "rank": 14,
+      "above_class_average": true
+    },
+    "S012": {
+      "scores": [
+        86.0,
+        84.0,
+        89.0,
+        87.0,
+        90.0
+      ],
+      "average": 87.2,
+      "letter_grade": "B+",
+      "slope": 1.1,
+      "std_dev": 2.387467,
+      "highest_score": 90.0,
+      "lowest_score": 84.0,
+      "rank": 8,
+      "above_class_average": true
+    },
+    "S013": {
+      "scores": [
+        63.0,
+        65.0,
+        61.0,
+        67.0,
+        64.0
+      ],
+      "average": 64.0,
+      "letter_grade": "D",
+      "slope": 0.4,
+      "std_dev": 2.236068,
+      "highest_score": 67.0,
+      "lowest_score": 61.0,
+      "rank": 19,
+      "above_class_average": false
+    },
+    "S014": {
+      "scores": [
+        92.0,
+        95.0,
+        90.0,
+        93.0,
+        96.0
+      ],
+      "average": 93.2,
+      "letter_grade": "A",
+      "slope": 0.6,
+      "std_dev": 2.387467,
+      "highest_score": 96.0,
+      "lowest_score": 90.0,
+      "rank": 4,
+      "above_class_average": true
+    },
+    "S015": {
+      "scores": [
+        48.0,
+        52.0,
+        50.0,
+        55.0,
+        49.0
+      ],
+      "average": 50.8,
+      "letter_grade": "F",
+      "slope": 0.5,
+      "std_dev": 2.774887,
+      "highest_score": 55.0,
+      "lowest_score": 48.0,
+      "rank": 23,
+      "above_class_average": false
+    },
+    "S016": {
+      "scores": [
+        79.0,
+        76.0,
+        82.0,
+        78.0,
+        81.0
+      ],
+      "average": 79.2,
+      "letter_grade": "C+",
+      "slope": 0.6,
+      "std_dev": 2.387467,
+      "highest_score": 82.0,
+      "lowest_score": 76.0,
+      "rank": 11,
+      "above_class_average": true
+    },
+    "S017": {
+      "scores": [
+        84.0,
+        87.0,
+        86.0,
+        89.0,
+        88.0
+      ],
+      "average": 86.8,
+      "letter_grade": "B+",
+      "slope": 1.0,
+      "std_dev": 1.923538,
+      "highest_score": 89.0,
+      "lowest_score": 84.0,
+      "rank": 9,
+      "above_class_average": true
+    },
+    "S018": {
+      "scores": [
+        69.0,
+        72.0,
+        68.0,
+        70.0,
+        73.0
+      ],
+      "average": 70.4,
+      "letter_grade": "C-",
+      "slope": 0.6,
+      "std_dev": 2.073644,
+      "highest_score": 73.0,
+      "lowest_score": 68.0,
+      "rank": 16,
+      "above_class_average": false
+    },
+    "S019": {
+      "scores": [
+        93.0,
+        91.0,
+        95.0,
+        92.0,
+        97.0
+      ],
+      "average": 93.6,
+      "letter_grade": "A",
+      "slope": 0.9,
+      "std_dev": 2.408319,
+      "highest_score": 97.0,
+      "lowest_score": 91.0,
+      "rank": 3,
+      "above_class_average": true
+    },
+    "S020": {
+      "scores": [
+        57.0,
+        54.0,
+        59.0,
+        56.0,
+        61.0
+      ],
+      "average": 57.4,
+      "letter_grade": "F",
+      "slope": 1.0,
+      "std_dev": 2.701851,
+      "highest_score": 61.0,
+      "lowest_score": 54.0,
+      "rank": 21,
+      "above_class_average": false
+    },
+    "S021": {
+      "scores": [
+        76.0,
+        78.0,
+        74.0,
+        80.0,
+        77.0
+      ],
+      "average": 77.0,
+      "letter_grade": "C+",
+      "slope": 0.4,
+      "std_dev": 2.236068,
+      "highest_score": 80.0,
+      "lowest_score": 74.0,
+      "rank": 13,
+      "above_class_average": true
+    },
+    "S022": {
+      "scores": [
+        88.0,
+        86.0,
+        90.0,
+        85.0,
+        91.0
+      ],
+      "average": 88.0,
+      "letter_grade": "B+",
+      "slope": 0.5,
+      "std_dev": 2.54951,
+      "highest_score": 91.0,
+      "lowest_score": 85.0,
+      "rank": 7,
+      "above_class_average": true
+    },
+    "S023": {
+      "scores": [
+        65.0,
+        68.0,
+        63.0,
+        70.0,
+        66.0
+      ],
+      "average": 66.4,
+      "letter_grade": "D",
+      "slope": 0.4,
+      "std_dev": 2.701851,
+      "highest_score": 70.0,
+      "lowest_score": 63.0,
+      "rank": 18,
+      "above_class_average": false
+    },
+    "S024": {
+      "scores": [
+        96.0,
+        98.0,
+        94.0,
+        97.0,
+        99.0
+      ],
+      "average": 96.8,
+      "letter_grade": "A+",
+      "slope": 0.5,
+      "std_dev": 1.923538,
+      "highest_score": 99.0,
+      "lowest_score": 94.0,
+      "rank": 1,
+      "above_class_average": true
+    },
+    "S025": {
+      "scores": [
+        42.0,
+        46.0,
+        44.0,
+        48.0,
+        43.0
+      ],
+      "average": 44.6,
+      "letter_grade": "F",
+      "slope": 0.4,
+      "std_dev": 2.408319,
+      "highest_score": 48.0,
+      "lowest_score": 42.0,
+      "rank": 25,
+      "above_class_average": false
+    }
+  },
+  "per_test": {
+    "test1": {
+      "class_average": 73.88,
+      "std_dev": 16.202675,
+      "highest_score": 96.0,
+      "lowest_score": 42.0
+    },
+    "test2": {
+      "class_average": 75.12,
+      "std_dev": 15.333297,
+      "highest_score": 98.0,
+      "lowest_score": 46.0
+    },
+    "test3": {
+      "class_average": 75.0,
+      "std_dev": 16.114176,
+      "highest_score": 97.0,
+      "lowest_score": 44.0
+    },
+    "test4": {
+      "class_average": 75.92,
+      "std_dev": 14.702381,
+      "highest_score": 97.0,
+      "lowest_score": 48.0
+    },
+    "test5": {
+      "class_average": 76.56,
+      "std_dev": 16.835181,
+      "highest_score": 99.0,
+      "lowest_score": 43.0
+    }
+  },
+  "overall": {
+    "class_average": 75.296,
+    "class_median": 77.0,
+    "grade_distribution": {
+      "A+": 1,
+      "A": 3,
+      "A-": 1,
+      "B+": 4,
+      "B": 1,
+      "B-": 0,
+      "C+": 4,
+      "C": 1,
+      "C-": 1,
+      "D+": 1,
+      "D": 2,
+      "D-": 1,
+      "F": 5
+    },
+    "most_improved_student": "S001",
+    "most_consistent_student": "S004"
+  }
+}

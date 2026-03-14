@@ -1,0 +1,47 @@
+{
+  "test_input": "02_trending.csv",
+  "skill_version": "v0",
+  "timestamp": "20260314_143237",
+  "execution_trace": "All values verified correct.\n\n---\n\n**Output written:** `/Users/lucaschen/skillgraph/outputs/v0/02_trending_output.xlsx` \u2014 sheets: `Student Stats`, `Test Stats`, `Overall`\n",
+  "error": "Parse/compare error: 'Workbook' object has no attribute 'get'",
+  "overall": {
+    "fraction": "0/0",
+    "score": 0.0,
+    "passed": 0,
+    "total": 0
+  },
+  "categories": {
+    "student_calculations": {
+      "fraction": "0/0",
+      "score": 0.0,
+      "passed": 0,
+      "total": 0,
+      "passed_checks": [],
+      "failed_checks": []
+    },
+    "test_column_stats": {
+      "fraction": "0/0",
+      "score": 0.0,
+      "passed": 0,
+      "total": 0,
+      "passed_checks": [],
+      "failed_checks": []
+    },
+    "overall_stats": {
+      "fraction": "0/0",
+      "score": 0.0,
+      "passed": 0,
+      "total": 0,
+      "passed_checks": [],
+      "failed_checks": []
+    },
+    "boundary_cases": {
+      "fraction": "0/0",
+      "score": 0.0,
+      "passed": 0,
+      "total": 0,
+      "passed_checks": [],
+      "failed_checks": []
+    }
+  }
+}

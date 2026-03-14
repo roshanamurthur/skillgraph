@@ -1,0 +1,441 @@
+{
+  "test_input": "02_trending.csv",
+  "skill_version": "v0",
+  "execution_trace": "All values verified correct.\n\n---\n\n**Output written:** `/Users/lucaschen/skillgraph/outputs/v0/02_trending_output.xlsx` \u2014 sheets: `Student Stats`, `Test Stats`, `Overall`\n",
+  "overall": {
+    "fraction": "75/77",
+    "score": 0.97,
+    "passed": 75,
+    "total": 77
+  },
+  "categories": {
+    "student_calculations": {
+      "fraction": "32/34",
+      "score": 0.94,
+      "passed": 32,
+      "total": 34,
+      "passed_checks": [
+        {
+          "check": "student.S001.average",
+          "actual": 70,
+          "expected": 70.0
+        },
+        {
+          "check": "student.S001.slope",
+          "actual": 10,
+          "expected": 10.0
+        },
+        {
+          "check": "student.S001.std_dev",
+          "actual": 15.811388,
+          "expected": 15.811388
+        },
+        {
+          "check": "student.S001.highest_score",
+          "actual": 90,
+          "expected": 90.0
+        },
+        {
+          "check": "student.S001.lowest_score",
+          "actual": 50,
+          "expected": 50.0
+        },
+        {
+          "check": "student.S001.above_class_average",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "check": "student.S002.average",
+          "actual": 70,
+          "expected": 70.0
+        },
+        {
+          "check": "student.S002.slope",
+          "actual": -10,
+          "expected": -10.0
+        },
+        {
+          "check": "student.S002.std_dev",
+          "actual": 15.811388,
+          "expected": 15.811388
+        },
+        {
+          "check": "student.S002.highest_score",
+          "actual": 90,
+          "expected": 90.0
+        },
+        {
+          "check": "student.S002.lowest_score",
+          "actual": 50,
+          "expected": 50.0
+        },
+        {
+          "check": "student.S002.above_class_average",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "check": "student.S003.average",
+          "actual": 71,
+          "expected": 71.0
+        },
+        {
+          "check": "student.S003.slope",
+          "actual": 8.3,
+          "expected": 8.3
+        },
+        {
+          "check": "student.S003.std_dev",
+          "actual": 13.133926,
+          "expected": 13.133926
+        },
+        {
+          "check": "student.S003.highest_score",
+          "actual": 88,
+          "expected": 88.0
+        },
+        {
+          "check": "student.S003.lowest_score",
+          "actual": 55,
+          "expected": 55.0
+        },
+        {
+          "check": "student.S003.rank",
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "check": "student.S003.letter_grade",
+          "actual": "C-",
+          "expected": "C-"
+        },
+        {
+          "check": "student.S003.above_class_average",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "check": "student.S004.average",
+          "actual": 65.6,
+          "expected": 65.6
+        },
+        {
+          "check": "student.S004.slope",
+          "actual": -10.6,
+          "expected": -10.6
+        },
+        {
+          "check": "student.S004.std_dev",
+          "actual": 16.7869,
+          "expected": 16.7869
+        },
+        {
+          "check": "student.S004.highest_score",
+          "actual": 88,
+          "expected": 88.0
+        },
+        {
+          "check": "student.S004.lowest_score",
+          "actual": 45,
+          "expected": 45.0
+        },
+        {
+          "check": "student.S004.letter_grade",
+          "actual": "D",
+          "expected": "D"
+        },
+        {
+          "check": "student.S004.above_class_average",
+          "actual": false,
+          "expected": false
+        },
+        {
+          "check": "student.S005.average",
+          "actual": 60,
+          "expected": 60.0
+        },
+        {
+          "check": "student.S005.slope",
+          "actual": 0,
+          "expected": 0.0
+        },
+        {
+          "check": "student.S005.highest_score",
+          "actual": 60,
+          "expected": 60.0
+        },
+        {
+          "check": "student.S005.lowest_score",
+          "actual": 60,
+          "expected": 60.0
+        },
+        {
+          "check": "student.S005.above_class_average",
+          "actual": false,
+          "expected": false
+        }
+      ],
+      "failed_checks": [
+        {
+          "check": "student.S004.rank",
+          "actual": 4,
+          "expected": 3,
+          "category": "student_calculations",
+          "context": "S004",
+          "description": "S004 rank: got 4, expected 3 \u2014 check tie-handling logic (tied students should share the highest rank)"
+        },
+        {
+          "check": "student.S005.rank",
+          "actual": 5,
+          "expected": 4,
+          "category": "student_calculations",
+          "context": "S005",
+          "description": "S005 rank: got 5, expected 4 \u2014 check tie-handling logic (tied students should share the highest rank)"
+        }
+      ]
+    },
+    "test_column_stats": {
+      "fraction": "20/20",
+      "score": 1.0,
+      "passed": 20,
+      "total": 20,
+      "passed_checks": [
+        {
+          "check": "test.test1.class_average",
+          "actual": 68.6,
+          "expected": 68.6
+        },
+        {
+          "check": "test.test1.std_dev",
+          "actual": 18.968395,
+          "expected": 18.968395
+        },
+        {
+          "check": "test.test1.highest_score",
+          "actual": 90,
+          "expected": 90.0
+        },
+        {
+          "check": "test.test1.lowest_score",
+          "actual": 50,
+          "expected": 50.0
+        },
+        {
+          "check": "test.test2.class_average",
+          "actual": 67.4,
+          "expected": 67.4
+        },
+        {
+          "check": "test.test2.std_dev",
+          "actual": 9.423375,
+          "expected": 9.423375
+        },
+        {
+          "check": "test.test2.highest_score",
+          "actual": 80,
+          "expected": 80.0
+        },
+        {
+          "check": "test.test2.lowest_score",
+          "actual": 60,
+          "expected": 60.0
+        },
+        {
+          "check": "test.test3.class_average",
+          "actual": 67.2,
+          "expected": 67.2
+        },
+        {
+          "check": "test.test3.std_dev",
+          "actual": 4.658326,
+          "expected": 4.658326
+        },
+        {
+          "check": "test.test3.highest_score",
+          "actual": 71,
+          "expected": 71.0
+        },
+        {
+          "check": "test.test3.lowest_score",
+          "actual": 60,
+          "expected": 60.0
+        },
+        {
+          "check": "test.test4.class_average",
+          "actual": 66.8,
+          "expected": 66.8
+        },
+        {
+          "check": "test.test4.std_dev",
+          "actual": 11.777096,
+          "expected": 11.777096
+        },
+        {
+          "check": "test.test4.highest_score",
+          "actual": 80,
+          "expected": 80.0
+        },
+        {
+          "check": "test.test4.lowest_score",
+          "actual": 55,
+          "expected": 55.0
+        },
+        {
+          "check": "test.test5.class_average",
+          "actual": 66.6,
+          "expected": 66.6
+        },
+        {
+          "check": "test.test5.std_dev",
+          "actual": 21.161285,
+          "expected": 21.161285
+        },
+        {
+          "check": "test.test5.highest_score",
+          "actual": 90,
+          "expected": 90.0
+        },
+        {
+          "check": "test.test5.lowest_score",
+          "actual": 45,
+          "expected": 45.0
+        }
+      ],
+      "failed_checks": []
+    },
+    "overall_stats": {
+      "fraction": "17/17",
+      "score": 1.0,
+      "passed": 17,
+      "total": 17,
+      "passed_checks": [
+        {
+          "check": "overall.class_average",
+          "actual": 67.32,
+          "expected": 67.32
+        },
+        {
+          "check": "overall.class_median",
+          "actual": 70,
+          "expected": 70.0
+        },
+        {
+          "check": "overall.most_improved_student",
+          "actual": "S001",
+          "expected": "S001"
+        },
+        {
+          "check": "overall.most_consistent_student",
+          "actual": "S005",
+          "expected": "S005"
+        },
+        {
+          "check": "overall.grade_dist.A+",
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "overall.grade_dist.A",
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "overall.grade_dist.A-",
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "overall.grade_dist.B+",
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "overall.grade_dist.B",
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "overall.grade_dist.B-",
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "overall.grade_dist.C+",
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "overall.grade_dist.C",
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "overall.grade_dist.C-",
+          "actual": 3,
+          "expected": 3
+        },
+        {
+          "check": "overall.grade_dist.D+",
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "overall.grade_dist.D",
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "check": "overall.grade_dist.D-",
+          "actual": 1,
+          "expected": 1
+        },
+        {
+          "check": "overall.grade_dist.F",
+          "actual": 0,
+          "expected": 0
+        }
+      ],
+      "failed_checks": []
+    },
+    "boundary_cases": {
+      "fraction": "6/6",
+      "score": 1.0,
+      "passed": 6,
+      "total": 6,
+      "passed_checks": [
+        {
+          "check": "student.S001.rank",
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "check": "student.S001.letter_grade",
+          "actual": "C-",
+          "expected": "C-"
+        },
+        {
+          "check": "student.S002.rank",
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "check": "student.S002.letter_grade",
+          "actual": "C-",
+          "expected": "C-"
+        },
+        {
+          "check": "student.S005.std_dev",
+          "actual": 0,
+          "expected": 0.0
+        },
+        {
+          "check": "student.S005.letter_grade",
+          "actual": "D-",
+          "expected": "D-"
+        }
+      ],
+      "failed_checks": []
+    }
+  }
+}

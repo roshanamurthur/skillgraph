@@ -1,0 +1,143 @@
+{
+  "source_file": "03_ties.csv",
+  "per_student": {
+    "S001": {
+      "scores": [
+        80.0,
+        82.0,
+        79.0,
+        81.0,
+        83.0
+      ],
+      "average": 81.0,
+      "letter_grade": "B-",
+      "slope": 0.5,
+      "std_dev": 1.581139,
+      "highest_score": 83.0,
+      "lowest_score": 79.0,
+      "rank": 2,
+      "above_class_average": true
+    },
+    "S002": {
+      "scores": [
+        80.0,
+        82.0,
+        79.0,
+        81.0,
+        83.0
+      ],
+      "average": 81.0,
+      "letter_grade": "B-",
+      "slope": 0.5,
+      "std_dev": 1.581139,
+      "highest_score": 83.0,
+      "lowest_score": 79.0,
+      "rank": 2,
+      "above_class_average": true
+    },
+    "S003": {
+      "scores": [
+        75.0,
+        74.0,
+        76.0,
+        73.0,
+        77.0
+      ],
+      "average": 75.0,
+      "letter_grade": "C",
+      "slope": 0.3,
+      "std_dev": 1.581139,
+      "highest_score": 77.0,
+      "lowest_score": 73.0,
+      "rank": 3,
+      "above_class_average": false
+    },
+    "S004": {
+      "scores": [
+        90.0,
+        88.0,
+        91.0,
+        89.0,
+        92.0
+      ],
+      "average": 90.0,
+      "letter_grade": "A-",
+      "slope": 0.5,
+      "std_dev": 1.581139,
+      "highest_score": 92.0,
+      "lowest_score": 88.0,
+      "rank": 1,
+      "above_class_average": true
+    },
+    "S005": {
+      "scores": [
+        75.0,
+        74.0,
+        76.0,
+        73.0,
+        77.0
+      ],
+      "average": 75.0,
+      "letter_grade": "C",
+      "slope": 0.3,
+      "std_dev": 1.581139,
+      "highest_score": 77.0,
+      "lowest_score": 73.0,
+      "rank": 3,
+      "above_class_average": false
+    }
+  },
+  "per_test": {
+    "test1": {
+      "class_average": 80.0,
+      "std_dev": 6.123724,
+      "highest_score": 90.0,
+      "lowest_score": 75.0
+    },
+    "test2": {
+      "class_average": 80.0,
+      "std_dev": 6.0,
+      "highest_score": 88.0,
+      "lowest_score": 74.0
+    },
+    "test3": {
+      "class_average": 80.2,
+      "std_dev": 6.220932,
+      "highest_score": 91.0,
+      "lowest_score": 76.0
+    },
+    "test4": {
+      "class_average": 79.4,
+      "std_dev": 6.69328,
+      "highest_score": 89.0,
+      "lowest_score": 73.0
+    },
+    "test5": {
+      "class_average": 82.4,
+      "std_dev": 6.14817,
+      "highest_score": 92.0,
+      "lowest_score": 77.0
+    }
+  },
+  "overall": {
+    "class_average": 80.4,
+    "class_median": 81.0,
+    "grade_distribution": {
+      "A+": 0,
+      "A": 0,
+      "A-": 1,
+      "B+": 0,
+      "B": 0,
+      "B-": 2,
+      "C+": 0,
+      "C": 2,
+      "C-": 0,
+      "D+": 0,
+      "D": 0,
+      "D-": 0,
+      "F": 0
+    },
+    "most_improved_student": "S001",
+    "most_consistent_student": "S001"
+  }
+}
