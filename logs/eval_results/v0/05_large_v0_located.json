@@ -1,0 +1,3653 @@
+{
+  "test_input": "05_large.csv",
+  "skill_version": "v0",
+  "overall": {
+    "fraction": "897/897",
+    "score": 1.0,
+    "passed": 897,
+    "total": 897
+  },
+  "categories": {
+    "student_calculations": {
+      "fraction": "242/242",
+      "score": 1.0,
+      "passed": 242,
+      "total": 242,
+      "passed_checks": [
+        {
+          "check": "student.S001.simple_average",
+          "actual": 72.9
+        },
+        {
+          "check": "student.S001.weighted_average",
+          "actual": 73.283333
+        },
+        {
+          "check": "student.S001.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S001.slope",
+          "actual": 0.345455
+        },
+        {
+          "check": "student.S001.std_dev",
+          "actual": 10.660936
+        },
+        {
+          "check": "student.S001.highest_score",
+          "actual": 92
+        },
+        {
+          "check": "student.S001.lowest_score",
+          "actual": 52
+        },
+        {
+          "check": "student.S001.rank",
+          "actual": 24
+        },
+        {
+          "check": "student.S001.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S002.simple_average",
+          "actual": 73.3
+        },
+        {
+          "check": "student.S002.weighted_average",
+          "actual": 71.65
+        },
+        {
+          "check": "student.S002.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S002.slope",
+          "actual": -1.848485
+        },
+        {
+          "check": "student.S002.std_dev",
+          "actual": 8.260347
+        },
+        {
+          "check": "student.S002.highest_score",
+          "actual": 84
+        },
+        {
+          "check": "student.S002.lowest_score",
+          "actual": 56
+        },
+        {
+          "check": "student.S002.rank",
+          "actual": 31
+        },
+        {
+          "check": "student.S002.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S003.simple_average",
+          "actual": 76.8
+        },
+        {
+          "check": "student.S003.weighted_average",
+          "actual": 77.65
+        },
+        {
+          "check": "student.S003.letter_grade",
+          "actual": "C+"
+        },
+        {
+          "check": "student.S003.slope",
+          "actual": -0.121212
+        },
+        {
+          "check": "student.S003.std_dev",
+          "actual": 12.191071
+        },
+        {
+          "check": "student.S003.highest_score",
+          "actual": 98
+        },
+        {
+          "check": "student.S003.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "student.S003.rank",
+          "actual": 12
+        },
+        {
+          "check": "student.S003.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S004.simple_average",
+          "actual": 77.2
+        },
+        {
+          "check": "student.S004.weighted_average",
+          "actual": 75.766667
+        },
+        {
+          "check": "student.S004.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S004.slope",
+          "actual": 0.09697
+        },
+        {
+          "check": "student.S004.std_dev",
+          "actual": 11.458136
+        },
+        {
+          "check": "student.S004.highest_score",
+          "actual": 91
+        },
+        {
+          "check": "student.S004.lowest_score",
+          "actual": 61
+        },
+        {
+          "check": "student.S004.rank",
+          "actual": 20
+        },
+        {
+          "check": "student.S004.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S006.simple_average",
+          "actual": 78.1
+        },
+        {
+          "check": "student.S006.slope",
+          "actual": -1.157576
+        },
+        {
+          "check": "student.S006.std_dev",
+          "actual": 10.418467
+        },
+        {
+          "check": "student.S006.highest_score",
+          "actual": 94
+        },
+        {
+          "check": "student.S006.lowest_score",
+          "actual": 67
+        },
+        {
+          "check": "student.S006.rank",
+          "actual": 17
+        },
+        {
+          "check": "student.S006.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S007.simple_average",
+          "actual": 67.7
+        },
+        {
+          "check": "student.S007.slope",
+          "actual": 1.242424
+        },
+        {
+          "check": "student.S007.std_dev",
+          "actual": 10.478019
+        },
+        {
+          "check": "student.S007.highest_score",
+          "actual": 91
+        },
+        {
+          "check": "student.S007.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "student.S007.rank",
+          "actual": 35
+        },
+        {
+          "check": "student.S007.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S009.simple_average",
+          "actual": 73.5
+        },
+        {
+          "check": "student.S009.weighted_average",
+          "actual": 71.666667
+        },
+        {
+          "check": "student.S009.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S009.slope",
+          "actual": -1.242424
+        },
+        {
+          "check": "student.S009.std_dev",
+          "actual": 10.793517
+        },
+        {
+          "check": "student.S009.highest_score",
+          "actual": 93
+        },
+        {
+          "check": "student.S009.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "student.S009.rank",
+          "actual": 30
+        },
+        {
+          "check": "student.S009.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S011.simple_average",
+          "actual": 77.7
+        },
+        {
+          "check": "student.S011.slope",
+          "actual": 2.042424
+        },
+        {
+          "check": "student.S011.std_dev",
+          "actual": 11.274849
+        },
+        {
+          "check": "student.S011.highest_score",
+          "actual": 92
+        },
+        {
+          "check": "student.S011.lowest_score",
+          "actual": 52
+        },
+        {
+          "check": "student.S011.rank",
+          "actual": 5
+        },
+        {
+          "check": "student.S011.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S012.simple_average",
+          "actual": 73.7
+        },
+        {
+          "check": "student.S012.slope",
+          "actual": 2.660606
+        },
+        {
+          "check": "student.S012.std_dev",
+          "actual": 13.968616
+        },
+        {
+          "check": "student.S012.highest_score",
+          "actual": 96
+        },
+        {
+          "check": "student.S012.lowest_score",
+          "actual": 48
+        },
+        {
+          "check": "student.S012.rank",
+          "actual": 14
+        },
+        {
+          "check": "student.S012.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S013.simple_average",
+          "actual": 78.8
+        },
+        {
+          "check": "student.S013.slope",
+          "actual": -0.763636
+        },
+        {
+          "check": "student.S013.std_dev",
+          "actual": 11.905181
+        },
+        {
+          "check": "student.S013.highest_score",
+          "actual": 95
+        },
+        {
+          "check": "student.S013.lowest_score",
+          "actual": 60
+        },
+        {
+          "check": "student.S013.rank",
+          "actual": 9
+        },
+        {
+          "check": "student.S013.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S015.simple_average",
+          "actual": 78.6
+        },
+        {
+          "check": "student.S015.slope",
+          "actual": 0.387879
+        },
+        {
+          "check": "student.S015.std_dev",
+          "actual": 12.571573
+        },
+        {
+          "check": "student.S015.highest_score",
+          "actual": 94
+        },
+        {
+          "check": "student.S015.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "student.S015.rank",
+          "actual": 8
+        },
+        {
+          "check": "student.S015.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S016.simple_average",
+          "actual": 69
+        },
+        {
+          "check": "student.S016.slope",
+          "actual": 0.533333
+        },
+        {
+          "check": "student.S016.std_dev",
+          "actual": 12.797569
+        },
+        {
+          "check": "student.S016.highest_score",
+          "actual": 85
+        },
+        {
+          "check": "student.S016.lowest_score",
+          "actual": 45
+        },
+        {
+          "check": "student.S016.rank",
+          "actual": 36
+        },
+        {
+          "check": "student.S016.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S018.simple_average",
+          "actual": 76.8
+        },
+        {
+          "check": "student.S018.weighted_average",
+          "actual": 75.816667
+        },
+        {
+          "check": "student.S018.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S018.slope",
+          "actual": 0.787879
+        },
+        {
+          "check": "student.S018.std_dev",
+          "actual": 14.987402
+        },
+        {
+          "check": "student.S018.highest_score",
+          "actual": 99
+        },
+        {
+          "check": "student.S018.lowest_score",
+          "actual": 51
+        },
+        {
+          "check": "student.S018.rank",
+          "actual": 19
+        },
+        {
+          "check": "student.S018.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S019.simple_average",
+          "actual": 77.9
+        },
+        {
+          "check": "student.S019.slope",
+          "actual": -2.212121
+        },
+        {
+          "check": "student.S019.std_dev",
+          "actual": 13.779615
+        },
+        {
+          "check": "student.S019.highest_score",
+          "actual": 89
+        },
+        {
+          "check": "student.S019.lowest_score",
+          "actual": 45
+        },
+        {
+          "check": "student.S019.rank",
+          "actual": 15
+        },
+        {
+          "check": "student.S019.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S020.simple_average",
+          "actual": 72.6
+        },
+        {
+          "check": "student.S020.weighted_average",
+          "actual": 71.05
+        },
+        {
+          "check": "student.S020.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S020.slope",
+          "actual": -0.533333
+        },
+        {
+          "check": "student.S020.std_dev",
+          "actual": 9.834181
+        },
+        {
+          "check": "student.S020.highest_score",
+          "actual": 84
+        },
+        {
+          "check": "student.S020.lowest_score",
+          "actual": 55
+        },
+        {
+          "check": "student.S020.rank",
+          "actual": 34
+        },
+        {
+          "check": "student.S020.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S021.simple_average",
+          "actual": 78
+        },
+        {
+          "check": "student.S021.weighted_average",
+          "actual": 78.25
+        },
+        {
+          "check": "student.S021.letter_grade",
+          "actual": "C+"
+        },
+        {
+          "check": "student.S021.slope",
+          "actual": 0.121212
+        },
+        {
+          "check": "student.S021.std_dev",
+          "actual": 5.395471
+        },
+        {
+          "check": "student.S021.highest_score",
+          "actual": 86
+        },
+        {
+          "check": "student.S021.lowest_score",
+          "actual": 67
+        },
+        {
+          "check": "student.S021.rank",
+          "actual": 10
+        },
+        {
+          "check": "student.S021.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S022.simple_average",
+          "actual": 69
+        },
+        {
+          "check": "student.S022.weighted_average",
+          "actual": 67.416667
+        },
+        {
+          "check": "student.S022.letter_grade",
+          "actual": "D+"
+        },
+        {
+          "check": "student.S022.slope",
+          "actual": -2.072727
+        },
+        {
+          "check": "student.S022.std_dev",
+          "actual": 9.475114
+        },
+        {
+          "check": "student.S022.highest_score",
+          "actual": 85
+        },
+        {
+          "check": "student.S022.lowest_score",
+          "actual": 54
+        },
+        {
+          "check": "student.S022.rank",
+          "actual": 38
+        },
+        {
+          "check": "student.S022.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S023.simple_average",
+          "actual": 67.3
+        },
+        {
+          "check": "student.S023.weighted_average",
+          "actual": 67.9
+        },
+        {
+          "check": "student.S023.letter_grade",
+          "actual": "D+"
+        },
+        {
+          "check": "student.S023.slope",
+          "actual": 0.175758
+        },
+        {
+          "check": "student.S023.std_dev",
+          "actual": 6.342975
+        },
+        {
+          "check": "student.S023.highest_score",
+          "actual": 79
+        },
+        {
+          "check": "student.S023.lowest_score",
+          "actual": 57
+        },
+        {
+          "check": "student.S023.rank",
+          "actual": 37
+        },
+        {
+          "check": "student.S023.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S027.simple_average",
+          "actual": 66.1
+        },
+        {
+          "check": "student.S027.weighted_average",
+          "actual": 65.966667
+        },
+        {
+          "check": "student.S027.letter_grade",
+          "actual": "D"
+        },
+        {
+          "check": "student.S027.slope",
+          "actual": 0.260606
+        },
+        {
+          "check": "student.S027.std_dev",
+          "actual": 12.350888
+        },
+        {
+          "check": "student.S027.highest_score",
+          "actual": 83
+        },
+        {
+          "check": "student.S027.lowest_score",
+          "actual": 47
+        },
+        {
+          "check": "student.S027.rank",
+          "actual": 40
+        },
+        {
+          "check": "student.S027.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S028.simple_average",
+          "actual": 77.5
+        },
+        {
+          "check": "student.S028.slope",
+          "actual": -0.781818
+        },
+        {
+          "check": "student.S028.std_dev",
+          "actual": 10.352133
+        },
+        {
+          "check": "student.S028.highest_score",
+          "actual": 93
+        },
+        {
+          "check": "student.S028.lowest_score",
+          "actual": 61
+        },
+        {
+          "check": "student.S028.rank",
+          "actual": 18
+        },
+        {
+          "check": "student.S028.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S031.simple_average",
+          "actual": 74.2
+        },
+        {
+          "check": "student.S031.slope",
+          "actual": -2.121212
+        },
+        {
+          "check": "student.S031.std_dev",
+          "actual": 14.890713
+        },
+        {
+          "check": "student.S031.highest_score",
+          "actual": 96
+        },
+        {
+          "check": "student.S031.lowest_score",
+          "actual": 51
+        },
+        {
+          "check": "student.S031.rank",
+          "actual": 28
+        },
+        {
+          "check": "student.S031.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S032.simple_average",
+          "actual": 72.2
+        },
+        {
+          "check": "student.S032.weighted_average",
+          "actual": 71.85
+        },
+        {
+          "check": "student.S032.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S032.slope",
+          "actual": -0.206061
+        },
+        {
+          "check": "student.S032.std_dev",
+          "actual": 8.10761
+        },
+        {
+          "check": "student.S032.highest_score",
+          "actual": 85
+        },
+        {
+          "check": "student.S032.lowest_score",
+          "actual": 62
+        },
+        {
+          "check": "student.S032.rank",
+          "actual": 29
+        },
+        {
+          "check": "student.S032.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S033.simple_average",
+          "actual": 72
+        },
+        {
+          "check": "student.S033.slope",
+          "actual": 1.006061
+        },
+        {
+          "check": "student.S033.std_dev",
+          "actual": 9.380832
+        },
+        {
+          "check": "student.S033.highest_score",
+          "actual": 95
+        },
+        {
+          "check": "student.S033.lowest_score",
+          "actual": 60
+        },
+        {
+          "check": "student.S033.rank",
+          "actual": 27
+        },
+        {
+          "check": "student.S033.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S034.simple_average",
+          "actual": 67.7
+        },
+        {
+          "check": "student.S034.slope",
+          "actual": -1.89697
+        },
+        {
+          "check": "student.S034.std_dev",
+          "actual": 11.489609
+        },
+        {
+          "check": "student.S034.highest_score",
+          "actual": 83
+        },
+        {
+          "check": "student.S034.lowest_score",
+          "actual": 45
+        },
+        {
+          "check": "student.S034.rank",
+          "actual": 39
+        },
+        {
+          "check": "student.S034.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S035.simple_average",
+          "actual": 73.9
+        },
+        {
+          "check": "student.S035.slope",
+          "actual": -0.660606
+        },
+        {
+          "check": "student.S035.std_dev",
+          "actual": 11.892575
+        },
+        {
+          "check": "student.S035.highest_score",
+          "actual": 87
+        },
+        {
+          "check": "student.S035.lowest_score",
+          "actual": 45
+        },
+        {
+          "check": "student.S035.rank",
+          "actual": 26
+        },
+        {
+          "check": "student.S035.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S036.simple_average",
+          "actual": 79.2
+        },
+        {
+          "check": "student.S036.weighted_average",
+          "actual": 77.85
+        },
+        {
+          "check": "student.S036.letter_grade",
+          "actual": "C+"
+        },
+        {
+          "check": "student.S036.slope",
+          "actual": -1.6
+        },
+        {
+          "check": "student.S036.std_dev",
+          "actual": 14.304622
+        },
+        {
+          "check": "student.S036.highest_score",
+          "actual": 98
+        },
+        {
+          "check": "student.S036.lowest_score",
+          "actual": 60
+        },
+        {
+          "check": "student.S036.rank",
+          "actual": 11
+        },
+        {
+          "check": "student.S036.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S037.simple_average",
+          "actual": 73
+        },
+        {
+          "check": "student.S037.weighted_average",
+          "actual": 71.416667
+        },
+        {
+          "check": "student.S037.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S037.slope",
+          "actual": -2.351515
+        },
+        {
+          "check": "student.S037.std_dev",
+          "actual": 13.072448
+        },
+        {
+          "check": "student.S037.highest_score",
+          "actual": 99
+        },
+        {
+          "check": "student.S037.lowest_score",
+          "actual": 55
+        },
+        {
+          "check": "student.S037.rank",
+          "actual": 32
+        },
+        {
+          "check": "student.S037.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S038.simple_average",
+          "actual": 78.7
+        },
+        {
+          "check": "student.S038.slope",
+          "actual": 1.387879
+        },
+        {
+          "check": "student.S038.std_dev",
+          "actual": 9.775821
+        },
+        {
+          "check": "student.S038.highest_score",
+          "actual": 97
+        },
+        {
+          "check": "student.S038.lowest_score",
+          "actual": 65
+        },
+        {
+          "check": "student.S038.rank",
+          "actual": 7
+        },
+        {
+          "check": "student.S038.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S039.simple_average",
+          "actual": 73.1
+        },
+        {
+          "check": "student.S039.weighted_average",
+          "actual": 74.3
+        },
+        {
+          "check": "student.S039.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S039.slope",
+          "actual": 0.769697
+        },
+        {
+          "check": "student.S039.std_dev",
+          "actual": 12.096372
+        },
+        {
+          "check": "student.S039.highest_score",
+          "actual": 92
+        },
+        {
+          "check": "student.S039.lowest_score",
+          "actual": 48
+        },
+        {
+          "check": "student.S039.rank",
+          "actual": 21
+        },
+        {
+          "check": "student.S039.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S040.simple_average",
+          "actual": 73.1
+        },
+        {
+          "check": "student.S040.weighted_average",
+          "actual": 73.466667
+        },
+        {
+          "check": "student.S040.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S040.slope",
+          "actual": -0.406061
+        },
+        {
+          "check": "student.S040.std_dev",
+          "actual": 14.895562
+        },
+        {
+          "check": "student.S040.highest_score",
+          "actual": 93
+        },
+        {
+          "check": "student.S040.lowest_score",
+          "actual": 49
+        },
+        {
+          "check": "student.S040.rank",
+          "actual": 23
+        },
+        {
+          "check": "student.S040.above_class_average",
+          "actual": false
+        }
+      ],
+      "failed_checks": []
+    },
+    "assessment_stats": {
+      "fraction": "40/40",
+      "score": 1.0,
+      "passed": 40,
+      "total": 40,
+      "passed_checks": [
+        {
+          "check": "assessment.quiz_1.class_average",
+          "actual": 75.8
+        },
+        {
+          "check": "assessment.quiz_1.std_dev",
+          "actual": 13.299701
+        },
+        {
+          "check": "assessment.quiz_1.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "assessment.quiz_1.lowest_score",
+          "actual": 51
+        },
+        {
+          "check": "assessment.quiz_2.class_average",
+          "actual": 73.525
+        },
+        {
+          "check": "assessment.quiz_2.std_dev",
+          "actual": 12.571819
+        },
+        {
+          "check": "assessment.quiz_2.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "assessment.quiz_2.lowest_score",
+          "actual": 48
+        },
+        {
+          "check": "assessment.quiz_3.class_average",
+          "actual": 74.55
+        },
+        {
+          "check": "assessment.quiz_3.std_dev",
+          "actual": 12.222195
+        },
+        {
+          "check": "assessment.quiz_3.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "assessment.quiz_3.lowest_score",
+          "actual": 48
+        },
+        {
+          "check": "assessment.quiz_4.class_average",
+          "actual": 75.775
+        },
+        {
+          "check": "assessment.quiz_4.std_dev",
+          "actual": 11.618922
+        },
+        {
+          "check": "assessment.quiz_4.highest_score",
+          "actual": 97
+        },
+        {
+          "check": "assessment.quiz_4.lowest_score",
+          "actual": 57
+        },
+        {
+          "check": "assessment.test_1.class_average",
+          "actual": 77.775
+        },
+        {
+          "check": "assessment.test_1.std_dev",
+          "actual": 10.622877
+        },
+        {
+          "check": "assessment.test_1.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "assessment.test_1.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "assessment.test_2.class_average",
+          "actual": 76.7
+        },
+        {
+          "check": "assessment.test_2.std_dev",
+          "actual": 14.01684
+        },
+        {
+          "check": "assessment.test_2.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "assessment.test_2.lowest_score",
+          "actual": 51
+        },
+        {
+          "check": "assessment.test_3.class_average",
+          "actual": 72.3
+        },
+        {
+          "check": "assessment.test_3.std_dev",
+          "actual": 10.933834
+        },
+        {
+          "check": "assessment.test_3.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "assessment.test_3.lowest_score",
+          "actual": 47
+        },
+        {
+          "check": "assessment.test_4.class_average",
+          "actual": 75.75
+        },
+        {
+          "check": "assessment.test_4.std_dev",
+          "actual": 12.307492
+        },
+        {
+          "check": "assessment.test_4.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "assessment.test_4.lowest_score",
+          "actual": 45
+        },
+        {
+          "check": "assessment.test_5.class_average",
+          "actual": 72.125
+        },
+        {
+          "check": "assessment.test_5.std_dev",
+          "actual": 12.555901
+        },
+        {
+          "check": "assessment.test_5.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "assessment.test_5.lowest_score",
+          "actual": 45
+        },
+        {
+          "check": "assessment.test_6.class_average",
+          "actual": 74.55
+        },
+        {
+          "check": "assessment.test_6.std_dev",
+          "actual": 14.103918
+        },
+        {
+          "check": "assessment.test_6.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "assessment.test_6.lowest_score",
+          "actual": 45
+        }
+      ],
+      "failed_checks": []
+    },
+    "overall_stats": {
+      "fraction": "17/17",
+      "score": 1.0,
+      "passed": 17,
+      "total": 17,
+      "passed_checks": [
+        {
+          "check": "overall.class_weighted_average",
+          "actual": 74.875833
+        },
+        {
+          "check": "overall.class_median",
+          "actual": 75.033333
+        },
+        {
+          "check": "overall.most_improved_student",
+          "actual": "S005"
+        },
+        {
+          "check": "overall.most_consistent_student",
+          "actual": "S021"
+        },
+        {
+          "check": "overall.grade_dist.A+",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.A",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.A-",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.B+",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.B",
+          "actual": 2
+        },
+        {
+          "check": "overall.grade_dist.B-",
+          "actual": 5
+        },
+        {
+          "check": "overall.grade_dist.C+",
+          "actual": 9
+        },
+        {
+          "check": "overall.grade_dist.C",
+          "actual": 10
+        },
+        {
+          "check": "overall.grade_dist.C-",
+          "actual": 9
+        },
+        {
+          "check": "overall.grade_dist.D+",
+          "actual": 3
+        },
+        {
+          "check": "overall.grade_dist.D",
+          "actual": 2
+        },
+        {
+          "check": "overall.grade_dist.D-",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.F",
+          "actual": 0
+        }
+      ],
+      "failed_checks": []
+    },
+    "advanced_metrics": {
+      "fraction": "432/432",
+      "score": 1.0,
+      "passed": 432,
+      "total": 432,
+      "passed_checks": [
+        {
+          "check": "student.S001.percentile",
+          "actual": 41
+        },
+        {
+          "check": "student.S001.z_score",
+          "actual": -0.34
+        },
+        {
+          "check": "student.S002.percentile",
+          "actual": 23.1
+        },
+        {
+          "check": "student.S002.z_score",
+          "actual": -0.69
+        },
+        {
+          "check": "student.S003.percentile",
+          "actual": 71.8
+        },
+        {
+          "check": "student.S003.z_score",
+          "actual": 0.59
+        },
+        {
+          "check": "student.S004.percentile",
+          "actual": 51.3
+        },
+        {
+          "check": "student.S004.z_score",
+          "actual": 0.19
+        },
+        {
+          "check": "student.S009.percentile",
+          "actual": 25.6
+        },
+        {
+          "check": "student.S009.z_score",
+          "actual": -0.68
+        },
+        {
+          "check": "student.S018.percentile",
+          "actual": 53.8
+        },
+        {
+          "check": "student.S018.z_score",
+          "actual": 0.2
+        },
+        {
+          "check": "student.S020.percentile",
+          "actual": 15.4
+        },
+        {
+          "check": "student.S020.z_score",
+          "actual": -0.81
+        },
+        {
+          "check": "student.S021.percentile",
+          "actual": 76.9
+        },
+        {
+          "check": "student.S021.z_score",
+          "actual": 0.72
+        },
+        {
+          "check": "student.S022.percentile",
+          "actual": 5.1
+        },
+        {
+          "check": "student.S022.z_score",
+          "actual": -1.59
+        },
+        {
+          "check": "student.S023.percentile",
+          "actual": 7.7
+        },
+        {
+          "check": "student.S023.z_score",
+          "actual": -1.48
+        },
+        {
+          "check": "student.S027.percentile",
+          "actual": 0
+        },
+        {
+          "check": "student.S027.z_score",
+          "actual": -1.89
+        },
+        {
+          "check": "student.S032.percentile",
+          "actual": 28.2
+        },
+        {
+          "check": "student.S032.z_score",
+          "actual": -0.64
+        },
+        {
+          "check": "student.S036.percentile",
+          "actual": 74.4
+        },
+        {
+          "check": "student.S036.z_score",
+          "actual": 0.63
+        },
+        {
+          "check": "student.S037.percentile",
+          "actual": 20.5
+        },
+        {
+          "check": "student.S037.z_score",
+          "actual": -0.74
+        },
+        {
+          "check": "student.S039.percentile",
+          "actual": 48.7
+        },
+        {
+          "check": "student.S039.z_score",
+          "actual": -0.12
+        },
+        {
+          "check": "student.S040.percentile",
+          "actual": 43.6
+        },
+        {
+          "check": "student.S040.z_score",
+          "actual": -0.3
+        },
+        {
+          "check": "assessment_z.quiz_1.S001",
+          "actual": -0.81
+        },
+        {
+          "check": "assessment_z.quiz_1.S002",
+          "actual": 0.62
+        },
+        {
+          "check": "assessment_z.quiz_1.S003",
+          "actual": -0.51
+        },
+        {
+          "check": "assessment_z.quiz_1.S004",
+          "actual": -1.11
+        },
+        {
+          "check": "assessment_z.quiz_1.S005",
+          "actual": 0.09
+        },
+        {
+          "check": "assessment_z.quiz_1.S006",
+          "actual": 1.37
+        },
+        {
+          "check": "assessment_z.quiz_1.S007",
+          "actual": -0.96
+        },
+        {
+          "check": "assessment_z.quiz_1.S008",
+          "actual": -1.64
+        },
+        {
+          "check": "assessment_z.quiz_1.S009",
+          "actual": 1.29
+        },
+        {
+          "check": "assessment_z.quiz_1.S010",
+          "actual": 0.47
+        },
+        {
+          "check": "assessment_z.quiz_1.S011",
+          "actual": -1.79
+        },
+        {
+          "check": "assessment_z.quiz_1.S012",
+          "actual": -0.81
+        },
+        {
+          "check": "assessment_z.quiz_1.S013",
+          "actual": 0.92
+        },
+        {
+          "check": "assessment_z.quiz_1.S014",
+          "actual": -1.86
+        },
+        {
+          "check": "assessment_z.quiz_1.S015",
+          "actual": 1.29
+        },
+        {
+          "check": "assessment_z.quiz_1.S016",
+          "actual": -1.04
+        },
+        {
+          "check": "assessment_z.quiz_1.S017",
+          "actual": 0.47
+        },
+        {
+          "check": "assessment_z.quiz_1.S018",
+          "actual": 0.24
+        },
+        {
+          "check": "assessment_z.quiz_1.S019",
+          "actual": 0.99
+        },
+        {
+          "check": "assessment_z.quiz_1.S020",
+          "actual": 0.02
+        },
+        {
+          "check": "assessment_z.quiz_1.S021",
+          "actual": 0.09
+        },
+        {
+          "check": "assessment_z.quiz_1.S022",
+          "actual": -0.51
+        },
+        {
+          "check": "assessment_z.quiz_1.S023",
+          "actual": -1.41
+        },
+        {
+          "check": "assessment_z.quiz_1.S024",
+          "actual": -0.29
+        },
+        {
+          "check": "assessment_z.quiz_1.S025",
+          "actual": 1.82
+        },
+        {
+          "check": "assessment_z.quiz_1.S026",
+          "actual": 0.77
+        },
+        {
+          "check": "assessment_z.quiz_1.S027",
+          "actual": 0.02
+        },
+        {
+          "check": "assessment_z.quiz_1.S028",
+          "actual": 0.54
+        },
+        {
+          "check": "assessment_z.quiz_1.S029",
+          "actual": 1.29
+        },
+        {
+          "check": "assessment_z.quiz_1.S030",
+          "actual": 0.17
+        },
+        {
+          "check": "assessment_z.quiz_1.S031",
+          "actual": 0.02
+        },
+        {
+          "check": "assessment_z.quiz_1.S032",
+          "actual": -0.29
+        },
+        {
+          "check": "assessment_z.quiz_1.S033",
+          "actual": -0.74
+        },
+        {
+          "check": "assessment_z.quiz_1.S034",
+          "actual": -0.51
+        },
+        {
+          "check": "assessment_z.quiz_1.S035",
+          "actual": -0.44
+        },
+        {
+          "check": "assessment_z.quiz_1.S036",
+          "actual": -1.04
+        },
+        {
+          "check": "assessment_z.quiz_1.S037",
+          "actual": 1.74
+        },
+        {
+          "check": "assessment_z.quiz_1.S038",
+          "actual": -0.81
+        },
+        {
+          "check": "assessment_z.quiz_1.S039",
+          "actual": 1.22
+        },
+        {
+          "check": "assessment_z.quiz_1.S040",
+          "actual": 1.14
+        },
+        {
+          "check": "assessment_z.quiz_2.S001",
+          "actual": 0.36
+        },
+        {
+          "check": "assessment_z.quiz_2.S002",
+          "actual": 0.59
+        },
+        {
+          "check": "assessment_z.quiz_2.S003",
+          "actual": 0.75
+        },
+        {
+          "check": "assessment_z.quiz_2.S004",
+          "actual": 1.39
+        },
+        {
+          "check": "assessment_z.quiz_2.S005",
+          "actual": -0.52
+        },
+        {
+          "check": "assessment_z.quiz_2.S006",
+          "actual": 0.91
+        },
+        {
+          "check": "assessment_z.quiz_2.S007",
+          "actual": -0.84
+        },
+        {
+          "check": "assessment_z.quiz_2.S008",
+          "actual": -0.52
+        },
+        {
+          "check": "assessment_z.quiz_2.S009",
+          "actual": -0.6
+        },
+        {
+          "check": "assessment_z.quiz_2.S010",
+          "actual": -1.71
+        },
+        {
+          "check": "assessment_z.quiz_2.S011",
+          "actual": 0.12
+        },
+        {
+          "check": "assessment_z.quiz_2.S012",
+          "actual": -2.03
+        },
+        {
+          "check": "assessment_z.quiz_2.S013",
+          "actual": -0.36
+        },
+        {
+          "check": "assessment_z.quiz_2.S014",
+          "actual": -0.92
+        },
+        {
+          "check": "assessment_z.quiz_2.S015",
+          "actual": -1.23
+        },
+        {
+          "check": "assessment_z.quiz_2.S016",
+          "actual": -0.12
+        },
+        {
+          "check": "assessment_z.quiz_2.S017",
+          "actual": 2.11
+        },
+        {
+          "check": "assessment_z.quiz_2.S018",
+          "actual": 0.67
+        },
+        {
+          "check": "assessment_z.quiz_2.S019",
+          "actual": 0.75
+        },
+        {
+          "check": "assessment_z.quiz_2.S020",
+          "actual": -0.2
+        },
+        {
+          "check": "assessment_z.quiz_2.S021",
+          "actual": 0.52
+        },
+        {
+          "check": "assessment_z.quiz_2.S022",
+          "actual": 0.44
+        },
+        {
+          "check": "assessment_z.quiz_2.S023",
+          "actual": -0.44
+        },
+        {
+          "check": "assessment_z.quiz_2.S024",
+          "actual": 1.63
+        },
+        {
+          "check": "assessment_z.quiz_2.S025",
+          "actual": 1.07
+        },
+        {
+          "check": "assessment_z.quiz_2.S026",
+          "actual": 0.04
+        },
+        {
+          "check": "assessment_z.quiz_2.S027",
+          "actual": -1.55
+        },
+        {
+          "check": "assessment_z.quiz_2.S028",
+          "actual": 1.55
+        },
+        {
+          "check": "assessment_z.quiz_2.S029",
+          "actual": 0.12
+        },
+        {
+          "check": "assessment_z.quiz_2.S030",
+          "actual": -0.76
+        },
+        {
+          "check": "assessment_z.quiz_2.S031",
+          "actual": -0.84
+        },
+        {
+          "check": "assessment_z.quiz_2.S032",
+          "actual": 0.75
+        },
+        {
+          "check": "assessment_z.quiz_2.S033",
+          "actual": -0.04
+        },
+        {
+          "check": "assessment_z.quiz_2.S034",
+          "actual": 0.52
+        },
+        {
+          "check": "assessment_z.quiz_2.S035",
+          "actual": 0.44
+        },
+        {
+          "check": "assessment_z.quiz_2.S036",
+          "actual": 1.47
+        },
+        {
+          "check": "assessment_z.quiz_2.S037",
+          "actual": -0.44
+        },
+        {
+          "check": "assessment_z.quiz_2.S038",
+          "actual": -0.28
+        },
+        {
+          "check": "assessment_z.quiz_2.S039",
+          "actual": -0.84
+        },
+        {
+          "check": "assessment_z.quiz_2.S040",
+          "actual": -1.95
+        },
+        {
+          "check": "assessment_z.quiz_3.S001",
+          "actual": -1.85
+        },
+        {
+          "check": "assessment_z.quiz_3.S002",
+          "actual": -0.05
+        },
+        {
+          "check": "assessment_z.quiz_3.S003",
+          "actual": -0.21
+        },
+        {
+          "check": "assessment_z.quiz_3.S004",
+          "actual": 0.86
+        },
+        {
+          "check": "assessment_z.quiz_3.S005",
+          "actual": -0.78
+        },
+        {
+          "check": "assessment_z.quiz_3.S006",
+          "actual": -0.62
+        },
+        {
+          "check": "assessment_z.quiz_3.S007",
+          "actual": -0.95
+        },
+        {
+          "check": "assessment_z.quiz_3.S008",
+          "actual": 2.08
+        },
+        {
+          "check": "assessment_z.quiz_3.S009",
+          "actual": 0.12
+        },
+        {
+          "check": "assessment_z.quiz_3.S010",
+          "actual": -1.76
+        },
+        {
+          "check": "assessment_z.quiz_3.S011",
+          "actual": 0.94
+        },
+        {
+          "check": "assessment_z.quiz_3.S012",
+          "actual": 0.12
+        },
+        {
+          "check": "assessment_z.quiz_3.S013",
+          "actual": -0.62
+        },
+        {
+          "check": "assessment_z.quiz_3.S014",
+          "actual": 0.86
+        },
+        {
+          "check": "assessment_z.quiz_3.S015",
+          "actual": 0.12
+        },
+        {
+          "check": "assessment_z.quiz_3.S016",
+          "actual": -0.05
+        },
+        {
+          "check": "assessment_z.quiz_3.S017",
+          "actual": 0.94
+        },
+        {
+          "check": "assessment_z.quiz_3.S018",
+          "actual": -0.62
+        },
+        {
+          "check": "assessment_z.quiz_3.S019",
+          "actual": 1.1
+        },
+        {
+          "check": "assessment_z.quiz_3.S020",
+          "actual": 0.77
+        },
+        {
+          "check": "assessment_z.quiz_3.S021",
+          "actual": 0.04
+        },
+        {
+          "check": "assessment_z.quiz_3.S022",
+          "actual": 0.86
+        },
+        {
+          "check": "assessment_z.quiz_3.S023",
+          "actual": -0.54
+        },
+        {
+          "check": "assessment_z.quiz_3.S024",
+          "actual": 1.51
+        },
+        {
+          "check": "assessment_z.quiz_3.S025",
+          "actual": 0.69
+        },
+        {
+          "check": "assessment_z.quiz_3.S026",
+          "actual": -0.21
+        },
+        {
+          "check": "assessment_z.quiz_3.S027",
+          "actual": -1.76
+        },
+        {
+          "check": "assessment_z.quiz_3.S028",
+          "actual": -0.29
+        },
+        {
+          "check": "assessment_z.quiz_3.S029",
+          "actual": 0.28
+        },
+        {
+          "check": "assessment_z.quiz_3.S030",
+          "actual": 0.53
+        },
+        {
+          "check": "assessment_z.quiz_3.S031",
+          "actual": 1.1
+        },
+        {
+          "check": "assessment_z.quiz_3.S032",
+          "actual": -0.86
+        },
+        {
+          "check": "assessment_z.quiz_3.S033",
+          "actual": 0.28
+        },
+        {
+          "check": "assessment_z.quiz_3.S034",
+          "actual": 0.45
+        },
+        {
+          "check": "assessment_z.quiz_3.S035",
+          "actual": 0.45
+        },
+        {
+          "check": "assessment_z.quiz_3.S036",
+          "actual": 1.67
+        },
+        {
+          "check": "assessment_z.quiz_3.S037",
+          "actual": -0.7
+        },
+        {
+          "check": "assessment_z.quiz_3.S038",
+          "actual": -0.13
+        },
+        {
+          "check": "assessment_z.quiz_3.S039",
+          "actual": -2.17
+        },
+        {
+          "check": "assessment_z.quiz_3.S040",
+          "actual": -1.6
+        },
+        {
+          "check": "assessment_z.quiz_4.S001",
+          "actual": 1.4
+        },
+        {
+          "check": "assessment_z.quiz_4.S002",
+          "actual": -0.15
+        },
+        {
+          "check": "assessment_z.quiz_4.S003",
+          "actual": -0.24
+        },
+        {
+          "check": "assessment_z.quiz_4.S004",
+          "actual": 1.14
+        },
+        {
+          "check": "assessment_z.quiz_4.S005",
+          "actual": 1.4
+        },
+        {
+          "check": "assessment_z.quiz_4.S006",
+          "actual": 0.97
+        },
+        {
+          "check": "assessment_z.quiz_4.S007",
+          "actual": -1.53
+        },
+        {
+          "check": "assessment_z.quiz_4.S008",
+          "actual": -0.67
+        },
+        {
+          "check": "assessment_z.quiz_4.S009",
+          "actual": 0.45
+        },
+        {
+          "check": "assessment_z.quiz_4.S010",
+          "actual": -1.36
+        },
+        {
+          "check": "assessment_z.quiz_4.S011",
+          "actual": -0.41
+        },
+        {
+          "check": "assessment_z.quiz_4.S012",
+          "actual": -0.67
+        },
+        {
+          "check": "assessment_z.quiz_4.S013",
+          "actual": 0.97
+        },
+        {
+          "check": "assessment_z.quiz_4.S014",
+          "actual": -1.62
+        },
+        {
+          "check": "assessment_z.quiz_4.S015",
+          "actual": 0.19
+        },
+        {
+          "check": "assessment_z.quiz_4.S016",
+          "actual": -0.93
+        },
+        {
+          "check": "assessment_z.quiz_4.S017",
+          "actual": -1.01
+        },
+        {
+          "check": "assessment_z.quiz_4.S018",
+          "actual": 1.31
+        },
+        {
+          "check": "assessment_z.quiz_4.S019",
+          "actual": -0.84
+        },
+        {
+          "check": "assessment_z.quiz_4.S020",
+          "actual": 0.19
+        },
+        {
+          "check": "assessment_z.quiz_4.S021",
+          "actual": 0.11
+        },
+        {
+          "check": "assessment_z.quiz_4.S022",
+          "actual": -1.19
+        },
+        {
+          "check": "assessment_z.quiz_4.S023",
+          "actual": -0.58
+        },
+        {
+          "check": "assessment_z.quiz_4.S024",
+          "actual": 1.48
+        },
+        {
+          "check": "assessment_z.quiz_4.S025",
+          "actual": -1.19
+        },
+        {
+          "check": "assessment_z.quiz_4.S026",
+          "actual": -0.07
+        },
+        {
+          "check": "assessment_z.quiz_4.S027",
+          "actual": 0.62
+        },
+        {
+          "check": "assessment_z.quiz_4.S028",
+          "actual": 0.45
+        },
+        {
+          "check": "assessment_z.quiz_4.S029",
+          "actual": -1.53
+        },
+        {
+          "check": "assessment_z.quiz_4.S030",
+          "actual": -0.76
+        },
+        {
+          "check": "assessment_z.quiz_4.S031",
+          "actual": 1.57
+        },
+        {
+          "check": "assessment_z.quiz_4.S032",
+          "actual": -0.15
+        },
+        {
+          "check": "assessment_z.quiz_4.S033",
+          "actual": -0.67
+        },
+        {
+          "check": "assessment_z.quiz_4.S034",
+          "actual": -1.19
+        },
+        {
+          "check": "assessment_z.quiz_4.S035",
+          "actual": 0.36
+        },
+        {
+          "check": "assessment_z.quiz_4.S036",
+          "actual": 0.71
+        },
+        {
+          "check": "assessment_z.quiz_4.S037",
+          "actual": 0.19
+        },
+        {
+          "check": "assessment_z.quiz_4.S038",
+          "actual": 1.83
+        },
+        {
+          "check": "assessment_z.quiz_4.S039",
+          "actual": -0.07
+        },
+        {
+          "check": "assessment_z.quiz_4.S040",
+          "actual": 1.48
+        },
+        {
+          "check": "assessment_z.test_1.S001",
+          "actual": 0.4
+        },
+        {
+          "check": "assessment_z.test_1.S002",
+          "actual": -0.17
+        },
+        {
+          "check": "assessment_z.test_1.S003",
+          "actual": 0.4
+        },
+        {
+          "check": "assessment_z.test_1.S004",
+          "actual": -1.49
+        },
+        {
+          "check": "assessment_z.test_1.S005",
+          "actual": 0.4
+        },
+        {
+          "check": "assessment_z.test_1.S006",
+          "actual": -0.92
+        },
+        {
+          "check": "assessment_z.test_1.S007",
+          "actual": -1.49
+        },
+        {
+          "check": "assessment_z.test_1.S008",
+          "actual": 1.06
+        },
+        {
+          "check": "assessment_z.test_1.S009",
+          "actual": 0.12
+        },
+        {
+          "check": "assessment_z.test_1.S010",
+          "actual": -0.17
+        },
+        {
+          "check": "assessment_z.test_1.S011",
+          "actual": 1.34
+        },
+        {
+          "check": "assessment_z.test_1.S012",
+          "actual": -0.36
+        },
+        {
+          "check": "assessment_z.test_1.S013",
+          "actual": 0.49
+        },
+        {
+          "check": "assessment_z.test_1.S014",
+          "actual": -0.92
+        },
+        {
+          "check": "assessment_z.test_1.S015",
+          "actual": -1.49
+        },
+        {
+          "check": "assessment_z.test_1.S016",
+          "actual": 0.68
+        },
+        {
+          "check": "assessment_z.test_1.S017",
+          "actual": 2.09
+        },
+        {
+          "check": "assessment_z.test_1.S018",
+          "actual": -1.39
+        },
+        {
+          "check": "assessment_z.test_1.S019",
+          "actual": 0.59
+        },
+        {
+          "check": "assessment_z.test_1.S020",
+          "actual": -0.07
+        },
+        {
+          "check": "assessment_z.test_1.S021",
+          "actual": -0.07
+        },
+        {
+          "check": "assessment_z.test_1.S022",
+          "actual": -0.26
+        },
+        {
+          "check": "assessment_z.test_1.S023",
+          "actual": 0.12
+        },
+        {
+          "check": "assessment_z.test_1.S024",
+          "actual": 2.09
+        },
+        {
+          "check": "assessment_z.test_1.S025",
+          "actual": -1.77
+        },
+        {
+          "check": "assessment_z.test_1.S026",
+          "actual": -0.17
+        },
+        {
+          "check": "assessment_z.test_1.S027",
+          "actual": -0.26
+        },
+        {
+          "check": "assessment_z.test_1.S028",
+          "actual": -0.54
+        },
+        {
+          "check": "assessment_z.test_1.S029",
+          "actual": 2.09
+        },
+        {
+          "check": "assessment_z.test_1.S030",
+          "actual": 0.77
+        },
+        {
+          "check": "assessment_z.test_1.S031",
+          "actual": -0.26
+        },
+        {
+          "check": "assessment_z.test_1.S032",
+          "actual": -0.07
+        },
+        {
+          "check": "assessment_z.test_1.S033",
+          "actual": -0.73
+        },
+        {
+          "check": "assessment_z.test_1.S034",
+          "actual": -1.86
+        },
+        {
+          "check": "assessment_z.test_1.S035",
+          "actual": -0.73
+        },
+        {
+          "check": "assessment_z.test_1.S036",
+          "actual": 0.77
+        },
+        {
+          "check": "assessment_z.test_1.S037",
+          "actual": 0.87
+        },
+        {
+          "check": "assessment_z.test_1.S038",
+          "actual": 0.77
+        },
+        {
+          "check": "assessment_z.test_1.S039",
+          "actual": -0.26
+        },
+        {
+          "check": "assessment_z.test_1.S040",
+          "actual": 0.4
+        },
+        {
+          "check": "assessment_z.test_2.S001",
+          "actual": -0.48
+        },
+        {
+          "check": "assessment_z.test_2.S002",
+          "actual": -0.76
+        },
+        {
+          "check": "assessment_z.test_2.S003",
+          "actual": 1.52
+        },
+        {
+          "check": "assessment_z.test_2.S004",
+          "actual": 0.45
+        },
+        {
+          "check": "assessment_z.test_2.S005",
+          "actual": 0.45
+        },
+        {
+          "check": "assessment_z.test_2.S006",
+          "actual": -0.19
+        },
+        {
+          "check": "assessment_z.test_2.S007",
+          "actual": 1.02
+        },
+        {
+          "check": "assessment_z.test_2.S008",
+          "actual": 0.24
+        },
+        {
+          "check": "assessment_z.test_2.S009",
+          "actual": -1.33
+        },
+        {
+          "check": "assessment_z.test_2.S010",
+          "actual": 1.66
+        },
+        {
+          "check": "assessment_z.test_2.S011",
+          "actual": 0.02
+        },
+        {
+          "check": "assessment_z.test_2.S012",
+          "actual": 1.38
+        },
+        {
+          "check": "assessment_z.test_2.S013",
+          "actual": 1.09
+        },
+        {
+          "check": "assessment_z.test_2.S014",
+          "actual": 1.66
+        },
+        {
+          "check": "assessment_z.test_2.S015",
+          "actual": 1.23
+        },
+        {
+          "check": "assessment_z.test_2.S016",
+          "actual": -1.55
+        },
+        {
+          "check": "assessment_z.test_2.S017",
+          "actual": -1.05
+        },
+        {
+          "check": "assessment_z.test_2.S018",
+          "actual": -1.83
+        },
+        {
+          "check": "assessment_z.test_2.S019",
+          "actual": 0.81
+        },
+        {
+          "check": "assessment_z.test_2.S020",
+          "actual": -1.55
+        },
+        {
+          "check": "assessment_z.test_2.S021",
+          "actual": 0.66
+        },
+        {
+          "check": "assessment_z.test_2.S022",
+          "actual": -0.12
+        },
+        {
+          "check": "assessment_z.test_2.S023",
+          "actual": -0.34
+        },
+        {
+          "check": "assessment_z.test_2.S024",
+          "actual": -1.33
+        },
+        {
+          "check": "assessment_z.test_2.S025",
+          "actual": 0.45
+        },
+        {
+          "check": "assessment_z.test_2.S026",
+          "actual": -1.26
+        },
+        {
+          "check": "assessment_z.test_2.S027",
+          "actual": -0.83
+        },
+        {
+          "check": "assessment_z.test_2.S028",
+          "actual": -0.62
+        },
+        {
+          "check": "assessment_z.test_2.S029",
+          "actual": 0.73
+        },
+        {
+          "check": "assessment_z.test_2.S030",
+          "actual": -0.34
+        },
+        {
+          "check": "assessment_z.test_2.S031",
+          "actual": 1.38
+        },
+        {
+          "check": "assessment_z.test_2.S032",
+          "actual": -0.91
+        },
+        {
+          "check": "assessment_z.test_2.S033",
+          "actual": -0.41
+        },
+        {
+          "check": "assessment_z.test_2.S034",
+          "actual": -0.62
+        },
+        {
+          "check": "assessment_z.test_2.S035",
+          "actual": -0.41
+        },
+        {
+          "check": "assessment_z.test_2.S036",
+          "actual": 1.52
+        },
+        {
+          "check": "assessment_z.test_2.S037",
+          "actual": -0.76
+        },
+        {
+          "check": "assessment_z.test_2.S038",
+          "actual": -0.19
+        },
+        {
+          "check": "assessment_z.test_2.S039",
+          "actual": 0.09
+        },
+        {
+          "check": "assessment_z.test_2.S040",
+          "actual": 0.52
+        },
+        {
+          "check": "assessment_z.test_3.S001",
+          "actual": -0.21
+        },
+        {
+          "check": "assessment_z.test_3.S002",
+          "actual": -0.3
+        },
+        {
+          "check": "assessment_z.test_3.S003",
+          "actual": -0.67
+        },
+        {
+          "check": "assessment_z.test_3.S004",
+          "actual": -0.48
+        },
+        {
+          "check": "assessment_z.test_3.S005",
+          "actual": 2.53
+        },
+        {
+          "check": "assessment_z.test_3.S006",
+          "actual": -0.21
+        },
+        {
+          "check": "assessment_z.test_3.S007",
+          "actual": -0.58
+        },
+        {
+          "check": "assessment_z.test_3.S008",
+          "actual": -0.03
+        },
+        {
+          "check": "assessment_z.test_3.S009",
+          "actual": -0.67
+        },
+        {
+          "check": "assessment_z.test_3.S010",
+          "actual": -0.3
+        },
+        {
+          "check": "assessment_z.test_3.S011",
+          "actual": 0.16
+        },
+        {
+          "check": "assessment_z.test_3.S012",
+          "actual": -1.12
+        },
+        {
+          "check": "assessment_z.test_3.S013",
+          "actual": 0.43
+        },
+        {
+          "check": "assessment_z.test_3.S014",
+          "actual": 1.16
+        },
+        {
+          "check": "assessment_z.test_3.S015",
+          "actual": 1.98
+        },
+        {
+          "check": "assessment_z.test_3.S016",
+          "actual": -0.39
+        },
+        {
+          "check": "assessment_z.test_3.S017",
+          "actual": 1.07
+        },
+        {
+          "check": "assessment_z.test_3.S018",
+          "actual": 1.89
+        },
+        {
+          "check": "assessment_z.test_3.S019",
+          "actual": 1.07
+        },
+        {
+          "check": "assessment_z.test_3.S020",
+          "actual": -1.58
+        },
+        {
+          "check": "assessment_z.test_3.S021",
+          "actual": -0.48
+        },
+        {
+          "check": "assessment_z.test_3.S022",
+          "actual": -0.67
+        },
+        {
+          "check": "assessment_z.test_3.S023",
+          "actual": -0.67
+        },
+        {
+          "check": "assessment_z.test_3.S024",
+          "actual": 0.98
+        },
+        {
+          "check": "assessment_z.test_3.S025",
+          "actual": 0.06
+        },
+        {
+          "check": "assessment_z.test_3.S026",
+          "actual": 1.16
+        },
+        {
+          "check": "assessment_z.test_3.S027",
+          "actual": -2.31
+        },
+        {
+          "check": "assessment_z.test_3.S028",
+          "actual": -0.12
+        },
+        {
+          "check": "assessment_z.test_3.S029",
+          "actual": 0.34
+        },
+        {
+          "check": "assessment_z.test_3.S030",
+          "actual": 0.43
+        },
+        {
+          "check": "assessment_z.test_3.S031",
+          "actual": 0.06
+        },
+        {
+          "check": "assessment_z.test_3.S032",
+          "actual": -0.94
+        },
+        {
+          "check": "assessment_z.test_3.S033",
+          "actual": -1.12
+        },
+        {
+          "check": "assessment_z.test_3.S034",
+          "actual": 0.98
+        },
+        {
+          "check": "assessment_z.test_3.S035",
+          "actual": 1.16
+        },
+        {
+          "check": "assessment_z.test_3.S036",
+          "actual": -1.12
+        },
+        {
+          "check": "assessment_z.test_3.S037",
+          "actual": -0.58
+        },
+        {
+          "check": "assessment_z.test_3.S038",
+          "actual": -0.12
+        },
+        {
+          "check": "assessment_z.test_3.S039",
+          "actual": -0.58
+        },
+        {
+          "check": "assessment_z.test_3.S040",
+          "actual": -0.21
+        },
+        {
+          "check": "assessment_z.test_4.S001",
+          "actual": 0.18
+        },
+        {
+          "check": "assessment_z.test_4.S002",
+          "actual": 0.43
+        },
+        {
+          "check": "assessment_z.test_4.S003",
+          "actual": 1.32
+        },
+        {
+          "check": "assessment_z.test_4.S004",
+          "actual": -0.63
+        },
+        {
+          "check": "assessment_z.test_4.S005",
+          "actual": -1.04
+        },
+        {
+          "check": "assessment_z.test_4.S006",
+          "actual": 0.18
+        },
+        {
+          "check": "assessment_z.test_4.S007",
+          "actual": 0.1
+        },
+        {
+          "check": "assessment_z.test_4.S008",
+          "actual": -0.79
+        },
+        {
+          "check": "assessment_z.test_4.S009",
+          "actual": -0.39
+        },
+        {
+          "check": "assessment_z.test_4.S010",
+          "actual": 0.1
+        },
+        {
+          "check": "assessment_z.test_4.S011",
+          "actual": 0.43
+        },
+        {
+          "check": "assessment_z.test_4.S012",
+          "actual": 0.67
+        },
+        {
+          "check": "assessment_z.test_4.S013",
+          "actual": 1.56
+        },
+        {
+          "check": "assessment_z.test_4.S014",
+          "actual": 1.73
+        },
+        {
+          "check": "assessment_z.test_4.S015",
+          "actual": 0.43
+        },
+        {
+          "check": "assessment_z.test_4.S016",
+          "actual": -2.5
+        },
+        {
+          "check": "assessment_z.test_4.S017",
+          "actual": 0.67
+        },
+        {
+          "check": "assessment_z.test_4.S018",
+          "actual": -0.63
+        },
+        {
+          "check": "assessment_z.test_4.S019",
+          "actual": -0.39
+        },
+        {
+          "check": "assessment_z.test_4.S020",
+          "actual": 0.26
+        },
+        {
+          "check": "assessment_z.test_4.S021",
+          "actual": 0.67
+        },
+        {
+          "check": "assessment_z.test_4.S022",
+          "actual": -0.79
+        },
+        {
+          "check": "assessment_z.test_4.S023",
+          "actual": -0.87
+        },
+        {
+          "check": "assessment_z.test_4.S024",
+          "actual": 0.67
+        },
+        {
+          "check": "assessment_z.test_4.S025",
+          "actual": -1.52
+        },
+        {
+          "check": "assessment_z.test_4.S026",
+          "actual": 1.97
+        },
+        {
+          "check": "assessment_z.test_4.S027",
+          "actual": -1.44
+        },
+        {
+          "check": "assessment_z.test_4.S028",
+          "actual": 0.83
+        },
+        {
+          "check": "assessment_z.test_4.S029",
+          "actual": -0.06
+        },
+        {
+          "check": "assessment_z.test_4.S030",
+          "actual": 1.97
+        },
+        {
+          "check": "assessment_z.test_4.S031",
+          "actual": -2.01
+        },
+        {
+          "check": "assessment_z.test_4.S032",
+          "actual": -0.06
+        },
+        {
+          "check": "assessment_z.test_4.S033",
+          "actual": -0.3
+        },
+        {
+          "check": "assessment_z.test_4.S034",
+          "actual": -0.71
+        },
+        {
+          "check": "assessment_z.test_4.S035",
+          "actual": -0.3
+        },
+        {
+          "check": "assessment_z.test_4.S036",
+          "actual": 0.1
+        },
+        {
+          "check": "assessment_z.test_4.S037",
+          "actual": 0.43
+        },
+        {
+          "check": "assessment_z.test_4.S038",
+          "actual": 0.75
+        },
+        {
+          "check": "assessment_z.test_4.S039",
+          "actual": -0.39
+        },
+        {
+          "check": "assessment_z.test_4.S040",
+          "actual": -0.63
+        },
+        {
+          "check": "assessment_z.test_5.S001",
+          "actual": -0.09
+        },
+        {
+          "check": "assessment_z.test_5.S002",
+          "actual": -0.01
+        },
+        {
+          "check": "assessment_z.test_5.S003",
+          "actual": -1.12
+        },
+        {
+          "check": "assessment_z.test_5.S004",
+          "actual": 0.71
+        },
+        {
+          "check": "assessment_z.test_5.S005",
+          "actual": 2.22
+        },
+        {
+          "check": "assessment_z.test_5.S006",
+          "actual": 1.5
+        },
+        {
+          "check": "assessment_z.test_5.S007",
+          "actual": -1.12
+        },
+        {
+          "check": "assessment_z.test_5.S008",
+          "actual": 1.5
+        },
+        {
+          "check": "assessment_z.test_5.S009",
+          "actual": -0.73
+        },
+        {
+          "check": "assessment_z.test_5.S010",
+          "actual": -0.97
+        },
+        {
+          "check": "assessment_z.test_5.S011",
+          "actual": 0.63
+        },
+        {
+          "check": "assessment_z.test_5.S012",
+          "actual": 1.11
+        },
+        {
+          "check": "assessment_z.test_5.S013",
+          "actual": -0.17
+        },
+        {
+          "check": "assessment_z.test_5.S014",
+          "actual": -0.89
+        },
+        {
+          "check": "assessment_z.test_5.S015",
+          "actual": 0.15
+        },
+        {
+          "check": "assessment_z.test_5.S016",
+          "actual": 0.63
+        },
+        {
+          "check": "assessment_z.test_5.S017",
+          "actual": -0.73
+        },
+        {
+          "check": "assessment_z.test_5.S018",
+          "actual": 0.23
+        },
+        {
+          "check": "assessment_z.test_5.S019",
+          "actual": -2.16
+        },
+        {
+          "check": "assessment_z.test_5.S020",
+          "actual": 0.23
+        },
+        {
+          "check": "assessment_z.test_5.S021",
+          "actual": 0.79
+        },
+        {
+          "check": "assessment_z.test_5.S022",
+          "actual": -1.44
+        },
+        {
+          "check": "assessment_z.test_5.S023",
+          "actual": -1.05
+        },
+        {
+          "check": "assessment_z.test_5.S024",
+          "actual": 0.63
+        },
+        {
+          "check": "assessment_z.test_5.S025",
+          "actual": -0.01
+        },
+        {
+          "check": "assessment_z.test_5.S026",
+          "actual": 1.03
+        },
+        {
+          "check": "assessment_z.test_5.S027",
+          "actual": 0.31
+        },
+        {
+          "check": "assessment_z.test_5.S028",
+          "actual": -0.89
+        },
+        {
+          "check": "assessment_z.test_5.S029",
+          "actual": 0.63
+        },
+        {
+          "check": "assessment_z.test_5.S030",
+          "actual": 0.95
+        },
+        {
+          "check": "assessment_z.test_5.S031",
+          "actual": -0.49
+        },
+        {
+          "check": "assessment_z.test_5.S032",
+          "actual": 1.03
+        },
+        {
+          "check": "assessment_z.test_5.S033",
+          "actual": -0.41
+        },
+        {
+          "check": "assessment_z.test_5.S034",
+          "actual": -0.57
+        },
+        {
+          "check": "assessment_z.test_5.S035",
+          "actual": -2.16
+        },
+        {
+          "check": "assessment_z.test_5.S036",
+          "actual": 0.39
+        },
+        {
+          "check": "assessment_z.test_5.S037",
+          "actual": -1.36
+        },
+        {
+          "check": "assessment_z.test_5.S038",
+          "actual": 0.63
+        },
+        {
+          "check": "assessment_z.test_5.S039",
+          "actual": 0.71
+        },
+        {
+          "check": "assessment_z.test_5.S040",
+          "actual": 0.39
+        },
+        {
+          "check": "assessment_z.test_6.S001",
+          "actual": -0.25
+        },
+        {
+          "check": "assessment_z.test_6.S002",
+          "actual": -1.32
+        },
+        {
+          "check": "assessment_z.test_6.S003",
+          "actual": 0.1
+        },
+        {
+          "check": "assessment_z.test_6.S004",
+          "actual": 0.74
+        },
+        {
+          "check": "assessment_z.test_6.S005",
+          "actual": 1.8
+        },
+        {
+          "check": "assessment_z.test_6.S006",
+          "actual": -0.54
+        },
+        {
+          "check": "assessment_z.test_6.S007",
+          "actual": 0.1
+        },
+        {
+          "check": "assessment_z.test_6.S008",
+          "actual": -0.18
+        },
+        {
+          "check": "assessment_z.test_6.S009",
+          "actual": 0.6
+        },
+        {
+          "check": "assessment_z.test_6.S010",
+          "actual": -1.03
+        },
+        {
+          "check": "assessment_z.test_6.S011",
+          "actual": 1.02
+        },
+        {
+          "check": "assessment_z.test_6.S012",
+          "actual": 0.39
+        },
+        {
+          "check": "assessment_z.test_6.S013",
+          "actual": -1.03
+        },
+        {
+          "check": "assessment_z.test_6.S014",
+          "actual": -2.1
+        },
+        {
+          "check": "assessment_z.test_6.S015",
+          "actual": 0.1
+        },
+        {
+          "check": "assessment_z.test_6.S016",
+          "actual": 0.67
+        },
+        {
+          "check": "assessment_z.test_6.S017",
+          "actual": 1.24
+        },
+        {
+          "check": "assessment_z.test_6.S018",
+          "actual": 1.73
+        },
+        {
+          "check": "assessment_z.test_6.S019",
+          "actual": 0.46
+        },
+        {
+          "check": "assessment_z.test_6.S020",
+          "actual": 0.1
+        },
+        {
+          "check": "assessment_z.test_6.S021",
+          "actual": 0.03
+        },
+        {
+          "check": "assessment_z.test_6.S022",
+          "actual": -1.03
+        },
+        {
+          "check": "assessment_z.test_6.S023",
+          "actual": -0.25
+        },
+        {
+          "check": "assessment_z.test_6.S024",
+          "actual": 1.8
+        },
+        {
+          "check": "assessment_z.test_6.S025",
+          "actual": 0.32
+        },
+        {
+          "check": "assessment_z.test_6.S026",
+          "actual": -1.39
+        },
+        {
+          "check": "assessment_z.test_6.S027",
+          "actual": -0.04
+        },
+        {
+          "check": "assessment_z.test_6.S028",
+          "actual": 1.02
+        },
+        {
+          "check": "assessment_z.test_6.S029",
+          "actual": -0.61
+        },
+        {
+          "check": "assessment_z.test_6.S030",
+          "actual": 0.17
+        },
+        {
+          "check": "assessment_z.test_6.S031",
+          "actual": -1.03
+        },
+        {
+          "check": "assessment_z.test_6.S032",
+          "actual": -0.61
+        },
+        {
+          "check": "assessment_z.test_6.S033",
+          "actual": 1.45
+        },
+        {
+          "check": "assessment_z.test_6.S034",
+          "actual": -2.1
+        },
+        {
+          "check": "assessment_z.test_6.S035",
+          "actual": 0.88
+        },
+        {
+          "check": "assessment_z.test_6.S036",
+          "actual": -0.96
+        },
+        {
+          "check": "assessment_z.test_6.S037",
+          "actual": -0.75
+        },
+        {
+          "check": "assessment_z.test_6.S038",
+          "actual": 0.81
+        },
+        {
+          "check": "assessment_z.test_6.S039",
+          "actual": 0.53
+        },
+        {
+          "check": "assessment_z.test_6.S040",
+          "actual": -0.89
+        }
+      ],
+      "failed_checks": []
+    },
+    "boundary_cases": {
+      "fraction": "166/166",
+      "score": 1.0,
+      "passed": 166,
+      "total": 166,
+      "passed_checks": [
+        {
+          "check": "student.S005.simple_average",
+          "actual": 82.9
+        },
+        {
+          "check": "student.S005.weighted_average",
+          "actual": 85.45
+        },
+        {
+          "check": "student.S005.letter_grade",
+          "actual": "B"
+        },
+        {
+          "check": "student.S005.slope",
+          "actual": 2.745455
+        },
+        {
+          "check": "student.S005.std_dev",
+          "actual": 14.775731
+        },
+        {
+          "check": "student.S005.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S005.lowest_score",
+          "actual": 63
+        },
+        {
+          "check": "student.S005.rank",
+          "actual": 1
+        },
+        {
+          "check": "student.S005.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S005.percentile",
+          "actual": 100
+        },
+        {
+          "check": "student.S005.z_score",
+          "actual": 2.25
+        },
+        {
+          "check": "student.S006.weighted_average",
+          "actual": 76.383333
+        },
+        {
+          "check": "student.S006.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S006.percentile",
+          "actual": 59
+        },
+        {
+          "check": "student.S006.z_score",
+          "actual": 0.32
+        },
+        {
+          "check": "student.S007.weighted_average",
+          "actual": 69.683333
+        },
+        {
+          "check": "student.S007.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S007.percentile",
+          "actual": 12.8
+        },
+        {
+          "check": "student.S007.z_score",
+          "actual": -1.1
+        },
+        {
+          "check": "student.S008.simple_average",
+          "actual": 75.9
+        },
+        {
+          "check": "student.S008.weighted_average",
+          "actual": 77.116667
+        },
+        {
+          "check": "student.S008.letter_grade",
+          "actual": "C+"
+        },
+        {
+          "check": "student.S008.slope",
+          "actual": 0.987879
+        },
+        {
+          "check": "student.S008.std_dev",
+          "actual": 13.931978
+        },
+        {
+          "check": "student.S008.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S008.lowest_score",
+          "actual": 54
+        },
+        {
+          "check": "student.S008.rank",
+          "actual": 13
+        },
+        {
+          "check": "student.S008.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S008.percentile",
+          "actual": 69.2
+        },
+        {
+          "check": "student.S008.z_score",
+          "actual": 0.48
+        },
+        {
+          "check": "student.S010.simple_average",
+          "actual": 68.9
+        },
+        {
+          "check": "student.S010.weighted_average",
+          "actual": 71.283333
+        },
+        {
+          "check": "student.S010.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S010.slope",
+          "actual": 0.175758
+        },
+        {
+          "check": "student.S010.std_dev",
+          "actual": 15.021836
+        },
+        {
+          "check": "student.S010.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S010.lowest_score",
+          "actual": 52
+        },
+        {
+          "check": "student.S010.rank",
+          "actual": 33
+        },
+        {
+          "check": "student.S010.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S010.percentile",
+          "actual": 17.9
+        },
+        {
+          "check": "student.S010.z_score",
+          "actual": -0.76
+        },
+        {
+          "check": "student.S011.weighted_average",
+          "actual": 79.933333
+        },
+        {
+          "check": "student.S011.letter_grade",
+          "actual": "B-"
+        },
+        {
+          "check": "student.S011.percentile",
+          "actual": 89.7
+        },
+        {
+          "check": "student.S011.z_score",
+          "actual": 1.07
+        },
+        {
+          "check": "student.S012.weighted_average",
+          "actual": 76.85
+        },
+        {
+          "check": "student.S012.letter_grade",
+          "actual": "C+"
+        },
+        {
+          "check": "student.S012.percentile",
+          "actual": 66.7
+        },
+        {
+          "check": "student.S012.z_score",
+          "actual": 0.42
+        },
+        {
+          "check": "student.S013.weighted_average",
+          "actual": 79.15
+        },
+        {
+          "check": "student.S013.letter_grade",
+          "actual": "C+"
+        },
+        {
+          "check": "student.S013.percentile",
+          "actual": 79.5
+        },
+        {
+          "check": "student.S013.z_score",
+          "actual": 0.91
+        },
+        {
+          "check": "student.S014.simple_average",
+          "actual": 71.1
+        },
+        {
+          "check": "student.S014.weighted_average",
+          "actual": 73.55
+        },
+        {
+          "check": "student.S014.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S014.slope",
+          "actual": 0.69697
+        },
+        {
+          "check": "student.S014.std_dev",
+          "actual": 19.353151
+        },
+        {
+          "check": "student.S014.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S014.lowest_score",
+          "actual": 45
+        },
+        {
+          "check": "student.S014.rank",
+          "actual": 22
+        },
+        {
+          "check": "student.S014.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S014.percentile",
+          "actual": 46.2
+        },
+        {
+          "check": "student.S014.z_score",
+          "actual": -0.28
+        },
+        {
+          "check": "student.S015.weighted_average",
+          "actual": 79.383333
+        },
+        {
+          "check": "student.S015.letter_grade",
+          "actual": "C+"
+        },
+        {
+          "check": "student.S015.percentile",
+          "actual": 82.1
+        },
+        {
+          "check": "student.S015.z_score",
+          "actual": 0.96
+        },
+        {
+          "check": "student.S016.weighted_average",
+          "actual": 69.25
+        },
+        {
+          "check": "student.S016.letter_grade",
+          "actual": "D+"
+        },
+        {
+          "check": "student.S016.percentile",
+          "actual": 10.3
+        },
+        {
+          "check": "student.S016.z_score",
+          "actual": -1.2
+        },
+        {
+          "check": "student.S017.simple_average",
+          "actual": 81.7
+        },
+        {
+          "check": "student.S017.weighted_average",
+          "actual": 81.266667
+        },
+        {
+          "check": "student.S017.letter_grade",
+          "actual": "B-"
+        },
+        {
+          "check": "student.S017.slope",
+          "actual": -0.951515
+        },
+        {
+          "check": "student.S017.std_dev",
+          "actual": 14.360826
+        },
+        {
+          "check": "student.S017.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S017.lowest_score",
+          "actual": 62
+        },
+        {
+          "check": "student.S017.rank",
+          "actual": 3
+        },
+        {
+          "check": "student.S017.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S017.percentile",
+          "actual": 94.9
+        },
+        {
+          "check": "student.S017.z_score",
+          "actual": 1.36
+        },
+        {
+          "check": "student.S019.weighted_average",
+          "actual": 76.7
+        },
+        {
+          "check": "student.S019.letter_grade",
+          "actual": "C+"
+        },
+        {
+          "check": "student.S019.percentile",
+          "actual": 64.1
+        },
+        {
+          "check": "student.S019.z_score",
+          "actual": 0.39
+        },
+        {
+          "check": "student.S024.simple_average",
+          "actual": 85.7
+        },
+        {
+          "check": "student.S024.weighted_average",
+          "actual": 84.933333
+        },
+        {
+          "check": "student.S024.letter_grade",
+          "actual": "B"
+        },
+        {
+          "check": "student.S024.slope",
+          "actual": 0.224242
+        },
+        {
+          "check": "student.S024.std_dev",
+          "actual": 13.25854
+        },
+        {
+          "check": "student.S024.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S024.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "student.S024.rank",
+          "actual": 2
+        },
+        {
+          "check": "student.S024.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S024.percentile",
+          "actual": 97.4
+        },
+        {
+          "check": "student.S024.z_score",
+          "actual": 2.14
+        },
+        {
+          "check": "student.S025.simple_average",
+          "actual": 75.5
+        },
+        {
+          "check": "student.S025.weighted_average",
+          "actual": 73
+        },
+        {
+          "check": "student.S025.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S025.slope",
+          "actual": -2.224242
+        },
+        {
+          "check": "student.S025.std_dev",
+          "actual": 13.63207
+        },
+        {
+          "check": "student.S025.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S025.lowest_score",
+          "actual": 57
+        },
+        {
+          "check": "student.S025.rank",
+          "actual": 25
+        },
+        {
+          "check": "student.S025.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S025.percentile",
+          "actual": 38.5
+        },
+        {
+          "check": "student.S025.z_score",
+          "actual": -0.4
+        },
+        {
+          "check": "student.S026.simple_average",
+          "actual": 76.7
+        },
+        {
+          "check": "student.S026.weighted_average",
+          "actual": 76.683333
+        },
+        {
+          "check": "student.S026.letter_grade",
+          "actual": "C+"
+        },
+        {
+          "check": "student.S026.slope",
+          "actual": -0.29697
+        },
+        {
+          "check": "student.S026.std_dev",
+          "actual": 13.266918
+        },
+        {
+          "check": "student.S026.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S026.lowest_score",
+          "actual": 55
+        },
+        {
+          "check": "student.S026.rank",
+          "actual": 16
+        },
+        {
+          "check": "student.S026.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S026.percentile",
+          "actual": 61.5
+        },
+        {
+          "check": "student.S026.z_score",
+          "actual": 0.38
+        },
+        {
+          "check": "student.S028.weighted_average",
+          "actual": 76
+        },
+        {
+          "check": "student.S028.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S028.percentile",
+          "actual": 56.4
+        },
+        {
+          "check": "student.S028.z_score",
+          "actual": 0.24
+        },
+        {
+          "check": "student.S029.simple_average",
+          "actual": 78.8
+        },
+        {
+          "check": "student.S029.weighted_average",
+          "actual": 79.733333
+        },
+        {
+          "check": "student.S029.letter_grade",
+          "actual": "B-"
+        },
+        {
+          "check": "student.S029.slope",
+          "actual": -1.10303
+        },
+        {
+          "check": "student.S029.std_dev",
+          "actual": 12.263768
+        },
+        {
+          "check": "student.S029.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S029.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "student.S029.rank",
+          "actual": 6
+        },
+        {
+          "check": "student.S029.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S029.percentile",
+          "actual": 87.2
+        },
+        {
+          "check": "student.S029.z_score",
+          "actual": 1.03
+        },
+        {
+          "check": "student.S030.simple_average",
+          "actual": 78.6
+        },
+        {
+          "check": "student.S030.weighted_average",
+          "actual": 80.633333
+        },
+        {
+          "check": "student.S030.letter_grade",
+          "actual": "B-"
+        },
+        {
+          "check": "student.S030.slope",
+          "actual": 1.466667
+        },
+        {
+          "check": "student.S030.std_dev",
+          "actual": 10.243697
+        },
+        {
+          "check": "student.S030.highest_score",
+          "actual": 100
+        },
+        {
+          "check": "student.S030.lowest_score",
+          "actual": 64
+        },
+        {
+          "check": "student.S030.rank",
+          "actual": 4
+        },
+        {
+          "check": "student.S030.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S030.percentile",
+          "actual": 92.3
+        },
+        {
+          "check": "student.S030.z_score",
+          "actual": 1.22
+        },
+        {
+          "check": "student.S031.weighted_average",
+          "actual": 72.183333
+        },
+        {
+          "check": "student.S031.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S031.percentile",
+          "actual": 30.8
+        },
+        {
+          "check": "student.S031.z_score",
+          "actual": -0.57
+        },
+        {
+          "check": "student.S033.weighted_average",
+          "actual": 72.25
+        },
+        {
+          "check": "student.S033.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S033.percentile",
+          "actual": 33.3
+        },
+        {
+          "check": "student.S033.z_score",
+          "actual": -0.56
+        },
+        {
+          "check": "student.S034.weighted_average",
+          "actual": 66.016667
+        },
+        {
+          "check": "student.S034.letter_grade",
+          "actual": "D"
+        },
+        {
+          "check": "student.S034.percentile",
+          "actual": 2.6
+        },
+        {
+          "check": "student.S034.z_score",
+          "actual": -1.88
+        },
+        {
+          "check": "student.S035.weighted_average",
+          "actual": 72.783333
+        },
+        {
+          "check": "student.S035.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S035.percentile",
+          "actual": 35.9
+        },
+        {
+          "check": "student.S035.z_score",
+          "actual": -0.44
+        },
+        {
+          "check": "student.S038.weighted_average",
+          "actual": 79.516667
+        },
+        {
+          "check": "student.S038.letter_grade",
+          "actual": "B-"
+        },
+        {
+          "check": "student.S038.percentile",
+          "actual": 84.6
+        },
+        {
+          "check": "student.S038.z_score",
+          "actual": 0.99
+        }
+      ],
+      "failed_checks": []
+    }
+  },
+  "failures_by_location": {},
+  "error_pattern_summary": {
+    "column_level_errors": [],
+    "row_level_errors": [],
+    "isolated_errors": [],
+    "cross_sheet_errors": [],
+    "root_cause_hypotheses": []
+  }
+}
