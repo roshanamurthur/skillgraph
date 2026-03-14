@@ -6,10 +6,12 @@ import {
   Background,
   Controls,
   MiniMap,
+  addEdge,
   useNodesState,
   useEdgesState,
   type Node,
   type Edge,
+  type Connection,
 } from "@xyflow/react";
 import { v4 as uuid } from "uuid";
 import type { Skill, SkillNodeData } from "@/lib/types";
@@ -19,8 +21,28 @@ import DetailPanel from "./DetailPanel";
 
 const nodeTypes = { skill: SkillNode };
 
-const H_SPACING = 260;
-const V_SPACING = 140;
+const H_SPACING = 180;
+const V_SPACING = 160;
+
+function computeDepths(skills: Skill[]): Map<string, number> {
+  const depths = new Map<string, number>();
+  const byId = new Map(skills.map((s) => [s.id, s]));
+
+  function getDepth(id: string): number {
+    if (depths.has(id)) return depths.get(id)!;
+    const skill = byId.get(id);
+    if (!skill || !skill.parentId) {
+      depths.set(id, 0);
+      return 0;
+    }
+    const d = getDepth(skill.parentId) + 1;
+    depths.set(id, d);
+    return d;
+  }
+
+  for (const s of skills) getDepth(s.id);
+  return depths;
+}
 
 function layoutNodes(skills: Skill[]): Node[] {
   const childrenMap = new Map<string | null, Skill[]>();
@@ -32,6 +54,7 @@ function layoutNodes(skills: Skill[]): Node[] {
 
   const nodes: Node[] = [];
   const widths = new Map<string, number>();
+  const depths = computeDepths(skills);
 
   function subtreeWidth(id: string): number {
     if (widths.has(id)) return widths.get(id)!;
@@ -45,9 +68,7 @@ function layoutNodes(skills: Skill[]): Node[] {
     return w;
   }
 
-  for (const s of skills) {
-    subtreeWidth(s.id);
-  }
+  for (const s of skills) subtreeWidth(s.id);
 
   function place(id: string, depth: number, leftOffset: number) {
     const skill = skills.find((s) => s.id === id);
@@ -60,14 +81,14 @@ function layoutNodes(skills: Skill[]): Node[] {
       id: skill.id,
       type: "skill",
       position: { x, y },
-      data: { skill } satisfies SkillNodeData,
+      data: { skill, depth: depths.get(skill.id) ?? 0 } satisfies SkillNodeData,
     });
 
     const children = childrenMap.get(id) ?? [];
     let offset = leftOffset;
     for (const child of children) {
       place(child.id, depth + 1, offset);
-      offset += (widths.get(child.id) ?? 1);
+      offset += widths.get(child.id) ?? 1;
     }
   }
 
@@ -75,7 +96,7 @@ function layoutNodes(skills: Skill[]): Node[] {
   let offset = 0;
   for (const root of roots) {
     place(root.id, 0, offset);
-    offset += (widths.get(root.id) ?? 1);
+    offset += widths.get(root.id) ?? 1;
   }
 
   return nodes;
@@ -116,11 +137,9 @@ export default function GraphCanvas() {
   const [counter, setCounter] = useState(1);
   const [loaded, setLoaded] = useState(false);
 
-  // Load from IndexedDB on mount
   useEffect(() => {
     loadSkills().then((stored) => {
       if (stored.length > 0) {
-        // Ensure old skills without files array still work
         const migrated = stored.map((s) => ({
           ...s,
           files: s.files ?? [],
@@ -162,6 +181,39 @@ export default function GraphCanvas() {
     [skills, syncGraph],
   );
 
+  const onConnect = useCallback(
+    (connection: Connection) => {
+      // Create the visual edge
+      setEdges((eds) =>
+        addEdge(
+          {
+            ...connection,
+            type: "smoothstep",
+            animated: true,
+            style: { stroke: "var(--edge-color)", strokeWidth: 2 },
+          },
+          eds,
+        ),
+      );
+
+      // Update the child skill's parentId to reflect the connection
+      if (connection.source && connection.target) {
+        const targetSkill = skills.find((s) => s.id === connection.target);
+        if (targetSkill && targetSkill.parentId !== connection.source) {
+          const updated = { ...targetSkill, parentId: connection.source };
+          const next = skills.map((s) =>
+            s.id === updated.id ? updated : s,
+          );
+          setSkills(next);
+          saveSkill(updated);
+          // Re-layout after connection to update depths
+          setTimeout(() => syncGraph(next), 50);
+        }
+      }
+    },
+    [skills, setEdges, syncGraph],
+  );
+
   const onNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
     setSelectedNodeId(node.id);
   }, []);
@@ -183,17 +235,19 @@ export default function GraphCanvas() {
         edges={edges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
         onNodeClick={onNodeClick}
         onPaneClick={onPaneClick}
         nodeTypes={nodeTypes}
         fitView
+        connectOnClick={false}
         proOptions={{ hideAttribution: true }}
       >
-        <Background gap={20} size={1} color="var(--graph-dot)" />
+        <Background gap={24} size={1} color="var(--graph-dot)" />
         <Controls showInteractive={false} className="graph-controls" />
         <MiniMap
-          nodeColor="var(--node-bg)"
-          maskColor="rgba(0,0,0,0.6)"
+          nodeColor="#22c55e"
+          maskColor="rgba(0,0,0,0.7)"
           className="graph-minimap"
         />
       </ReactFlow>

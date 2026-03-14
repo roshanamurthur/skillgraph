@@ -3,50 +3,51 @@
 import { Handle, Position, type NodeProps } from "@xyflow/react";
 import type { SkillNodeData } from "@/lib/types";
 
-function scoreColor(score: number): string {
-  if (score >= 0.7) return "#22c55e";
-  if (score >= 0.4) return "#f59e0b";
-  return "#ef4444";
+const DEPTH_COLORS = [
+  "#22c55e", // 0 — green (root)
+  "#6366f1", // 1 — indigo
+  "#a855f7", // 2 — purple
+  "#ec4899", // 3 — pink
+  "#f59e0b", // 4 — amber
+  "#06b6d4", // 5 — cyan
+  "#ef4444", // 6 — red
+  "#84cc16", // 7 — lime
+];
+
+function colorForDepth(depth: number): string {
+  return DEPTH_COLORS[depth % DEPTH_COLORS.length];
 }
 
-export default function SkillNode({ data }: NodeProps) {
-  const { skill } = data as SkillNodeData;
+export default function SkillNode({ data, selected }: NodeProps) {
+  const { skill, depth } = data as SkillNodeData;
+  const color = colorForDepth(depth);
+  const hasFiles = skill.files.length > 0;
 
   return (
-    <div className="skill-node">
-      <Handle type="target" position={Position.Top} className="skill-handle" />
+    <div
+      className="skill-circle"
+      style={{
+        borderColor: selected ? "#fff" : color,
+        boxShadow: selected
+          ? `0 0 0 2px #fff, 0 0 20px ${color}80`
+          : `0 0 16px ${color}40`,
+        background: `radial-gradient(circle at 35% 35%, ${color}30, ${color}10 70%, transparent)`,
+      }}
+    >
+      <Handle type="target" position={Position.Top} className="circle-handle" />
 
-      <div className="skill-node-header">
-        <span className="skill-node-name">{skill.name}</span>
-        <div className="skill-node-header-right">
-          {skill.files.length > 0 && (
-            <span className="skill-node-file-count" title={`${skill.files.length} file(s)`}>
-              {skill.files.length}
-            </span>
-          )}
-          <span className="skill-node-version">v{skill.version}</span>
-        </div>
-      </div>
+      <div
+        className="skill-circle-dot"
+        style={{ backgroundColor: color }}
+      />
 
-      <span className="skill-node-model">{skill.model}</span>
-
-      {skill.score !== null && (
-        <div className="skill-node-score-track">
-          <div
-            className="skill-node-score-bar"
-            style={{
-              width: `${skill.score * 100}%`,
-              backgroundColor: scoreColor(skill.score),
-            }}
-          />
+      {hasFiles && (
+        <div className="skill-circle-files" style={{ borderColor: color }}>
+          {skill.files.length}
         </div>
       )}
 
-      <Handle
-        type="source"
-        position={Position.Bottom}
-        className="skill-handle"
-      />
+      <Handle type="source" position={Position.Bottom} className="circle-handle" />
     </div>
   );
 }

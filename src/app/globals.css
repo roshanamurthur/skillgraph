@@ -4,8 +4,8 @@
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --graph-bg: #0a0a0a;
-  --graph-dot: #1e1e2e;
+  --graph-bg: #060609;
+  --graph-dot: #141420;
   --node-bg: #16161e;
   --node-border: #2a2a3c;
   --edge-color: #6366f1;
@@ -34,82 +34,66 @@ body {
   background: var(--graph-bg);
 }
 
-/* ── Skill node ── */
-.skill-node {
-  background: var(--node-bg);
-  border: 1px solid var(--node-border);
-  border-radius: 10px;
-  padding: 12px 14px;
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 13px;
-  color: #e2e2e8;
-}
-
-.skill-node-header {
+/* ── Circle node ── */
+.skill-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-.skill-node-header-right {
+.skill-circle:hover {
+  filter: brightness(1.2);
+}
+
+.skill-circle-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.skill-circle-files {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--graph-bg);
+  border: 1.5px solid;
+  font-size: 9px;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  color: #d0d0d8;
 }
 
-.skill-node-name {
-  font-weight: 600;
-  font-size: 14px;
-  color: #f0f0f5;
-}
-
-.skill-node-version {
-  background: #6366f1;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 1px 7px;
-  border-radius: 9999px;
-}
-
-.skill-node-file-count {
-  background: #2a2a3c;
-  color: #a5a5b5;
-  font-size: 10px;
-  font-weight: 500;
-  padding: 1px 6px;
-  border-radius: 9999px;
-}
-
-.skill-node-model {
-  font-size: 11px;
-  color: #888;
-  font-family: var(--font-geist-mono), monospace;
-}
-
-.skill-node-score-track {
-  height: 4px;
-  background: #1e1e2e;
-  border-radius: 2px;
-  margin-top: 4px;
-  overflow: hidden;
-}
-
-.skill-node-score-bar {
-  height: 100%;
-  border-radius: 2px;
-  transition: width 0.3s;
-}
-
-/* ── Handles ── */
-.skill-handle {
-  width: 8px !important;
-  height: 8px !important;
+/* ── Circle handles ── */
+.circle-handle {
+  width: 6px !important;
+  height: 6px !important;
   background: var(--edge-color) !important;
-  border: 2px solid var(--node-bg) !important;
+  border: none !important;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.skill-circle:hover .circle-handle {
+  opacity: 1;
+}
+
+/* ── React Flow connection line ── */
+.react-flow__connection-line {
+  stroke: var(--edge-color);
+  stroke-width: 2;
 }
 
 /* ── React Flow overrides ── */
@@ -156,7 +140,7 @@ body {
   z-index: 10;
   width: 40px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 50%;
   border: 1px solid var(--node-border);
   background: var(--node-bg);
   color: #e2e2e8;
@@ -226,6 +210,15 @@ body {
   gap: 8px;
 }
 
+.skill-node-version {
+  background: #6366f1;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 9999px;
+}
+
 .detail-panel-model {
   font-size: 11px;
   color: #888;
@@ -266,6 +259,20 @@ body {
   color: #e2e2e8;
   min-width: 32px;
   text-align: right;
+}
+
+.skill-node-score-track {
+  height: 4px;
+  background: #1e1e2e;
+  border-radius: 2px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.skill-node-score-bar {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s;
 }
 
 .detail-panel-meta {

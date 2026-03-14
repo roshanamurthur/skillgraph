@@ -28,6 +28,7 @@ export interface Skill {
 
 export interface SkillNodeData {
   skill: Skill;
+  depth: number;
   selected?: boolean;
   [key: string]: unknown;
 }
