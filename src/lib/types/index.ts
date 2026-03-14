@@ -32,3 +32,31 @@ export interface SkillNodeData {
   selected?: boolean;
   [key: string]: unknown;
 }
+
+export interface EvalCase {
+  id: string;
+  input: string;
+  expected: string;
+  tags: string[];
+}
+
+export interface Benchmark {
+  id: string;
+  name: string;
+  description: string;
+  cases: EvalCase[];
+}
+
+export interface Trace {
+  traceId: string;
+  runId: string;
+  skillId: string;
+  evalCaseId: string;
+  outcome: string;
+  metrics: Record<string, number>;
+}
+
+export interface DeleteResult {
+  deleted: string[];
+  reparented?: string[];
+}

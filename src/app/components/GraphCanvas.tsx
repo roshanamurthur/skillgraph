@@ -15,7 +15,13 @@ import {
 } from "@xyflow/react";
 import { v4 as uuid } from "uuid";
 import type { Skill, SkillNodeData } from "@/lib/types";
-import { loadSkills, saveSkill, saveAllSkills } from "@/lib/store";
+import { loadSkills, saveSkill, saveAllSkills, deleteSkill as deleteSkillIdb } from "@/lib/store";
+import {
+  fetchAllSkills,
+  saveSkillToServer,
+  deleteSkillFromServer,
+  batchSaveSkills,
+} from "@/lib/store/api-client";
 import SkillNode from "./SkillNode";
 import DetailPanel from "./DetailPanel";
 
@@ -27,21 +33,34 @@ const V_SPACING = 160;
 function computeDepths(skills: Skill[]): Map<string, number> {
   const depths = new Map<string, number>();
   const byId = new Map(skills.map((s) => [s.id, s]));
+  const visiting = new Set<string>();
 
   function getDepth(id: string): number {
     if (depths.has(id)) return depths.get(id)!;
+    if (visiting.has(id)) return 0; // cycle detected
+    visiting.add(id);
     const skill = byId.get(id);
     if (!skill || !skill.parentId) {
       depths.set(id, 0);
+      visiting.delete(id);
       return 0;
     }
     const d = getDepth(skill.parentId) + 1;
     depths.set(id, d);
+    visiting.delete(id);
     return d;
   }
 
   for (const s of skills) getDepth(s.id);
   return depths;
+}
+
+function recalcVersions(skills: Skill[]): Skill[] {
+  const depths = computeDepths(skills);
+  return skills.map((s) => ({
+    ...s,
+    version: (depths.get(s.id) ?? 0) + 1,
+  }));
 }
 
 function layoutNodes(skills: Skill[]): Node[] {
@@ -115,11 +134,11 @@ function deriveEdges(skills: Skill[]): Edge[] {
     }));
 }
 
-function makeSkill(parentId: string | null, version: number): Skill {
+function makeSkill(parentId: string | null): Skill {
   return {
     id: uuid(),
-    name: `Skill ${version}`,
-    version,
+    name: "Skill",
+    version: 1, // placeholder — recalcVersions will fix it
     parentId,
     prompt: "",
     model: "claude-sonnet-4-6",
@@ -134,49 +153,130 @@ export default function GraphCanvas() {
   const [nodes, setNodes, onNodesChange] = useNodesState([] as Node[]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([] as Edge[]);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
-  const [counter, setCounter] = useState(1);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    loadSkills().then((stored) => {
-      if (stored.length > 0) {
-        const migrated = stored.map((s) => ({
-          ...s,
-          files: s.files ?? [],
-        }));
-        setSkills(migrated);
-        setNodes(layoutNodes(migrated));
-        setEdges(deriveEdges(migrated));
-        const maxVersion = Math.max(...migrated.map((s) => s.version));
-        setCounter(maxVersion + 1);
-      }
-      setLoaded(true);
-    });
+    fetchAllSkills()
+      .then((serverSkills) => {
+        if (serverSkills.length > 0) {
+          const versioned = recalcVersions(
+            serverSkills.map((s) => ({ ...s, files: s.files ?? [] })),
+          );
+          setSkills(versioned);
+          setNodes(layoutNodes(versioned));
+          setEdges(deriveEdges(versioned));
+          // Sync to IndexedDB cache
+          saveAllSkills(versioned);
+        }
+        setLoaded(true);
+      })
+      .catch(() => {
+        // Fallback to IndexedDB
+        loadSkills().then((stored) => {
+          if (stored.length > 0) {
+            const versioned = recalcVersions(
+              stored.map((s) => ({ ...s, files: s.files ?? [] })),
+            );
+            setSkills(versioned);
+            setNodes(layoutNodes(versioned));
+            setEdges(deriveEdges(versioned));
+          }
+          setLoaded(true);
+        });
+      });
   }, [setNodes, setEdges]);
 
   const syncGraph = useCallback(
     (nextSkills: Skill[]) => {
-      setSkills(nextSkills);
-      setNodes(layoutNodes(nextSkills));
-      setEdges(deriveEdges(nextSkills));
+      const versioned = recalcVersions(nextSkills);
+      setSkills(versioned);
+      setNodes(layoutNodes(versioned));
+      setEdges(deriveEdges(versioned));
+      return versioned;
     },
     [setNodes, setEdges],
   );
 
   const addSkill = useCallback(() => {
     const parentId = selectedNodeId;
-    const newSkill = makeSkill(parentId, counter);
-    setCounter((c) => c + 1);
+    const newSkill = makeSkill(parentId);
     const next = [...skills, newSkill];
-    syncGraph(next);
-    saveSkill(newSkill);
-  }, [skills, selectedNodeId, counter, syncGraph]);
+    const versioned = syncGraph(next);
+    const savedSkill = versioned.find((s) => s.id === newSkill.id)!;
+    saveSkillToServer(savedSkill).catch(() => {});
+    saveSkill(savedSkill);
+  }, [skills, selectedNodeId, syncGraph]);
 
   const updateSkill = useCallback(
     (updated: Skill) => {
       const next = skills.map((s) => (s.id === updated.id ? updated : s));
-      syncGraph(next);
-      saveSkill(updated);
+      const versioned = syncGraph(next);
+      const savedSkill = versioned.find((s) => s.id === updated.id)!;
+      saveSkillToServer(savedSkill).catch(() => {});
+      saveSkill(savedSkill);
+    },
+    [skills, syncGraph],
+  );
+
+  const deleteSkillNode = useCallback(
+    async (id: string, mode: "subtree" | "reparent") => {
+      try {
+        const result = await deleteSkillFromServer(id, mode);
+
+        // Remove deleted skills from local state
+        let next = skills.filter((s) => !result.deleted.includes(s.id));
+
+        // Apply reparenting if applicable
+        if (result.reparented && result.reparented.length > 0) {
+          const target = skills.find((s) => s.id === id);
+          const newParentId = target?.parentId ?? null;
+          next = next.map((s) =>
+            result.reparented!.includes(s.id)
+              ? { ...s, parentId: newParentId }
+              : s,
+          );
+        }
+
+        const versioned = syncGraph(next);
+
+        // Sync to IndexedDB + server
+        for (const delId of result.deleted) {
+          deleteSkillIdb(delId);
+        }
+        saveAllSkills(versioned);
+        batchSaveSkills(versioned).catch(() => {});
+
+        setSelectedNodeId(null);
+      } catch {
+        // Fallback: do it locally
+        if (mode === "subtree") {
+          const toDelete = new Set<string>();
+          toDelete.add(id);
+          const findDescendants = (parentId: string) => {
+            for (const s of skills) {
+              if (s.parentId === parentId) {
+                toDelete.add(s.id);
+                findDescendants(s.id);
+              }
+            }
+          };
+          findDescendants(id);
+          const next = skills.filter((s) => !toDelete.has(s.id));
+          const versioned = syncGraph(next);
+          saveAllSkills(versioned);
+          for (const delId of toDelete) deleteSkillIdb(delId);
+        } else {
+          const target = skills.find((s) => s.id === id);
+          const newParentId = target?.parentId ?? null;
+          const next = skills
+            .filter((s) => s.id !== id)
+            .map((s) => (s.parentId === id ? { ...s, parentId: newParentId } : s));
+          const versioned = syncGraph(next);
+          saveAllSkills(versioned);
+          deleteSkillIdb(id);
+        }
+        setSelectedNodeId(null);
+      }
     },
     [skills, syncGraph],
   );
@@ -204,10 +304,9 @@ export default function GraphCanvas() {
           const next = skills.map((s) =>
             s.id === updated.id ? updated : s,
           );
-          setSkills(next);
-          saveSkill(updated);
-          // Re-layout after connection to update depths
-          setTimeout(() => syncGraph(next), 50);
+          const versioned = syncGraph(next);
+          saveAllSkills(versioned);
+          batchSaveSkills(versioned).catch(() => {});
         }
       }
     },
@@ -266,6 +365,7 @@ export default function GraphCanvas() {
           skill={selectedSkill}
           onClose={() => setSelectedNodeId(null)}
           onUpdateSkill={updateSkill}
+          onDeleteSkill={deleteSkillNode}
         />
       )}
     </div>

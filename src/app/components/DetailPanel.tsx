@@ -9,6 +9,7 @@ interface DetailPanelProps {
   skill: Skill;
   onClose: () => void;
   onUpdateSkill: (skill: Skill) => void;
+  onDeleteSkill: (id: string, mode: "subtree" | "reparent") => void;
 }
 
 function FileTypeIcon({ type }: { type: SkillFile["type"] }) {
@@ -78,9 +79,11 @@ export default function DetailPanel({
   skill,
   onClose,
   onUpdateSkill,
+  onDeleteSkill,
 }: DetailPanelProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   const handleFiles = useCallback(
     (fileList: FileList) => {
@@ -138,10 +141,45 @@ export default function DetailPanel({
             <span className="detail-panel-model">{skill.model}</span>
           </div>
         </div>
-        <button className="detail-panel-close" onClick={onClose}>
-          &times;
-        </button>
+        <div className="detail-panel-actions">
+          <button
+            className="detail-panel-delete"
+            onClick={() => setConfirmDelete(!confirmDelete)}
+            title="Delete skill"
+          >
+            &#128465;
+          </button>
+          <button className="detail-panel-close" onClick={onClose}>
+            &times;
+          </button>
+        </div>
       </div>
+
+      {confirmDelete && (
+        <div className="delete-confirm">
+          <span className="delete-confirm-label">Delete this skill?</span>
+          <div className="delete-confirm-buttons">
+            <button
+              className="delete-confirm-btn delete-subtree"
+              onClick={() => onDeleteSkill(skill.id, "subtree")}
+            >
+              Delete subtree
+            </button>
+            <button
+              className="delete-confirm-btn delete-reparent"
+              onClick={() => onDeleteSkill(skill.id, "reparent")}
+            >
+              Delete node only
+            </button>
+            <button
+              className="delete-confirm-btn delete-cancel"
+              onClick={() => setConfirmDelete(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
 
       {skill.score !== null && (
         <div className="detail-panel-score">
