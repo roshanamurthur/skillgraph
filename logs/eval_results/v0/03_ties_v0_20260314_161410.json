@@ -1,0 +1,5565 @@
+{
+  "test_input": "03_ties.csv",
+  "skill_version": "v0",
+  "timestamp": "20260314_161410",
+  "execution_trace": "---\n\n**Output written:** `/Users/lucaschen/skillgraph/outputs/v0/03_ties_output.xlsx`  \n**Sheet names:** `Student Stats`, `Assessment Stats`, `Z-Scores`, `Overall`\n",
+  "overall": {
+    "fraction": "339/582",
+    "score": 0.58,
+    "passed": 339,
+    "total": 582
+  },
+  "categories": {
+    "student_calculations": {
+      "fraction": "185/185",
+      "score": 1.0,
+      "passed": 185,
+      "total": 185,
+      "passed_checks": [
+        {
+          "check": "student.S001.simple_average",
+          "actual": 82
+        },
+        {
+          "check": "student.S001.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S001.highest_score",
+          "actual": 82
+        },
+        {
+          "check": "student.S001.lowest_score",
+          "actual": 82
+        },
+        {
+          "check": "student.S001.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S002.simple_average",
+          "actual": 82
+        },
+        {
+          "check": "student.S002.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S002.highest_score",
+          "actual": 82
+        },
+        {
+          "check": "student.S002.lowest_score",
+          "actual": 82
+        },
+        {
+          "check": "student.S002.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S003.simple_average",
+          "actual": 82
+        },
+        {
+          "check": "student.S003.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S003.highest_score",
+          "actual": 82
+        },
+        {
+          "check": "student.S003.lowest_score",
+          "actual": 82
+        },
+        {
+          "check": "student.S003.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S004.simple_average",
+          "actual": 75
+        },
+        {
+          "check": "student.S004.weighted_average",
+          "actual": 75
+        },
+        {
+          "check": "student.S004.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S004.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S004.highest_score",
+          "actual": 75
+        },
+        {
+          "check": "student.S004.lowest_score",
+          "actual": 75
+        },
+        {
+          "check": "student.S004.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S005.simple_average",
+          "actual": 75
+        },
+        {
+          "check": "student.S005.weighted_average",
+          "actual": 75
+        },
+        {
+          "check": "student.S005.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S005.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S005.highest_score",
+          "actual": 75
+        },
+        {
+          "check": "student.S005.lowest_score",
+          "actual": 75
+        },
+        {
+          "check": "student.S005.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S006.simple_average",
+          "actual": 75
+        },
+        {
+          "check": "student.S006.weighted_average",
+          "actual": 75
+        },
+        {
+          "check": "student.S006.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S006.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S006.highest_score",
+          "actual": 75
+        },
+        {
+          "check": "student.S006.lowest_score",
+          "actual": 75
+        },
+        {
+          "check": "student.S006.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S007.simple_average",
+          "actual": 90
+        },
+        {
+          "check": "student.S007.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S007.highest_score",
+          "actual": 90
+        },
+        {
+          "check": "student.S007.lowest_score",
+          "actual": 90
+        },
+        {
+          "check": "student.S007.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S008.simple_average",
+          "actual": 90
+        },
+        {
+          "check": "student.S008.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S008.highest_score",
+          "actual": 90
+        },
+        {
+          "check": "student.S008.lowest_score",
+          "actual": 90
+        },
+        {
+          "check": "student.S008.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S009.simple_average",
+          "actual": 68
+        },
+        {
+          "check": "student.S009.weighted_average",
+          "actual": 68
+        },
+        {
+          "check": "student.S009.letter_grade",
+          "actual": "D+"
+        },
+        {
+          "check": "student.S009.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S009.highest_score",
+          "actual": 68
+        },
+        {
+          "check": "student.S009.lowest_score",
+          "actual": 68
+        },
+        {
+          "check": "student.S009.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S010.simple_average",
+          "actual": 68
+        },
+        {
+          "check": "student.S010.weighted_average",
+          "actual": 68
+        },
+        {
+          "check": "student.S010.letter_grade",
+          "actual": "D+"
+        },
+        {
+          "check": "student.S010.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S010.highest_score",
+          "actual": 68
+        },
+        {
+          "check": "student.S010.lowest_score",
+          "actual": 68
+        },
+        {
+          "check": "student.S010.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S011.simple_average",
+          "actual": 68
+        },
+        {
+          "check": "student.S011.weighted_average",
+          "actual": 68
+        },
+        {
+          "check": "student.S011.letter_grade",
+          "actual": "D+"
+        },
+        {
+          "check": "student.S011.slope",
+          "actual": 0
+        },
+        {
+          "check": "student.S011.highest_score",
+          "actual": 68
+        },
+        {
+          "check": "student.S011.lowest_score",
+          "actual": 68
+        },
+        {
+          "check": "student.S011.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S012.simple_average",
+          "actual": 69.9
+        },
+        {
+          "check": "student.S012.slope",
+          "actual": -0.127273
+        },
+        {
+          "check": "student.S012.std_dev",
+          "actual": 8.812239
+        },
+        {
+          "check": "student.S012.highest_score",
+          "actual": 89
+        },
+        {
+          "check": "student.S012.lowest_score",
+          "actual": 60
+        },
+        {
+          "check": "student.S012.rank",
+          "actual": 16
+        },
+        {
+          "check": "student.S012.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S013.simple_average",
+          "actual": 73.5
+        },
+        {
+          "check": "student.S013.weighted_average",
+          "actual": 73.166667
+        },
+        {
+          "check": "student.S013.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S013.slope",
+          "actual": -0.187879
+        },
+        {
+          "check": "student.S013.std_dev",
+          "actual": 12.518875
+        },
+        {
+          "check": "student.S013.highest_score",
+          "actual": 92
+        },
+        {
+          "check": "student.S013.lowest_score",
+          "actual": 50
+        },
+        {
+          "check": "student.S013.rank",
+          "actual": 13
+        },
+        {
+          "check": "student.S013.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S014.simple_average",
+          "actual": 73.9
+        },
+        {
+          "check": "student.S014.weighted_average",
+          "actual": 73.866667
+        },
+        {
+          "check": "student.S014.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S014.slope",
+          "actual": -0.915152
+        },
+        {
+          "check": "student.S014.std_dev",
+          "actual": 11.209619
+        },
+        {
+          "check": "student.S014.highest_score",
+          "actual": 91
+        },
+        {
+          "check": "student.S014.lowest_score",
+          "actual": 57
+        },
+        {
+          "check": "student.S014.rank",
+          "actual": 10
+        },
+        {
+          "check": "student.S014.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S015.simple_average",
+          "actual": 74.4
+        },
+        {
+          "check": "student.S015.weighted_average",
+          "actual": 73.616667
+        },
+        {
+          "check": "student.S015.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S015.slope",
+          "actual": -1.236364
+        },
+        {
+          "check": "student.S015.std_dev",
+          "actual": 10.383748
+        },
+        {
+          "check": "student.S015.highest_score",
+          "actual": 88
+        },
+        {
+          "check": "student.S015.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "student.S015.rank",
+          "actual": 11
+        },
+        {
+          "check": "student.S015.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S016.simple_average",
+          "actual": 70.7
+        },
+        {
+          "check": "student.S016.slope",
+          "actual": 1.630303
+        },
+        {
+          "check": "student.S016.std_dev",
+          "actual": 8.433399
+        },
+        {
+          "check": "student.S016.highest_score",
+          "actual": 79
+        },
+        {
+          "check": "student.S016.lowest_score",
+          "actual": 54
+        },
+        {
+          "check": "student.S016.rank",
+          "actual": 15
+        },
+        {
+          "check": "student.S016.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S017.simple_average",
+          "actual": 71.4
+        },
+        {
+          "check": "student.S017.weighted_average",
+          "actual": 73.283333
+        },
+        {
+          "check": "student.S017.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S017.slope",
+          "actual": 1.115152
+        },
+        {
+          "check": "student.S017.std_dev",
+          "actual": 9.879271
+        },
+        {
+          "check": "student.S017.highest_score",
+          "actual": 84
+        },
+        {
+          "check": "student.S017.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "student.S017.rank",
+          "actual": 12
+        },
+        {
+          "check": "student.S017.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S018.simple_average",
+          "actual": 74.4
+        },
+        {
+          "check": "student.S018.slope",
+          "actual": -0.824242
+        },
+        {
+          "check": "student.S018.std_dev",
+          "actual": 8.4879
+        },
+        {
+          "check": "student.S018.highest_score",
+          "actual": 86
+        },
+        {
+          "check": "student.S018.lowest_score",
+          "actual": 63
+        },
+        {
+          "check": "student.S018.rank",
+          "actual": 14
+        },
+        {
+          "check": "student.S018.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S019.simple_average",
+          "actual": 68.5
+        },
+        {
+          "check": "student.S019.weighted_average",
+          "actual": 68.5
+        },
+        {
+          "check": "student.S019.letter_grade",
+          "actual": "D+"
+        },
+        {
+          "check": "student.S019.slope",
+          "actual": -0.393939
+        },
+        {
+          "check": "student.S019.std_dev",
+          "actual": 10.047111
+        },
+        {
+          "check": "student.S019.highest_score",
+          "actual": 85
+        },
+        {
+          "check": "student.S019.lowest_score",
+          "actual": 53
+        },
+        {
+          "check": "student.S019.rank",
+          "actual": 17
+        },
+        {
+          "check": "student.S019.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S020.simple_average",
+          "actual": 74.8
+        },
+        {
+          "check": "student.S020.slope",
+          "actual": 1.624242
+        },
+        {
+          "check": "student.S020.std_dev",
+          "actual": 9.402127
+        },
+        {
+          "check": "student.S020.highest_score",
+          "actual": 87
+        },
+        {
+          "check": "student.S020.lowest_score",
+          "actual": 61
+        },
+        {
+          "check": "student.S020.rank",
+          "actual": 3
+        },
+        {
+          "check": "student.S020.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S021.simple_average",
+          "actual": 75.3
+        },
+        {
+          "check": "student.S021.weighted_average",
+          "actual": 75.483333
+        },
+        {
+          "check": "student.S021.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S021.slope",
+          "actual": -0.309091
+        },
+        {
+          "check": "student.S021.std_dev",
+          "actual": 8.794569
+        },
+        {
+          "check": "student.S021.highest_score",
+          "actual": 93
+        },
+        {
+          "check": "student.S021.lowest_score",
+          "actual": 65
+        },
+        {
+          "check": "student.S021.rank",
+          "actual": 6
+        },
+        {
+          "check": "student.S021.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S022.simple_average",
+          "actual": 75.7
+        },
+        {
+          "check": "student.S022.weighted_average",
+          "actual": 75.933333
+        },
+        {
+          "check": "student.S022.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S022.slope",
+          "actual": 0.769697
+        },
+        {
+          "check": "student.S022.std_dev",
+          "actual": 7.273239
+        },
+        {
+          "check": "student.S022.highest_score",
+          "actual": 87
+        },
+        {
+          "check": "student.S022.lowest_score",
+          "actual": 66
+        },
+        {
+          "check": "student.S022.rank",
+          "actual": 4
+        },
+        {
+          "check": "student.S022.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S023.simple_average",
+          "actual": 74.4
+        },
+        {
+          "check": "student.S023.weighted_average",
+          "actual": 73.95
+        },
+        {
+          "check": "student.S023.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S023.slope",
+          "actual": 0.266667
+        },
+        {
+          "check": "student.S023.std_dev",
+          "actual": 8.435375
+        },
+        {
+          "check": "student.S023.highest_score",
+          "actual": 86
+        },
+        {
+          "check": "student.S023.lowest_score",
+          "actual": 59
+        },
+        {
+          "check": "student.S023.rank",
+          "actual": 9
+        },
+        {
+          "check": "student.S023.above_class_average",
+          "actual": false
+        },
+        {
+          "check": "student.S024.simple_average",
+          "actual": 75.8
+        },
+        {
+          "check": "student.S024.weighted_average",
+          "actual": 75.65
+        },
+        {
+          "check": "student.S024.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S024.slope",
+          "actual": 0.460606
+        },
+        {
+          "check": "student.S024.std_dev",
+          "actual": 11.735985
+        },
+        {
+          "check": "student.S024.highest_score",
+          "actual": 95
+        },
+        {
+          "check": "student.S024.lowest_score",
+          "actual": 61
+        },
+        {
+          "check": "student.S024.rank",
+          "actual": 5
+        },
+        {
+          "check": "student.S024.above_class_average",
+          "actual": true
+        },
+        {
+          "check": "student.S025.simple_average",
+          "actual": 74.8
+        },
+        {
+          "check": "student.S025.weighted_average",
+          "actual": 74.9
+        },
+        {
+          "check": "student.S025.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S025.slope",
+          "actual": 0.145455
+        },
+        {
+          "check": "student.S025.std_dev",
+          "actual": 13.180794
+        },
+        {
+          "check": "student.S025.highest_score",
+          "actual": 93
+        },
+        {
+          "check": "student.S025.lowest_score",
+          "actual": 50
+        },
+        {
+          "check": "student.S025.rank",
+          "actual": 8
+        },
+        {
+          "check": "student.S025.above_class_average",
+          "actual": false
+        }
+      ],
+      "failed_checks": []
+    },
+    "assessment_stats": {
+      "fraction": "40/40",
+      "score": 1.0,
+      "passed": 40,
+      "total": 40,
+      "passed_checks": [
+        {
+          "check": "assessment.quiz_1.class_average",
+          "actual": 72.72
+        },
+        {
+          "check": "assessment.quiz_1.std_dev",
+          "actual": 8.942036
+        },
+        {
+          "check": "assessment.quiz_1.highest_score",
+          "actual": 90
+        },
+        {
+          "check": "assessment.quiz_1.lowest_score",
+          "actual": 50
+        },
+        {
+          "check": "assessment.quiz_2.class_average",
+          "actual": 76.08
+        },
+        {
+          "check": "assessment.quiz_2.std_dev",
+          "actual": 10.455939
+        },
+        {
+          "check": "assessment.quiz_2.highest_score",
+          "actual": 93
+        },
+        {
+          "check": "assessment.quiz_2.lowest_score",
+          "actual": 54
+        },
+        {
+          "check": "assessment.quiz_3.class_average",
+          "actual": 75.56
+        },
+        {
+          "check": "assessment.quiz_3.std_dev",
+          "actual": 9.687105
+        },
+        {
+          "check": "assessment.quiz_3.highest_score",
+          "actual": 90
+        },
+        {
+          "check": "assessment.quiz_3.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "assessment.quiz_4.class_average",
+          "actual": 75.52
+        },
+        {
+          "check": "assessment.quiz_4.std_dev",
+          "actual": 8.926179
+        },
+        {
+          "check": "assessment.quiz_4.highest_score",
+          "actual": 90
+        },
+        {
+          "check": "assessment.quiz_4.lowest_score",
+          "actual": 58
+        },
+        {
+          "check": "assessment.test_1.class_average",
+          "actual": 76.64
+        },
+        {
+          "check": "assessment.test_1.std_dev",
+          "actual": 9.209958
+        },
+        {
+          "check": "assessment.test_1.highest_score",
+          "actual": 92
+        },
+        {
+          "check": "assessment.test_1.lowest_score",
+          "actual": 61
+        },
+        {
+          "check": "assessment.test_2.class_average",
+          "actual": 76.84
+        },
+        {
+          "check": "assessment.test_2.std_dev",
+          "actual": 10.286237
+        },
+        {
+          "check": "assessment.test_2.highest_score",
+          "actual": 95
+        },
+        {
+          "check": "assessment.test_2.lowest_score",
+          "actual": 59
+        },
+        {
+          "check": "assessment.test_3.class_average",
+          "actual": 72.6
+        },
+        {
+          "check": "assessment.test_3.std_dev",
+          "actual": 8.793937
+        },
+        {
+          "check": "assessment.test_3.highest_score",
+          "actual": 90
+        },
+        {
+          "check": "assessment.test_3.lowest_score",
+          "actual": 50
+        },
+        {
+          "check": "assessment.test_4.class_average",
+          "actual": 76.68
+        },
+        {
+          "check": "assessment.test_4.std_dev",
+          "actual": 7.409004
+        },
+        {
+          "check": "assessment.test_4.highest_score",
+          "actual": 90
+        },
+        {
+          "check": "assessment.test_4.lowest_score",
+          "actual": 63
+        },
+        {
+          "check": "assessment.test_5.class_average",
+          "actual": 74.96
+        },
+        {
+          "check": "assessment.test_5.std_dev",
+          "actual": 9.951884
+        },
+        {
+          "check": "assessment.test_5.highest_score",
+          "actual": 90
+        },
+        {
+          "check": "assessment.test_5.lowest_score",
+          "actual": 53
+        },
+        {
+          "check": "assessment.test_6.class_average",
+          "actual": 75.4
+        },
+        {
+          "check": "assessment.test_6.std_dev",
+          "actual": 8.698659
+        },
+        {
+          "check": "assessment.test_6.highest_score",
+          "actual": 90
+        },
+        {
+          "check": "assessment.test_6.lowest_score",
+          "actual": 57
+        }
+      ],
+      "failed_checks": []
+    },
+    "overall_stats": {
+      "fraction": "17/17",
+      "score": 1.0,
+      "passed": 17,
+      "total": 17,
+      "passed_checks": [
+        {
+          "check": "overall.class_weighted_average",
+          "actual": 75.41
+        },
+        {
+          "check": "overall.class_median",
+          "actual": 74.9
+        },
+        {
+          "check": "overall.most_improved_student",
+          "actual": "S016"
+        },
+        {
+          "check": "overall.most_consistent_student",
+          "actual": "S007"
+        },
+        {
+          "check": "overall.grade_dist.A+",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.A",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.A-",
+          "actual": 2
+        },
+        {
+          "check": "overall.grade_dist.B+",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.B",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.B-",
+          "actual": 3
+        },
+        {
+          "check": "overall.grade_dist.C+",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.C",
+          "actual": 15
+        },
+        {
+          "check": "overall.grade_dist.C-",
+          "actual": 1
+        },
+        {
+          "check": "overall.grade_dist.D+",
+          "actual": 4
+        },
+        {
+          "check": "overall.grade_dist.D",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.D-",
+          "actual": 0
+        },
+        {
+          "check": "overall.grade_dist.F",
+          "actual": 0
+        }
+      ],
+      "failed_checks": []
+    },
+    "advanced_metrics": {
+      "fraction": "53/276",
+      "score": 0.19,
+      "passed": 53,
+      "total": 276,
+      "passed_checks": [
+        {
+          "check": "student.S004.z_score",
+          "actual": -0.069612
+        },
+        {
+          "check": "student.S005.z_score",
+          "actual": -0.069612
+        },
+        {
+          "check": "student.S006.z_score",
+          "actual": -0.069612
+        },
+        {
+          "check": "student.S013.z_score",
+          "actual": -0.380887
+        },
+        {
+          "check": "student.S015.percentile",
+          "actual": 37.5
+        },
+        {
+          "check": "student.S019.percentile",
+          "actual": 12.5
+        },
+        {
+          "check": "student.S022.percentile",
+          "actual": 75
+        },
+        {
+          "check": "student.S024.z_score",
+          "actual": 0.040749
+        },
+        {
+          "check": "student.S025.percentile",
+          "actual": 50
+        },
+        {
+          "check": "assessment_z.quiz_1.S012",
+          "actual": -0.639675
+        },
+        {
+          "check": "assessment_z.quiz_1.S016",
+          "actual": -0.080519
+        },
+        {
+          "check": "assessment_z.quiz_1.S017",
+          "actual": -1.310664
+        },
+        {
+          "check": "assessment_z.quiz_1.S018",
+          "actual": -0.639675
+        },
+        {
+          "check": "assessment_z.quiz_1.S019",
+          "actual": 0.59047
+        },
+        {
+          "check": "assessment_z.quiz_1.S025",
+          "actual": -2.540809
+        },
+        {
+          "check": "assessment_z.quiz_2.S019",
+          "actual": -1.729161
+        },
+        {
+          "check": "assessment_z.quiz_2.S020",
+          "actual": -0.390209
+        },
+        {
+          "check": "assessment_z.quiz_2.S025",
+          "actual": 0.470546
+        },
+        {
+          "check": "assessment_z.quiz_3.S007",
+          "actual": 1.490641
+        },
+        {
+          "check": "assessment_z.quiz_3.S008",
+          "actual": 1.490641
+        },
+        {
+          "check": "assessment_z.quiz_3.S009",
+          "actual": -0.780419
+        },
+        {
+          "check": "assessment_z.quiz_3.S010",
+          "actual": -0.780419
+        },
+        {
+          "check": "assessment_z.quiz_3.S011",
+          "actual": -0.780419
+        },
+        {
+          "check": "assessment_z.quiz_3.S014",
+          "actual": -1.709489
+        },
+        {
+          "check": "assessment_z.quiz_3.S019",
+          "actual": -1.090109
+        },
+        {
+          "check": "assessment_z.quiz_3.S025",
+          "actual": 1.490641
+        },
+        {
+          "check": "assessment_z.quiz_4.S015",
+          "actual": -1.290586
+        },
+        {
+          "check": "assessment_z.quiz_4.S021",
+          "actual": -0.730436
+        },
+        {
+          "check": "assessment_z.test_1.S007",
+          "actual": 1.450604
+        },
+        {
+          "check": "assessment_z.test_1.S008",
+          "actual": 1.450604
+        },
+        {
+          "check": "assessment_z.test_1.S014",
+          "actual": 1.559182
+        },
+        {
+          "check": "assessment_z.test_1.S021",
+          "actual": 0.039088
+        },
+        {
+          "check": "assessment_z.test_1.S025",
+          "actual": -0.06949
+        },
+        {
+          "check": "assessment_z.test_2.S007",
+          "actual": 1.279379
+        },
+        {
+          "check": "assessment_z.test_2.S008",
+          "actual": 1.279379
+        },
+        {
+          "check": "assessment_z.test_2.S009",
+          "actual": -0.859401
+        },
+        {
+          "check": "assessment_z.test_2.S010",
+          "actual": -0.859401
+        },
+        {
+          "check": "assessment_z.test_2.S011",
+          "actual": -0.859401
+        },
+        {
+          "check": "assessment_z.test_2.S022",
+          "actual": -0.859401
+        },
+        {
+          "check": "assessment_z.test_3.S013",
+          "actual": -2.569952
+        },
+        {
+          "check": "assessment_z.test_3.S015",
+          "actual": 0.500345
+        },
+        {
+          "check": "assessment_z.test_3.S017",
+          "actual": -0.750517
+        },
+        {
+          "check": "assessment_z.test_3.S025",
+          "actual": -1.319091
+        },
+        {
+          "check": "assessment_z.test_5.S009",
+          "actual": -0.699365
+        },
+        {
+          "check": "assessment_z.test_5.S010",
+          "actual": -0.699365
+        },
+        {
+          "check": "assessment_z.test_5.S011",
+          "actual": -0.699365
+        },
+        {
+          "check": "assessment_z.test_5.S020",
+          "actual": 1.209821
+        },
+        {
+          "check": "assessment_z.test_5.S025",
+          "actual": -1.000815
+        },
+        {
+          "check": "assessment_z.test_6.S009",
+          "actual": -0.850706
+        },
+        {
+          "check": "assessment_z.test_6.S010",
+          "actual": -0.850706
+        },
+        {
+          "check": "assessment_z.test_6.S011",
+          "actual": -0.850706
+        },
+        {
+          "check": "assessment_z.test_6.S013",
+          "actual": -0.390865
+        },
+        {
+          "check": "assessment_z.test_6.S021",
+          "actual": -1.080626
+        }
+      ],
+      "failed_checks": [
+        {
+          "check": "student.S009.z_score",
+          "passed": false,
+          "actual": -1.258117,
+          "expected": -1.26,
+          "delta": 0.001883,
+          "description": "S009 z_score: got -1.258117, expected -1.26 \u2014 delta 0.001883 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U10",
+          "sheet": "Student Stats",
+          "row": 10,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S009"
+        },
+        {
+          "check": "student.S010.z_score",
+          "passed": false,
+          "actual": -1.258117,
+          "expected": -1.26,
+          "delta": 0.001883,
+          "description": "S010 z_score: got -1.258117, expected -1.26 \u2014 delta 0.001883 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U11",
+          "sheet": "Student Stats",
+          "row": 11,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S010"
+        },
+        {
+          "check": "student.S011.z_score",
+          "passed": false,
+          "actual": -1.258117,
+          "expected": -1.26,
+          "delta": 0.001883,
+          "description": "S011 z_score: got -1.258117, expected -1.26 \u2014 delta 0.001883 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U12",
+          "sheet": "Student Stats",
+          "row": 12,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S011"
+        },
+        {
+          "check": "student.S013.percentile",
+          "passed": false,
+          "actual": 29.166667,
+          "expected": 29.2,
+          "delta": 0.033333,
+          "description": "S013 percentile: got 29.166667, expected 29.2 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T14",
+          "sheet": "Student Stats",
+          "row": 14,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S013"
+        },
+        {
+          "check": "student.S014.percentile",
+          "passed": false,
+          "actual": 41.666667,
+          "expected": 41.7,
+          "delta": 0.033333,
+          "description": "S014 percentile: got 41.666667, expected 41.7 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T15",
+          "sheet": "Student Stats",
+          "row": 15,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S014"
+        },
+        {
+          "check": "student.S014.z_score",
+          "passed": false,
+          "actual": -0.262037,
+          "expected": -0.26,
+          "delta": 0.002037,
+          "description": "S014 z_score: got -0.262037, expected -0.26 \u2014 delta 0.002037 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U15",
+          "sheet": "Student Stats",
+          "row": 15,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S014"
+        },
+        {
+          "check": "student.S015.z_score",
+          "passed": false,
+          "actual": -0.304484,
+          "expected": -0.3,
+          "delta": 0.004484,
+          "description": "S015 z_score: got -0.304484, expected -0.3 \u2014 delta 0.004484 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U16",
+          "sheet": "Student Stats",
+          "row": 16,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S015"
+        },
+        {
+          "check": "student.S017.percentile",
+          "passed": false,
+          "actual": 33.333333,
+          "expected": 33.3,
+          "delta": 0.033333,
+          "description": "S017 percentile: got 33.333333, expected 33.3 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T18",
+          "sheet": "Student Stats",
+          "row": 18,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S017"
+        },
+        {
+          "check": "student.S017.z_score",
+          "passed": false,
+          "actual": -0.361079,
+          "expected": -0.36,
+          "delta": 0.001079,
+          "description": "S017 z_score: got -0.361079, expected -0.36 \u2014 delta 0.001079 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U18",
+          "sheet": "Student Stats",
+          "row": 18,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S017"
+        },
+        {
+          "check": "student.S019.z_score",
+          "passed": false,
+          "actual": -1.173224,
+          "expected": -1.17,
+          "delta": 0.003224,
+          "description": "S019 z_score: got -1.173224, expected -1.17 \u2014 delta 0.003224 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U20",
+          "sheet": "Student Stats",
+          "row": 20,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S019"
+        },
+        {
+          "check": "student.S021.percentile",
+          "passed": false,
+          "actual": 66.666667,
+          "expected": 66.7,
+          "delta": 0.033333,
+          "description": "S021 percentile: got 66.666667, expected 66.7 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T22",
+          "sheet": "Student Stats",
+          "row": 22,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S021"
+        },
+        {
+          "check": "student.S021.z_score",
+          "passed": false,
+          "actual": 0.012451,
+          "expected": 0.01,
+          "delta": 0.002451,
+          "description": "S021 z_score: got 0.012451, expected 0.01 \u2014 delta 0.002451 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U22",
+          "sheet": "Student Stats",
+          "row": 22,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S021"
+        },
+        {
+          "check": "student.S022.z_score",
+          "passed": false,
+          "actual": 0.088855,
+          "expected": 0.09,
+          "delta": 0.001145,
+          "description": "S022 z_score: got 0.088855, expected 0.09 \u2014 delta 0.001145 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U23",
+          "sheet": "Student Stats",
+          "row": 23,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S022"
+        },
+        {
+          "check": "student.S023.percentile",
+          "passed": false,
+          "actual": 45.833333,
+          "expected": 45.8,
+          "delta": 0.033333,
+          "description": "S023 percentile: got 45.833333, expected 45.8 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T24",
+          "sheet": "Student Stats",
+          "row": 24,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S023"
+        },
+        {
+          "check": "student.S023.z_score",
+          "passed": false,
+          "actual": -0.247888,
+          "expected": -0.25,
+          "delta": 0.002112,
+          "description": "S023 z_score: got -0.247888, expected -0.25 \u2014 delta 0.002112 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U24",
+          "sheet": "Student Stats",
+          "row": 24,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S023"
+        },
+        {
+          "check": "student.S024.percentile",
+          "passed": false,
+          "actual": 70.833333,
+          "expected": 70.8,
+          "delta": 0.033333,
+          "description": "S024 percentile: got 70.833333, expected 70.8 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T25",
+          "sheet": "Student Stats",
+          "row": 25,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S024"
+        },
+        {
+          "check": "student.S025.z_score",
+          "passed": false,
+          "actual": -0.086591,
+          "expected": -0.09,
+          "delta": 0.003409,
+          "description": "S025 z_score: got -0.086591, expected -0.09 \u2014 delta 0.003409 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U26",
+          "sheet": "Student Stats",
+          "row": 26,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S025"
+        },
+        {
+          "check": "assessment_z.quiz_1.S001",
+          "passed": false,
+          "actual": 1.037795,
+          "expected": 1.04,
+          "delta": 0.002205,
+          "description": "quiz_1 z_score for S001: got 1.037795, expected 1.04 \u2014 delta 0.002205 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S001/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S002",
+          "passed": false,
+          "actual": 1.037795,
+          "expected": 1.04,
+          "delta": 0.002205,
+          "description": "quiz_1 z_score for S002: got 1.037795, expected 1.04 \u2014 delta 0.002205 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S002/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S003",
+          "passed": false,
+          "actual": 1.037795,
+          "expected": 1.04,
+          "delta": 0.002205,
+          "description": "quiz_1 z_score for S003: got 1.037795, expected 1.04 \u2014 delta 0.002205 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S003/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S004",
+          "passed": false,
+          "actual": 0.254976,
+          "expected": 0.25,
+          "delta": 0.004976,
+          "description": "quiz_1 z_score for S004: got 0.254976, expected 0.25 \u2014 delta 0.004976 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S004/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S005",
+          "passed": false,
+          "actual": 0.254976,
+          "expected": 0.25,
+          "delta": 0.004976,
+          "description": "quiz_1 z_score for S005: got 0.254976, expected 0.25 \u2014 delta 0.004976 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S005/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S006",
+          "passed": false,
+          "actual": 0.254976,
+          "expected": 0.25,
+          "delta": 0.004976,
+          "description": "quiz_1 z_score for S006: got 0.254976, expected 0.25 \u2014 delta 0.004976 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S006/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S007",
+          "passed": false,
+          "actual": 1.932446,
+          "expected": 1.93,
+          "delta": 0.002446,
+          "description": "quiz_1 z_score for S007: got 1.932446, expected 1.93 \u2014 delta 0.002446 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B8",
+          "sheet": "Z-Scores",
+          "row": 8,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S007/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S008",
+          "passed": false,
+          "actual": 1.932446,
+          "expected": 1.93,
+          "delta": 0.002446,
+          "description": "quiz_1 z_score for S008: got 1.932446, expected 1.93 \u2014 delta 0.002446 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B9",
+          "sheet": "Z-Scores",
+          "row": 9,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S008/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S009",
+          "passed": false,
+          "actual": -0.527844,
+          "expected": -0.53,
+          "delta": 0.002156,
+          "description": "quiz_1 z_score for S009: got -0.527844, expected -0.53 \u2014 delta 0.002156 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B10",
+          "sheet": "Z-Scores",
+          "row": 10,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S009/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S010",
+          "passed": false,
+          "actual": -0.527844,
+          "expected": -0.53,
+          "delta": 0.002156,
+          "description": "quiz_1 z_score for S010: got -0.527844, expected -0.53 \u2014 delta 0.002156 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B11",
+          "sheet": "Z-Scores",
+          "row": 11,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S010/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S011",
+          "passed": false,
+          "actual": -0.527844,
+          "expected": -0.53,
+          "delta": 0.002156,
+          "description": "quiz_1 z_score for S011: got -0.527844, expected -0.53 \u2014 delta 0.002156 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B12",
+          "sheet": "Z-Scores",
+          "row": 12,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S011/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S013",
+          "passed": false,
+          "actual": -1.087001,
+          "expected": -1.09,
+          "delta": 0.002999,
+          "description": "quiz_1 z_score for S013: got -1.087001, expected -1.09 \u2014 delta 0.002999 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B14",
+          "sheet": "Z-Scores",
+          "row": 14,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S013/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S014",
+          "passed": false,
+          "actual": 0.254976,
+          "expected": 0.25,
+          "delta": 0.004976,
+          "description": "quiz_1 z_score for S014: got 0.254976, expected 0.25 \u2014 delta 0.004976 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B15",
+          "sheet": "Z-Scores",
+          "row": 15,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S014/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S015",
+          "passed": false,
+          "actual": -0.19235,
+          "expected": -0.19,
+          "delta": 0.00235,
+          "description": "quiz_1 z_score for S015: got -0.19235, expected -0.19 \u2014 delta 0.00235 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B16",
+          "sheet": "Z-Scores",
+          "row": 16,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S015/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S020",
+          "passed": false,
+          "actual": -0.416013,
+          "expected": -0.42,
+          "delta": 0.003987,
+          "description": "quiz_1 z_score for S020: got -0.416013, expected -0.42 \u2014 delta 0.003987 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B21",
+          "sheet": "Z-Scores",
+          "row": 21,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S020/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S021",
+          "passed": false,
+          "actual": -0.863338,
+          "expected": -0.86,
+          "delta": 0.003338,
+          "description": "quiz_1 z_score for S021: got -0.863338, expected -0.86 \u2014 delta 0.003338 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B22",
+          "sheet": "Z-Scores",
+          "row": 22,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S021/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S022",
+          "passed": false,
+          "actual": 0.702301,
+          "expected": 0.7,
+          "delta": 0.002301,
+          "description": "quiz_1 z_score for S022: got 0.702301, expected 0.7 \u2014 delta 0.002301 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B23",
+          "sheet": "Z-Scores",
+          "row": 23,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S022/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S023",
+          "passed": false,
+          "actual": -0.304181,
+          "expected": -0.3,
+          "delta": 0.004181,
+          "description": "quiz_1 z_score for S023: got -0.304181, expected -0.3 \u2014 delta 0.004181 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S023/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_1.S024",
+          "passed": false,
+          "actual": 0.366807,
+          "expected": 0.37,
+          "delta": 0.003193,
+          "description": "quiz_1 z_score for S024: got 0.366807, expected 0.37 \u2014 delta 0.003193 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!B25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "B",
+          "column_name": "quiz_1",
+          "entity": "S024/quiz_1"
+        },
+        {
+          "check": "assessment_z.quiz_2.S001",
+          "passed": false,
+          "actual": 0.566185,
+          "expected": 0.57,
+          "delta": 0.003815,
+          "description": "quiz_2 z_score for S001: got 0.566185, expected 0.57 \u2014 delta 0.003815 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S001/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S002",
+          "passed": false,
+          "actual": 0.566185,
+          "expected": 0.57,
+          "delta": 0.003815,
+          "description": "quiz_2 z_score for S002: got 0.566185, expected 0.57 \u2014 delta 0.003815 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S002/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S003",
+          "passed": false,
+          "actual": 0.566185,
+          "expected": 0.57,
+          "delta": 0.003815,
+          "description": "quiz_2 z_score for S003: got 0.566185, expected 0.57 \u2014 delta 0.003815 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S003/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S004",
+          "passed": false,
+          "actual": -0.103291,
+          "expected": -0.1,
+          "delta": 0.003291,
+          "description": "quiz_2 z_score for S004: got -0.103291, expected -0.1 \u2014 delta 0.003291 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S004/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S005",
+          "passed": false,
+          "actual": -0.103291,
+          "expected": -0.1,
+          "delta": 0.003291,
+          "description": "quiz_2 z_score for S005: got -0.103291, expected -0.1 \u2014 delta 0.003291 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S005/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S006",
+          "passed": false,
+          "actual": -0.103291,
+          "expected": -0.1,
+          "delta": 0.003291,
+          "description": "quiz_2 z_score for S006: got -0.103291, expected -0.1 \u2014 delta 0.003291 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S006/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S007",
+          "passed": false,
+          "actual": 1.331301,
+          "expected": 1.33,
+          "delta": 0.001301,
+          "description": "quiz_2 z_score for S007: got 1.331301, expected 1.33 \u2014 delta 0.001301 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C8",
+          "sheet": "Z-Scores",
+          "row": 8,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S007/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S008",
+          "passed": false,
+          "actual": 1.331301,
+          "expected": 1.33,
+          "delta": 0.001301,
+          "description": "quiz_2 z_score for S008: got 1.331301, expected 1.33 \u2014 delta 0.001301 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C9",
+          "sheet": "Z-Scores",
+          "row": 9,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S008/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S009",
+          "passed": false,
+          "actual": -0.772767,
+          "expected": -0.77,
+          "delta": 0.002767,
+          "description": "quiz_2 z_score for S009: got -0.772767, expected -0.77 \u2014 delta 0.002767 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C10",
+          "sheet": "Z-Scores",
+          "row": 10,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S009/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S010",
+          "passed": false,
+          "actual": -0.772767,
+          "expected": -0.77,
+          "delta": 0.002767,
+          "description": "quiz_2 z_score for S010: got -0.772767, expected -0.77 \u2014 delta 0.002767 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C11",
+          "sheet": "Z-Scores",
+          "row": 11,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S010/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S011",
+          "passed": false,
+          "actual": -0.772767,
+          "expected": -0.77,
+          "delta": 0.002767,
+          "description": "quiz_2 z_score for S011: got -0.772767, expected -0.77 \u2014 delta 0.002767 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C12",
+          "sheet": "Z-Scores",
+          "row": 12,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S011/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S012",
+          "passed": false,
+          "actual": -0.485848,
+          "expected": -0.49,
+          "delta": 0.004152,
+          "description": "quiz_2 z_score for S012: got -0.485848, expected -0.49 \u2014 delta 0.004152 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C13",
+          "sheet": "Z-Scores",
+          "row": 13,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S012/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S013",
+          "passed": false,
+          "actual": 0.948743,
+          "expected": 0.95,
+          "delta": 0.001257,
+          "description": "quiz_2 z_score for S013: got 0.948743, expected 0.95 \u2014 delta 0.001257 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C14",
+          "sheet": "Z-Scores",
+          "row": 14,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S013/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S014",
+          "passed": false,
+          "actual": 1.044382,
+          "expected": 1.04,
+          "delta": 0.004382,
+          "description": "quiz_2 z_score for S014: got 1.044382, expected 1.04 \u2014 delta 0.004382 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C15",
+          "sheet": "Z-Scores",
+          "row": 15,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S014/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S015",
+          "passed": false,
+          "actual": 0.757464,
+          "expected": 0.76,
+          "delta": 0.002536,
+          "description": "quiz_2 z_score for S015: got 0.757464, expected 0.76 \u2014 delta 0.002536 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C16",
+          "sheet": "Z-Scores",
+          "row": 16,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S015/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S016",
+          "passed": false,
+          "actual": -2.111718,
+          "expected": -2.11,
+          "delta": 0.001718,
+          "description": "quiz_2 z_score for S016: got -2.111718, expected -2.11 \u2014 delta 0.001718 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C17",
+          "sheet": "Z-Scores",
+          "row": 17,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S016/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S017",
+          "passed": false,
+          "actual": -1.537882,
+          "expected": -1.54,
+          "delta": 0.002118,
+          "description": "quiz_2 z_score for S017: got -1.537882, expected -1.54 \u2014 delta 0.002118 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C18",
+          "sheet": "Z-Scores",
+          "row": 18,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S017/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S018",
+          "passed": false,
+          "actual": 0.566185,
+          "expected": 0.57,
+          "delta": 0.003815,
+          "description": "quiz_2 z_score for S018: got 0.566185, expected 0.57 \u2014 delta 0.003815 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C19",
+          "sheet": "Z-Scores",
+          "row": 19,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S018/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S021",
+          "passed": false,
+          "actual": 1.618219,
+          "expected": 1.62,
+          "delta": 0.001781,
+          "description": "quiz_2 z_score for S021: got 1.618219, expected 1.62 \u2014 delta 0.001781 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C22",
+          "sheet": "Z-Scores",
+          "row": 22,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S021/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S022",
+          "passed": false,
+          "actual": -0.294569,
+          "expected": -0.29,
+          "delta": 0.004569,
+          "description": "quiz_2 z_score for S022: got -0.294569, expected -0.29 \u2014 delta 0.004569 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C23",
+          "sheet": "Z-Scores",
+          "row": 23,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S022/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S023",
+          "passed": false,
+          "actual": 0.566185,
+          "expected": 0.57,
+          "delta": 0.003815,
+          "description": "quiz_2 z_score for S023: got 0.566185, expected 0.57 \u2014 delta 0.003815 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S023/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_2.S024",
+          "passed": false,
+          "actual": -1.155324,
+          "expected": -1.16,
+          "delta": 0.004676,
+          "description": "quiz_2 z_score for S024: got -1.155324, expected -1.16 \u2014 delta 0.004676 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!C25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "C",
+          "column_name": "quiz_2",
+          "entity": "S024/quiz_2"
+        },
+        {
+          "check": "assessment_z.quiz_3.S001",
+          "passed": false,
+          "actual": 0.664801,
+          "expected": 0.66,
+          "delta": 0.004801,
+          "description": "quiz_3 z_score for S001: got 0.664801, expected 0.66 \u2014 delta 0.004801 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S001/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S002",
+          "passed": false,
+          "actual": 0.664801,
+          "expected": 0.66,
+          "delta": 0.004801,
+          "description": "quiz_3 z_score for S002: got 0.664801, expected 0.66 \u2014 delta 0.004801 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S002/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S003",
+          "passed": false,
+          "actual": 0.664801,
+          "expected": 0.66,
+          "delta": 0.004801,
+          "description": "quiz_3 z_score for S003: got 0.664801, expected 0.66 \u2014 delta 0.004801 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S003/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S004",
+          "passed": false,
+          "actual": -0.057809,
+          "expected": -0.06,
+          "delta": 0.002191,
+          "description": "quiz_3 z_score for S004: got -0.057809, expected -0.06 \u2014 delta 0.002191 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S004/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S005",
+          "passed": false,
+          "actual": -0.057809,
+          "expected": -0.06,
+          "delta": 0.002191,
+          "description": "quiz_3 z_score for S005: got -0.057809, expected -0.06 \u2014 delta 0.002191 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S005/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S006",
+          "passed": false,
+          "actual": -0.057809,
+          "expected": -0.06,
+          "delta": 0.002191,
+          "description": "quiz_3 z_score for S006: got -0.057809, expected -0.06 \u2014 delta 0.002191 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S006/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S012",
+          "passed": false,
+          "actual": -0.986879,
+          "expected": -0.99,
+          "delta": 0.003121,
+          "description": "quiz_3 z_score for S012: got -0.986879, expected -0.99 \u2014 delta 0.003121 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D13",
+          "sheet": "Z-Scores",
+          "row": 13,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S012/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S013",
+          "passed": false,
+          "actual": -0.883649,
+          "expected": -0.88,
+          "delta": 0.003649,
+          "description": "quiz_3 z_score for S013: got -0.883649, expected -0.88 \u2014 delta 0.003649 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D14",
+          "sheet": "Z-Scores",
+          "row": 14,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S013/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S015",
+          "passed": false,
+          "actual": 1.284181,
+          "expected": 1.28,
+          "delta": 0.004181,
+          "description": "quiz_3 z_score for S015: got 1.284181, expected 1.28 \u2014 delta 0.004181 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D16",
+          "sheet": "Z-Scores",
+          "row": 16,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S015/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S016",
+          "passed": false,
+          "actual": -1.812719,
+          "expected": -1.81,
+          "delta": 0.002719,
+          "description": "quiz_3 z_score for S016: got -1.812719, expected -1.81 \u2014 delta 0.002719 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D17",
+          "sheet": "Z-Scores",
+          "row": 17,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S016/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S017",
+          "passed": false,
+          "actual": 0.871261,
+          "expected": 0.87,
+          "delta": 0.001261,
+          "description": "quiz_3 z_score for S017: got 0.871261, expected 0.87 \u2014 delta 0.001261 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D18",
+          "sheet": "Z-Scores",
+          "row": 18,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S017/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S018",
+          "passed": false,
+          "actual": 0.561571,
+          "expected": 0.56,
+          "delta": 0.001571,
+          "description": "quiz_3 z_score for S018: got 0.561571, expected 0.56 \u2014 delta 0.001571 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D19",
+          "sheet": "Z-Scores",
+          "row": 19,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S018/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S020",
+          "passed": false,
+          "actual": 0.148651,
+          "expected": 0.15,
+          "delta": 0.001349,
+          "description": "quiz_3 z_score for S020: got 0.148651, expected 0.15 \u2014 delta 0.001349 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D21",
+          "sheet": "Z-Scores",
+          "row": 21,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S020/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S021",
+          "passed": false,
+          "actual": -0.367499,
+          "expected": -0.37,
+          "delta": 0.002501,
+          "description": "quiz_3 z_score for S021: got -0.367499, expected -0.37 \u2014 delta 0.002501 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D22",
+          "sheet": "Z-Scores",
+          "row": 22,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S021/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S022",
+          "passed": false,
+          "actual": -0.986879,
+          "expected": -0.99,
+          "delta": 0.003121,
+          "description": "quiz_3 z_score for S022: got -0.986879, expected -0.99 \u2014 delta 0.003121 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D23",
+          "sheet": "Z-Scores",
+          "row": 23,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S022/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S023",
+          "passed": false,
+          "actual": 1.077721,
+          "expected": 1.08,
+          "delta": 0.002279,
+          "description": "quiz_3 z_score for S023: got 1.077721, expected 1.08 \u2014 delta 0.002279 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S023/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_3.S024",
+          "passed": false,
+          "actual": -0.057809,
+          "expected": -0.06,
+          "delta": 0.002191,
+          "description": "quiz_3 z_score for S024: got -0.057809, expected -0.06 \u2014 delta 0.002191 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!D25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "D",
+          "column_name": "quiz_3",
+          "entity": "S024/quiz_3"
+        },
+        {
+          "check": "assessment_z.quiz_4.S001",
+          "passed": false,
+          "actual": 0.725955,
+          "expected": 0.73,
+          "delta": 0.004045,
+          "description": "quiz_4 z_score for S001: got 0.725955, expected 0.73 \u2014 delta 0.004045 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S001/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S002",
+          "passed": false,
+          "actual": 0.725955,
+          "expected": 0.73,
+          "delta": 0.004045,
+          "description": "quiz_4 z_score for S002: got 0.725955, expected 0.73 \u2014 delta 0.004045 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S002/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S003",
+          "passed": false,
+          "actual": 0.725955,
+          "expected": 0.73,
+          "delta": 0.004045,
+          "description": "quiz_4 z_score for S003: got 0.725955, expected 0.73 \u2014 delta 0.004045 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S003/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S004",
+          "passed": false,
+          "actual": -0.058256,
+          "expected": -0.06,
+          "delta": 0.001744,
+          "description": "quiz_4 z_score for S004: got -0.058256, expected -0.06 \u2014 delta 0.001744 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S004/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S005",
+          "passed": false,
+          "actual": -0.058256,
+          "expected": -0.06,
+          "delta": 0.001744,
+          "description": "quiz_4 z_score for S005: got -0.058256, expected -0.06 \u2014 delta 0.001744 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S005/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S006",
+          "passed": false,
+          "actual": -0.058256,
+          "expected": -0.06,
+          "delta": 0.001744,
+          "description": "quiz_4 z_score for S006: got -0.058256, expected -0.06 \u2014 delta 0.001744 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S006/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S007",
+          "passed": false,
+          "actual": 1.622195,
+          "expected": 1.62,
+          "delta": 0.002195,
+          "description": "quiz_4 z_score for S007: got 1.622195, expected 1.62 \u2014 delta 0.002195 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E8",
+          "sheet": "Z-Scores",
+          "row": 8,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S007/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S008",
+          "passed": false,
+          "actual": 1.622195,
+          "expected": 1.62,
+          "delta": 0.002195,
+          "description": "quiz_4 z_score for S008: got 1.622195, expected 1.62 \u2014 delta 0.002195 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E9",
+          "sheet": "Z-Scores",
+          "row": 9,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S008/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S009",
+          "passed": false,
+          "actual": -0.842466,
+          "expected": -0.84,
+          "delta": 0.002466,
+          "description": "quiz_4 z_score for S009: got -0.842466, expected -0.84 \u2014 delta 0.002466 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E10",
+          "sheet": "Z-Scores",
+          "row": 10,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S009/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S010",
+          "passed": false,
+          "actual": -0.842466,
+          "expected": -0.84,
+          "delta": 0.002466,
+          "description": "quiz_4 z_score for S010: got -0.842466, expected -0.84 \u2014 delta 0.002466 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E11",
+          "sheet": "Z-Scores",
+          "row": 11,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S010/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S011",
+          "passed": false,
+          "actual": -0.842466,
+          "expected": -0.84,
+          "delta": 0.002466,
+          "description": "quiz_4 z_score for S011: got -0.842466, expected -0.84 \u2014 delta 0.002466 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E12",
+          "sheet": "Z-Scores",
+          "row": 12,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S011/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S012",
+          "passed": false,
+          "actual": 0.165804,
+          "expected": 0.17,
+          "delta": 0.004196,
+          "description": "quiz_4 z_score for S012: got 0.165804, expected 0.17 \u2014 delta 0.004196 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E13",
+          "sheet": "Z-Scores",
+          "row": 13,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S012/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S013",
+          "passed": false,
+          "actual": 0.725955,
+          "expected": 0.73,
+          "delta": 0.004045,
+          "description": "quiz_4 z_score for S013: got 0.725955, expected 0.73 \u2014 delta 0.004045 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E14",
+          "sheet": "Z-Scores",
+          "row": 14,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S013/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S014",
+          "passed": false,
+          "actual": -0.058256,
+          "expected": -0.06,
+          "delta": 0.001744,
+          "description": "quiz_4 z_score for S014: got -0.058256, expected -0.06 \u2014 delta 0.001744 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E15",
+          "sheet": "Z-Scores",
+          "row": 15,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S014/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S016",
+          "passed": false,
+          "actual": -0.282316,
+          "expected": -0.28,
+          "delta": 0.002316,
+          "description": "quiz_4 z_score for S016: got -0.282316, expected -0.28 \u2014 delta 0.002316 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E17",
+          "sheet": "Z-Scores",
+          "row": 17,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S016/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S017",
+          "passed": false,
+          "actual": -1.962766,
+          "expected": -1.96,
+          "delta": 0.002766,
+          "description": "quiz_4 z_score for S017: got -1.962766, expected -1.96 \u2014 delta 0.002766 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E18",
+          "sheet": "Z-Scores",
+          "row": 18,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S017/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S018",
+          "passed": false,
+          "actual": 1.174075,
+          "expected": 1.17,
+          "delta": 0.004075,
+          "description": "quiz_4 z_score for S018: got 1.174075, expected 1.17 \u2014 delta 0.004075 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E19",
+          "sheet": "Z-Scores",
+          "row": 19,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S018/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S019",
+          "passed": false,
+          "actual": -0.282316,
+          "expected": -0.28,
+          "delta": 0.002316,
+          "description": "quiz_4 z_score for S019: got -0.282316, expected -0.28 \u2014 delta 0.002316 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E20",
+          "sheet": "Z-Scores",
+          "row": 20,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S019/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S020",
+          "passed": false,
+          "actual": -1.514646,
+          "expected": -1.51,
+          "delta": 0.004646,
+          "description": "quiz_4 z_score for S020: got -1.514646, expected -1.51 \u2014 delta 0.004646 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E21",
+          "sheet": "Z-Scores",
+          "row": 21,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S020/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S022",
+          "passed": false,
+          "actual": 0.725955,
+          "expected": 0.73,
+          "delta": 0.004045,
+          "description": "quiz_4 z_score for S022: got 0.725955, expected 0.73 \u2014 delta 0.004045 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E23",
+          "sheet": "Z-Scores",
+          "row": 23,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S022/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S023",
+          "passed": false,
+          "actual": -1.178556,
+          "expected": -1.18,
+          "delta": 0.001444,
+          "description": "quiz_4 z_score for S023: got -1.178556, expected -1.18 \u2014 delta 0.001444 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S023/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S024",
+          "passed": false,
+          "actual": 1.622195,
+          "expected": 1.62,
+          "delta": 0.002195,
+          "description": "quiz_4 z_score for S024: got 1.622195, expected 1.62 \u2014 delta 0.002195 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S024/quiz_4"
+        },
+        {
+          "check": "assessment_z.quiz_4.S025",
+          "passed": false,
+          "actual": 0.165804,
+          "expected": 0.17,
+          "delta": 0.004196,
+          "description": "quiz_4 z_score for S025: got 0.165804, expected 0.17 \u2014 delta 0.004196 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!E26",
+          "sheet": "Z-Scores",
+          "row": 26,
+          "column_letter": "E",
+          "column_name": "quiz_4",
+          "entity": "S025/quiz_4"
+        },
+        {
+          "check": "assessment_z.test_1.S001",
+          "passed": false,
+          "actual": 0.581979,
+          "expected": 0.58,
+          "delta": 0.001979,
+          "description": "test_1 z_score for S001: got 0.581979, expected 0.58 \u2014 delta 0.001979 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S001/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S002",
+          "passed": false,
+          "actual": 0.581979,
+          "expected": 0.58,
+          "delta": 0.001979,
+          "description": "test_1 z_score for S002: got 0.581979, expected 0.58 \u2014 delta 0.001979 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S002/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S003",
+          "passed": false,
+          "actual": 0.581979,
+          "expected": 0.58,
+          "delta": 0.001979,
+          "description": "test_1 z_score for S003: got 0.581979, expected 0.58 \u2014 delta 0.001979 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S003/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S004",
+          "passed": false,
+          "actual": -0.178068,
+          "expected": -0.18,
+          "delta": 0.001932,
+          "description": "test_1 z_score for S004: got -0.178068, expected -0.18 \u2014 delta 0.001932 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S004/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S005",
+          "passed": false,
+          "actual": -0.178068,
+          "expected": -0.18,
+          "delta": 0.001932,
+          "description": "test_1 z_score for S005: got -0.178068, expected -0.18 \u2014 delta 0.001932 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S005/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S006",
+          "passed": false,
+          "actual": -0.178068,
+          "expected": -0.18,
+          "delta": 0.001932,
+          "description": "test_1 z_score for S006: got -0.178068, expected -0.18 \u2014 delta 0.001932 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S006/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S009",
+          "passed": false,
+          "actual": -0.938115,
+          "expected": -0.94,
+          "delta": 0.001885,
+          "description": "test_1 z_score for S009: got -0.938115, expected -0.94 \u2014 delta 0.001885 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F10",
+          "sheet": "Z-Scores",
+          "row": 10,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S009/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S010",
+          "passed": false,
+          "actual": -0.938115,
+          "expected": -0.94,
+          "delta": 0.001885,
+          "description": "test_1 z_score for S010: got -0.938115, expected -0.94 \u2014 delta 0.001885 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F11",
+          "sheet": "Z-Scores",
+          "row": 11,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S010/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S011",
+          "passed": false,
+          "actual": -0.938115,
+          "expected": -0.94,
+          "delta": 0.001885,
+          "description": "test_1 z_score for S011: got -0.938115, expected -0.94 \u2014 delta 0.001885 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F12",
+          "sheet": "Z-Scores",
+          "row": 12,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S011/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S012",
+          "passed": false,
+          "actual": -1.155271,
+          "expected": -1.16,
+          "delta": 0.004729,
+          "description": "test_1 z_score for S012: got -1.155271, expected -1.16 \u2014 delta 0.004729 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F13",
+          "sheet": "Z-Scores",
+          "row": 13,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S012/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S013",
+          "passed": false,
+          "actual": 1.66776,
+          "expected": 1.67,
+          "delta": 0.00224,
+          "description": "test_1 z_score for S013: got 1.66776, expected 1.67 \u2014 delta 0.00224 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F14",
+          "sheet": "Z-Scores",
+          "row": 14,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S013/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S015",
+          "passed": false,
+          "actual": 0.147666,
+          "expected": 0.15,
+          "delta": 0.002334,
+          "description": "test_1 z_score for S015: got 0.147666, expected 0.15 \u2014 delta 0.002334 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F16",
+          "sheet": "Z-Scores",
+          "row": 16,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S015/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S016",
+          "passed": false,
+          "actual": 0.256244,
+          "expected": 0.26,
+          "delta": 0.003756,
+          "description": "test_1 z_score for S016: got 0.256244, expected 0.26 \u2014 delta 0.003756 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F17",
+          "sheet": "Z-Scores",
+          "row": 17,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S016/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S017",
+          "passed": false,
+          "actual": 0.581979,
+          "expected": 0.58,
+          "delta": 0.001979,
+          "description": "test_1 z_score for S017: got 0.581979, expected 0.58 \u2014 delta 0.001979 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F18",
+          "sheet": "Z-Scores",
+          "row": 18,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S017/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S018",
+          "passed": false,
+          "actual": -1.481006,
+          "expected": -1.48,
+          "delta": 0.001006,
+          "description": "test_1 z_score for S018: got -1.481006, expected -1.48 \u2014 delta 0.001006 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F19",
+          "sheet": "Z-Scores",
+          "row": 19,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S018/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S019",
+          "passed": false,
+          "actual": 0.907713,
+          "expected": 0.91,
+          "delta": 0.002287,
+          "description": "test_1 z_score for S019: got 0.907713, expected 0.91 \u2014 delta 0.002287 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F20",
+          "sheet": "Z-Scores",
+          "row": 20,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S019/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S020",
+          "passed": false,
+          "actual": -1.698162,
+          "expected": -1.7,
+          "delta": 0.001838,
+          "description": "test_1 z_score for S020: got -1.698162, expected -1.7 \u2014 delta 0.001838 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F21",
+          "sheet": "Z-Scores",
+          "row": 21,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S020/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S022",
+          "passed": false,
+          "actual": 0.147666,
+          "expected": 0.15,
+          "delta": 0.002334,
+          "description": "test_1 z_score for S022: got 0.147666, expected 0.15 \u2014 delta 0.002334 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F23",
+          "sheet": "Z-Scores",
+          "row": 23,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S022/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S023",
+          "passed": false,
+          "actual": -0.503802,
+          "expected": -0.5,
+          "delta": 0.003802,
+          "description": "test_1 z_score for S023: got -0.503802, expected -0.5 \u2014 delta 0.003802 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S023/test_1"
+        },
+        {
+          "check": "assessment_z.test_1.S024",
+          "passed": false,
+          "actual": -1.698162,
+          "expected": -1.7,
+          "delta": 0.001838,
+          "description": "test_1 z_score for S024: got -1.698162, expected -1.7 \u2014 delta 0.001838 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!F25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "F",
+          "column_name": "test_1",
+          "entity": "S024/test_1"
+        },
+        {
+          "check": "assessment_z.test_2.S001",
+          "passed": false,
+          "actual": 0.501641,
+          "expected": 0.5,
+          "delta": 0.001641,
+          "description": "test_2 z_score for S001: got 0.501641, expected 0.5 \u2014 delta 0.001641 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S001/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S002",
+          "passed": false,
+          "actual": 0.501641,
+          "expected": 0.5,
+          "delta": 0.001641,
+          "description": "test_2 z_score for S002: got 0.501641, expected 0.5 \u2014 delta 0.001641 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S002/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S003",
+          "passed": false,
+          "actual": 0.501641,
+          "expected": 0.5,
+          "delta": 0.001641,
+          "description": "test_2 z_score for S003: got 0.501641, expected 0.5 \u2014 delta 0.001641 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S003/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S004",
+          "passed": false,
+          "actual": -0.17888,
+          "expected": -0.18,
+          "delta": 0.00112,
+          "description": "test_2 z_score for S004: got -0.17888, expected -0.18 \u2014 delta 0.00112 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S004/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S005",
+          "passed": false,
+          "actual": -0.17888,
+          "expected": -0.18,
+          "delta": 0.00112,
+          "description": "test_2 z_score for S005: got -0.17888, expected -0.18 \u2014 delta 0.00112 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S005/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S006",
+          "passed": false,
+          "actual": -0.17888,
+          "expected": -0.18,
+          "delta": 0.00112,
+          "description": "test_2 z_score for S006: got -0.17888, expected -0.18 \u2014 delta 0.00112 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S006/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S012",
+          "passed": false,
+          "actual": 1.182162,
+          "expected": 1.18,
+          "delta": 0.002162,
+          "description": "test_2 z_score for S012: got 1.182162, expected 1.18 \u2014 delta 0.002162 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G13",
+          "sheet": "Z-Scores",
+          "row": 13,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S012/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S013",
+          "passed": false,
+          "actual": -1.151053,
+          "expected": -1.15,
+          "delta": 0.001053,
+          "description": "test_2 z_score for S013: got -1.151053, expected -1.15 \u2014 delta 0.001053 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G14",
+          "sheet": "Z-Scores",
+          "row": 14,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S013/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S014",
+          "passed": false,
+          "actual": -0.956618,
+          "expected": -0.96,
+          "delta": 0.003382,
+          "description": "test_2 z_score for S014: got -0.956618, expected -0.96 \u2014 delta 0.003382 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G15",
+          "sheet": "Z-Scores",
+          "row": 15,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S014/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S015",
+          "passed": false,
+          "actual": -0.567749,
+          "expected": -0.57,
+          "delta": 0.002251,
+          "description": "test_2 z_score for S015: got -0.567749, expected -0.57 \u2014 delta 0.002251 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G16",
+          "sheet": "Z-Scores",
+          "row": 16,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S015/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S016",
+          "passed": false,
+          "actual": -0.17888,
+          "expected": -0.18,
+          "delta": 0.00112,
+          "description": "test_2 z_score for S016: got -0.17888, expected -0.18 \u2014 delta 0.00112 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G17",
+          "sheet": "Z-Scores",
+          "row": 17,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S016/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S017",
+          "passed": false,
+          "actual": 0.307207,
+          "expected": 0.31,
+          "delta": 0.002793,
+          "description": "test_2 z_score for S017: got 0.307207, expected 0.31 \u2014 delta 0.002793 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G18",
+          "sheet": "Z-Scores",
+          "row": 18,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S017/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S018",
+          "passed": false,
+          "actual": -0.081663,
+          "expected": -0.08,
+          "delta": 0.001663,
+          "description": "test_2 z_score for S018: got -0.081663, expected -0.08 \u2014 delta 0.001663 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G19",
+          "sheet": "Z-Scores",
+          "row": 19,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S018/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S019",
+          "passed": false,
+          "actual": -1.734356,
+          "expected": -1.73,
+          "delta": 0.004356,
+          "description": "test_2 z_score for S019: got -1.734356, expected -1.73 \u2014 delta 0.004356 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G20",
+          "sheet": "Z-Scores",
+          "row": 20,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S019/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S020",
+          "passed": false,
+          "actual": 0.987728,
+          "expected": 0.99,
+          "delta": 0.002272,
+          "description": "test_2 z_score for S020: got 0.987728, expected 0.99 \u2014 delta 0.002272 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G21",
+          "sheet": "Z-Scores",
+          "row": 21,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S020/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S021",
+          "passed": false,
+          "actual": 0.501641,
+          "expected": 0.5,
+          "delta": 0.001641,
+          "description": "test_2 z_score for S021: got 0.501641, expected 0.5 \u2014 delta 0.001641 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G22",
+          "sheet": "Z-Scores",
+          "row": 22,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S021/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S023",
+          "passed": false,
+          "actual": -1.734356,
+          "expected": -1.73,
+          "delta": 0.004356,
+          "description": "test_2 z_score for S023: got -1.734356, expected -1.73 \u2014 delta 0.004356 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S023/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S024",
+          "passed": false,
+          "actual": 1.765466,
+          "expected": 1.77,
+          "delta": 0.004534,
+          "description": "test_2 z_score for S024: got 1.765466, expected 1.77 \u2014 delta 0.004534 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S024/test_2"
+        },
+        {
+          "check": "assessment_z.test_2.S025",
+          "passed": false,
+          "actual": 1.571031,
+          "expected": 1.57,
+          "delta": 0.001031,
+          "description": "test_2 z_score for S025: got 1.571031, expected 1.57 \u2014 delta 0.001031 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!G26",
+          "sheet": "Z-Scores",
+          "row": 26,
+          "column_letter": "G",
+          "column_name": "test_2",
+          "entity": "S025/test_2"
+        },
+        {
+          "check": "assessment_z.test_3.S001",
+          "passed": false,
+          "actual": 1.068918,
+          "expected": 1.07,
+          "delta": 0.001082,
+          "description": "test_3 z_score for S001: got 1.068918, expected 1.07 \u2014 delta 0.001082 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S001/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S002",
+          "passed": false,
+          "actual": 1.068918,
+          "expected": 1.07,
+          "delta": 0.001082,
+          "description": "test_3 z_score for S002: got 1.068918, expected 1.07 \u2014 delta 0.001082 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S002/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S003",
+          "passed": false,
+          "actual": 1.068918,
+          "expected": 1.07,
+          "delta": 0.001082,
+          "description": "test_3 z_score for S003: got 1.068918, expected 1.07 \u2014 delta 0.001082 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S003/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S004",
+          "passed": false,
+          "actual": 0.272915,
+          "expected": 0.27,
+          "delta": 0.002915,
+          "description": "test_3 z_score for S004: got 0.272915, expected 0.27 \u2014 delta 0.002915 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S004/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S005",
+          "passed": false,
+          "actual": 0.272915,
+          "expected": 0.27,
+          "delta": 0.002915,
+          "description": "test_3 z_score for S005: got 0.272915, expected 0.27 \u2014 delta 0.002915 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S005/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S006",
+          "passed": false,
+          "actual": 0.272915,
+          "expected": 0.27,
+          "delta": 0.002915,
+          "description": "test_3 z_score for S006: got 0.272915, expected 0.27 \u2014 delta 0.002915 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S006/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S007",
+          "passed": false,
+          "actual": 1.978636,
+          "expected": 1.98,
+          "delta": 0.001364,
+          "description": "test_3 z_score for S007: got 1.978636, expected 1.98 \u2014 delta 0.001364 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H8",
+          "sheet": "Z-Scores",
+          "row": 8,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S007/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S008",
+          "passed": false,
+          "actual": 1.978636,
+          "expected": 1.98,
+          "delta": 0.001364,
+          "description": "test_3 z_score for S008: got 1.978636, expected 1.98 \u2014 delta 0.001364 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H9",
+          "sheet": "Z-Scores",
+          "row": 9,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S008/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S009",
+          "passed": false,
+          "actual": -0.523088,
+          "expected": -0.52,
+          "delta": 0.003088,
+          "description": "test_3 z_score for S009: got -0.523088, expected -0.52 \u2014 delta 0.003088 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H10",
+          "sheet": "Z-Scores",
+          "row": 10,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S009/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S010",
+          "passed": false,
+          "actual": -0.523088,
+          "expected": -0.52,
+          "delta": 0.003088,
+          "description": "test_3 z_score for S010: got -0.523088, expected -0.52 \u2014 delta 0.003088 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H11",
+          "sheet": "Z-Scores",
+          "row": 11,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S010/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S011",
+          "passed": false,
+          "actual": -0.523088,
+          "expected": -0.52,
+          "delta": 0.003088,
+          "description": "test_3 z_score for S011: got -0.523088, expected -0.52 \u2014 delta 0.003088 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H12",
+          "sheet": "Z-Scores",
+          "row": 12,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S011/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S012",
+          "passed": false,
+          "actual": -1.091661,
+          "expected": -1.09,
+          "delta": 0.001661,
+          "description": "test_3 z_score for S012: got -1.091661, expected -1.09 \u2014 delta 0.001661 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H13",
+          "sheet": "Z-Scores",
+          "row": 13,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S012/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S014",
+          "passed": false,
+          "actual": -0.068229,
+          "expected": -0.07,
+          "delta": 0.001771,
+          "description": "test_3 z_score for S014: got -0.068229, expected -0.07 \u2014 delta 0.001771 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H15",
+          "sheet": "Z-Scores",
+          "row": 15,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S014/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S016",
+          "passed": false,
+          "actual": -0.523088,
+          "expected": -0.52,
+          "delta": 0.003088,
+          "description": "test_3 z_score for S016: got -0.523088, expected -0.52 \u2014 delta 0.003088 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H17",
+          "sheet": "Z-Scores",
+          "row": 17,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S016/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S018",
+          "passed": false,
+          "actual": 0.045486,
+          "expected": 0.05,
+          "delta": 0.004514,
+          "description": "test_3 z_score for S018: got 0.045486, expected 0.05 \u2014 delta 0.004514 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H19",
+          "sheet": "Z-Scores",
+          "row": 19,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S018/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S019",
+          "passed": false,
+          "actual": -0.523088,
+          "expected": -0.52,
+          "delta": 0.003088,
+          "description": "test_3 z_score for S019: got -0.523088, expected -0.52 \u2014 delta 0.003088 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H20",
+          "sheet": "Z-Scores",
+          "row": 20,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S019/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S020",
+          "passed": false,
+          "actual": -0.068229,
+          "expected": -0.07,
+          "delta": 0.001771,
+          "description": "test_3 z_score for S020: got -0.068229, expected -0.07 \u2014 delta 0.001771 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H21",
+          "sheet": "Z-Scores",
+          "row": 21,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S020/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S021",
+          "passed": false,
+          "actual": 0.614059,
+          "expected": 0.61,
+          "delta": 0.004059,
+          "description": "test_3 z_score for S021: got 0.614059, expected 0.61 \u2014 delta 0.004059 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H22",
+          "sheet": "Z-Scores",
+          "row": 22,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S021/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S022",
+          "passed": false,
+          "actual": -0.636802,
+          "expected": -0.64,
+          "delta": 0.003198,
+          "description": "test_3 z_score for S022: got -0.636802, expected -0.64 \u2014 delta 0.003198 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H23",
+          "sheet": "Z-Scores",
+          "row": 23,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S022/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S023",
+          "passed": false,
+          "actual": -0.068229,
+          "expected": -0.07,
+          "delta": 0.001771,
+          "description": "test_3 z_score for S023: got -0.068229, expected -0.07 \u2014 delta 0.001771 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S023/test_3"
+        },
+        {
+          "check": "assessment_z.test_3.S024",
+          "passed": false,
+          "actual": 0.045486,
+          "expected": 0.05,
+          "delta": 0.004514,
+          "description": "test_3 z_score for S024: got 0.045486, expected 0.05 \u2014 delta 0.004514 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!H25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "H",
+          "column_name": "test_3",
+          "entity": "S024/test_3"
+        },
+        {
+          "check": "assessment_z.test_4.S001",
+          "passed": false,
+          "actual": 0.718045,
+          "expected": 0.72,
+          "delta": 0.001955,
+          "description": "test_4 z_score for S001: got 0.718045, expected 0.72 \u2014 delta 0.001955 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S001/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S002",
+          "passed": false,
+          "actual": 0.718045,
+          "expected": 0.72,
+          "delta": 0.001955,
+          "description": "test_4 z_score for S002: got 0.718045, expected 0.72 \u2014 delta 0.001955 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S002/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S003",
+          "passed": false,
+          "actual": 0.718045,
+          "expected": 0.72,
+          "delta": 0.001955,
+          "description": "test_4 z_score for S003: got 0.718045, expected 0.72 \u2014 delta 0.001955 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S003/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S004",
+          "passed": false,
+          "actual": -0.226751,
+          "expected": -0.23,
+          "delta": 0.003249,
+          "description": "test_4 z_score for S004: got -0.226751, expected -0.23 \u2014 delta 0.003249 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S004/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S005",
+          "passed": false,
+          "actual": -0.226751,
+          "expected": -0.23,
+          "delta": 0.003249,
+          "description": "test_4 z_score for S005: got -0.226751, expected -0.23 \u2014 delta 0.003249 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S005/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S006",
+          "passed": false,
+          "actual": -0.226751,
+          "expected": -0.23,
+          "delta": 0.003249,
+          "description": "test_4 z_score for S006: got -0.226751, expected -0.23 \u2014 delta 0.003249 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S006/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S007",
+          "passed": false,
+          "actual": 1.797813,
+          "expected": 1.8,
+          "delta": 0.002187,
+          "description": "test_4 z_score for S007: got 1.797813, expected 1.8 \u2014 delta 0.002187 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I8",
+          "sheet": "Z-Scores",
+          "row": 8,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S007/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S008",
+          "passed": false,
+          "actual": 1.797813,
+          "expected": 1.8,
+          "delta": 0.002187,
+          "description": "test_4 z_score for S008: got 1.797813, expected 1.8 \u2014 delta 0.002187 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I9",
+          "sheet": "Z-Scores",
+          "row": 9,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S008/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S009",
+          "passed": false,
+          "actual": -1.171548,
+          "expected": -1.17,
+          "delta": 0.001548,
+          "description": "test_4 z_score for S009: got -1.171548, expected -1.17 \u2014 delta 0.001548 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I10",
+          "sheet": "Z-Scores",
+          "row": 10,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S009/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S010",
+          "passed": false,
+          "actual": -1.171548,
+          "expected": -1.17,
+          "delta": 0.001548,
+          "description": "test_4 z_score for S010: got -1.171548, expected -1.17 \u2014 delta 0.001548 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I11",
+          "sheet": "Z-Scores",
+          "row": 11,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S010/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S011",
+          "passed": false,
+          "actual": -1.171548,
+          "expected": -1.17,
+          "delta": 0.001548,
+          "description": "test_4 z_score for S011: got -1.171548, expected -1.17 \u2014 delta 0.001548 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I12",
+          "sheet": "Z-Scores",
+          "row": 12,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S011/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S012",
+          "passed": false,
+          "actual": -1.846402,
+          "expected": -1.85,
+          "delta": 0.003598,
+          "description": "test_4 z_score for S012: got -1.846402, expected -1.85 \u2014 delta 0.003598 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I13",
+          "sheet": "Z-Scores",
+          "row": 13,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S012/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S013",
+          "passed": false,
+          "actual": 0.313133,
+          "expected": 0.31,
+          "delta": 0.003133,
+          "description": "test_4 z_score for S013: got 0.313133, expected 0.31 \u2014 delta 0.003133 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I14",
+          "sheet": "Z-Scores",
+          "row": 14,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S013/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S014",
+          "passed": false,
+          "actual": -0.631664,
+          "expected": -0.63,
+          "delta": 0.001664,
+          "description": "test_4 z_score for S014: got -0.631664, expected -0.63 \u2014 delta 0.001664 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I15",
+          "sheet": "Z-Scores",
+          "row": 15,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S014/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S015",
+          "passed": false,
+          "actual": 1.527871,
+          "expected": 1.53,
+          "delta": 0.002129,
+          "description": "test_4 z_score for S015: got 1.527871, expected 1.53 \u2014 delta 0.002129 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I16",
+          "sheet": "Z-Scores",
+          "row": 16,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S015/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S016",
+          "passed": false,
+          "actual": -0.496693,
+          "expected": -0.5,
+          "delta": 0.003307,
+          "description": "test_4 z_score for S016: got -0.496693, expected -0.5 \u2014 delta 0.003307 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I17",
+          "sheet": "Z-Scores",
+          "row": 17,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S016/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S017",
+          "passed": false,
+          "actual": -0.361722,
+          "expected": -0.36,
+          "delta": 0.001722,
+          "description": "test_4 z_score for S017: got -0.361722, expected -0.36 \u2014 delta 0.001722 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I18",
+          "sheet": "Z-Scores",
+          "row": 18,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S017/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S018",
+          "passed": false,
+          "actual": 0.853016,
+          "expected": 0.85,
+          "delta": 0.003016,
+          "description": "test_4 z_score for S018: got 0.853016, expected 0.85 \u2014 delta 0.003016 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I19",
+          "sheet": "Z-Scores",
+          "row": 19,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S018/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S019",
+          "passed": false,
+          "actual": -1.036577,
+          "expected": -1.04,
+          "delta": 0.003423,
+          "description": "test_4 z_score for S019: got -1.036577, expected -1.04 \u2014 delta 0.003423 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I20",
+          "sheet": "Z-Scores",
+          "row": 20,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S019/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S020",
+          "passed": false,
+          "actual": 0.987987,
+          "expected": 0.99,
+          "delta": 0.002013,
+          "description": "test_4 z_score for S020: got 0.987987, expected 0.99 \u2014 delta 0.002013 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I21",
+          "sheet": "Z-Scores",
+          "row": 21,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S020/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S021",
+          "passed": false,
+          "actual": -1.036577,
+          "expected": -1.04,
+          "delta": 0.003423,
+          "description": "test_4 z_score for S021: got -1.036577, expected -1.04 \u2014 delta 0.003423 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I22",
+          "sheet": "Z-Scores",
+          "row": 22,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S021/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S022",
+          "passed": false,
+          "actual": -0.361722,
+          "expected": -0.36,
+          "delta": 0.001722,
+          "description": "test_4 z_score for S022: got -0.361722, expected -0.36 \u2014 delta 0.001722 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I23",
+          "sheet": "Z-Scores",
+          "row": 23,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S022/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S023",
+          "passed": false,
+          "actual": 0.448103,
+          "expected": 0.45,
+          "delta": 0.001897,
+          "description": "test_4 z_score for S023: got 0.448103, expected 0.45 \u2014 delta 0.001897 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S023/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S024",
+          "passed": false,
+          "actual": -0.631664,
+          "expected": -0.63,
+          "delta": 0.001664,
+          "description": "test_4 z_score for S024: got -0.631664, expected -0.63 \u2014 delta 0.001664 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S024/test_4"
+        },
+        {
+          "check": "assessment_z.test_4.S025",
+          "passed": false,
+          "actual": 0.718045,
+          "expected": 0.72,
+          "delta": 0.001955,
+          "description": "test_4 z_score for S025: got 0.718045, expected 0.72 \u2014 delta 0.001955 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!I26",
+          "sheet": "Z-Scores",
+          "row": 26,
+          "column_letter": "I",
+          "column_name": "test_4",
+          "entity": "S025/test_4"
+        },
+        {
+          "check": "assessment_z.test_5.S001",
+          "passed": false,
+          "actual": 0.707404,
+          "expected": 0.71,
+          "delta": 0.002596,
+          "description": "test_5 z_score for S001: got 0.707404, expected 0.71 \u2014 delta 0.002596 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S001/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S002",
+          "passed": false,
+          "actual": 0.707404,
+          "expected": 0.71,
+          "delta": 0.002596,
+          "description": "test_5 z_score for S002: got 0.707404, expected 0.71 \u2014 delta 0.002596 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S002/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S003",
+          "passed": false,
+          "actual": 0.707404,
+          "expected": 0.71,
+          "delta": 0.002596,
+          "description": "test_5 z_score for S003: got 0.707404, expected 0.71 \u2014 delta 0.002596 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S003/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S004",
+          "passed": false,
+          "actual": 0.004019,
+          "expected": 0.0,
+          "delta": 0.004019,
+          "description": "test_5 z_score for S004: got 0.004019, expected 0.0 \u2014 delta 0.004019 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S004/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S005",
+          "passed": false,
+          "actual": 0.004019,
+          "expected": 0.0,
+          "delta": 0.004019,
+          "description": "test_5 z_score for S005: got 0.004019, expected 0.0 \u2014 delta 0.004019 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S005/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S006",
+          "passed": false,
+          "actual": 0.004019,
+          "expected": 0.0,
+          "delta": 0.004019,
+          "description": "test_5 z_score for S006: got 0.004019, expected 0.0 \u2014 delta 0.004019 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S006/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S007",
+          "passed": false,
+          "actual": 1.511272,
+          "expected": 1.51,
+          "delta": 0.001272,
+          "description": "test_5 z_score for S007: got 1.511272, expected 1.51 \u2014 delta 0.001272 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J8",
+          "sheet": "Z-Scores",
+          "row": 8,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S007/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S008",
+          "passed": false,
+          "actual": 1.511272,
+          "expected": 1.51,
+          "delta": 0.001272,
+          "description": "test_5 z_score for S008: got 1.511272, expected 1.51 \u2014 delta 0.001272 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J9",
+          "sheet": "Z-Scores",
+          "row": 9,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S008/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S012",
+          "passed": false,
+          "actual": -1.503233,
+          "expected": -1.5,
+          "delta": 0.003233,
+          "description": "test_5 z_score for S012: got -1.503233, expected -1.5 \u2014 delta 0.003233 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J13",
+          "sheet": "Z-Scores",
+          "row": 13,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S012/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S013",
+          "passed": false,
+          "actual": 0.405953,
+          "expected": 0.41,
+          "delta": 0.004047,
+          "description": "test_5 z_score for S013: got 0.405953, expected 0.41 \u2014 delta 0.004047 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J14",
+          "sheet": "Z-Scores",
+          "row": 14,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S013/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S014",
+          "passed": false,
+          "actual": 0.908371,
+          "expected": 0.91,
+          "delta": 0.001629,
+          "description": "test_5 z_score for S014: got 0.908371, expected 0.91 \u2014 delta 0.001629 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J15",
+          "sheet": "Z-Scores",
+          "row": 15,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S014/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S015",
+          "passed": false,
+          "actual": -1.7042,
+          "expected": -1.7,
+          "delta": 0.0042,
+          "description": "test_5 z_score for S015: got -1.7042, expected -1.7 \u2014 delta 0.0042 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J16",
+          "sheet": "Z-Scores",
+          "row": 16,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S015/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S016",
+          "passed": false,
+          "actual": 0.30547,
+          "expected": 0.31,
+          "delta": 0.00453,
+          "description": "test_5 z_score for S016: got 0.30547, expected 0.31 \u2014 delta 0.00453 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J17",
+          "sheet": "Z-Scores",
+          "row": 17,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S016/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S017",
+          "passed": false,
+          "actual": 0.506437,
+          "expected": 0.51,
+          "delta": 0.003563,
+          "description": "test_5 z_score for S017: got 0.506437, expected 0.51 \u2014 delta 0.003563 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J18",
+          "sheet": "Z-Scores",
+          "row": 18,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S017/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S018",
+          "passed": false,
+          "actual": -0.498398,
+          "expected": -0.5,
+          "delta": 0.001602,
+          "description": "test_5 z_score for S018: got -0.498398, expected -0.5 \u2014 delta 0.001602 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J19",
+          "sheet": "Z-Scores",
+          "row": 19,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S018/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S019",
+          "passed": false,
+          "actual": -2.206617,
+          "expected": -2.21,
+          "delta": 0.003383,
+          "description": "test_5 z_score for S019: got -2.206617, expected -2.21 \u2014 delta 0.003383 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J20",
+          "sheet": "Z-Scores",
+          "row": 20,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S019/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S021",
+          "passed": false,
+          "actual": 0.707404,
+          "expected": 0.71,
+          "delta": 0.002596,
+          "description": "test_5 z_score for S021: got 0.707404, expected 0.71 \u2014 delta 0.002596 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J22",
+          "sheet": "Z-Scores",
+          "row": 22,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S021/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S022",
+          "passed": false,
+          "actual": 0.807887,
+          "expected": 0.81,
+          "delta": 0.002113,
+          "description": "test_5 z_score for S022: got 0.807887, expected 0.81 \u2014 delta 0.002113 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J23",
+          "sheet": "Z-Scores",
+          "row": 23,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S022/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S023",
+          "passed": false,
+          "actual": 0.104503,
+          "expected": 0.1,
+          "delta": 0.004503,
+          "description": "test_5 z_score for S023: got 0.104503, expected 0.1 \u2014 delta 0.004503 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S023/test_5"
+        },
+        {
+          "check": "assessment_z.test_5.S024",
+          "passed": false,
+          "actual": -1.101299,
+          "expected": -1.1,
+          "delta": 0.001299,
+          "description": "test_5 z_score for S024: got -1.101299, expected -1.1 \u2014 delta 0.001299 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!J25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "J",
+          "column_name": "test_5",
+          "entity": "S024/test_5"
+        },
+        {
+          "check": "assessment_z.test_6.S001",
+          "passed": false,
+          "actual": 0.758738,
+          "expected": 0.76,
+          "delta": 0.001262,
+          "description": "test_6 z_score for S001: got 0.758738, expected 0.76 \u2014 delta 0.001262 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K2",
+          "sheet": "Z-Scores",
+          "row": 2,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S001/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S002",
+          "passed": false,
+          "actual": 0.758738,
+          "expected": 0.76,
+          "delta": 0.001262,
+          "description": "test_6 z_score for S002: got 0.758738, expected 0.76 \u2014 delta 0.001262 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K3",
+          "sheet": "Z-Scores",
+          "row": 3,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S002/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S003",
+          "passed": false,
+          "actual": 0.758738,
+          "expected": 0.76,
+          "delta": 0.001262,
+          "description": "test_6 z_score for S003: got 0.758738, expected 0.76 \u2014 delta 0.001262 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K4",
+          "sheet": "Z-Scores",
+          "row": 4,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S003/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S004",
+          "passed": false,
+          "actual": -0.045984,
+          "expected": -0.05,
+          "delta": 0.004016,
+          "description": "test_6 z_score for S004: got -0.045984, expected -0.05 \u2014 delta 0.004016 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K5",
+          "sheet": "Z-Scores",
+          "row": 5,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S004/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S005",
+          "passed": false,
+          "actual": -0.045984,
+          "expected": -0.05,
+          "delta": 0.004016,
+          "description": "test_6 z_score for S005: got -0.045984, expected -0.05 \u2014 delta 0.004016 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K6",
+          "sheet": "Z-Scores",
+          "row": 6,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S005/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S006",
+          "passed": false,
+          "actual": -0.045984,
+          "expected": -0.05,
+          "delta": 0.004016,
+          "description": "test_6 z_score for S006: got -0.045984, expected -0.05 \u2014 delta 0.004016 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K7",
+          "sheet": "Z-Scores",
+          "row": 7,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S006/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S007",
+          "passed": false,
+          "actual": 1.67842,
+          "expected": 1.68,
+          "delta": 0.00158,
+          "description": "test_6 z_score for S007: got 1.67842, expected 1.68 \u2014 delta 0.00158 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K8",
+          "sheet": "Z-Scores",
+          "row": 8,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S007/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S008",
+          "passed": false,
+          "actual": 1.67842,
+          "expected": 1.68,
+          "delta": 0.00158,
+          "description": "test_6 z_score for S008: got 1.67842, expected 1.68 \u2014 delta 0.00158 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K9",
+          "sheet": "Z-Scores",
+          "row": 9,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S008/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S012",
+          "passed": false,
+          "actual": 0.183936,
+          "expected": 0.18,
+          "delta": 0.003936,
+          "description": "test_6 z_score for S012: got 0.183936, expected 0.18 \u2014 delta 0.003936 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K13",
+          "sheet": "Z-Scores",
+          "row": 13,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S012/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S014",
+          "passed": false,
+          "actual": -2.115269,
+          "expected": -2.12,
+          "delta": 0.004731,
+          "description": "test_6 z_score for S014: got -2.115269, expected -2.12 \u2014 delta 0.004731 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K15",
+          "sheet": "Z-Scores",
+          "row": 15,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S014/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S015",
+          "passed": false,
+          "actual": -1.195587,
+          "expected": -1.2,
+          "delta": 0.004413,
+          "description": "test_6 z_score for S015: got -1.195587, expected -1.2 \u2014 delta 0.004413 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K16",
+          "sheet": "Z-Scores",
+          "row": 16,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S015/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S016",
+          "passed": false,
+          "actual": 0.183936,
+          "expected": 0.18,
+          "delta": 0.003936,
+          "description": "test_6 z_score for S016: got 0.183936, expected 0.18 \u2014 delta 0.003936 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K17",
+          "sheet": "Z-Scores",
+          "row": 17,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S016/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S017",
+          "passed": false,
+          "actual": -0.735746,
+          "expected": -0.74,
+          "delta": 0.004254,
+          "description": "test_6 z_score for S017: got -0.735746, expected -0.74 \u2014 delta 0.004254 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K18",
+          "sheet": "Z-Scores",
+          "row": 18,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S017/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S018",
+          "passed": false,
+          "actual": -1.425507,
+          "expected": -1.43,
+          "delta": 0.004493,
+          "description": "test_6 z_score for S018: got -1.425507, expected -1.43 \u2014 delta 0.004493 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K19",
+          "sheet": "Z-Scores",
+          "row": 19,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S018/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S019",
+          "passed": false,
+          "actual": 0.183936,
+          "expected": 0.18,
+          "delta": 0.003936,
+          "description": "test_6 z_score for S019: got 0.183936, expected 0.18 \u2014 delta 0.003936 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K20",
+          "sheet": "Z-Scores",
+          "row": 20,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S019/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S020",
+          "passed": false,
+          "actual": 0.183936,
+          "expected": 0.18,
+          "delta": 0.003936,
+          "description": "test_6 z_score for S020: got 0.183936, expected 0.18 \u2014 delta 0.003936 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K21",
+          "sheet": "Z-Scores",
+          "row": 21,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S020/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S022",
+          "passed": false,
+          "actual": 1.333539,
+          "expected": 1.33,
+          "delta": 0.003539,
+          "description": "test_6 z_score for S022: got 1.333539, expected 1.33 \u2014 delta 0.003539 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K23",
+          "sheet": "Z-Scores",
+          "row": 23,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S022/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S023",
+          "passed": false,
+          "actual": 0.758738,
+          "expected": 0.76,
+          "delta": 0.001262,
+          "description": "test_6 z_score for S023: got 0.758738, expected 0.76 \u2014 delta 0.001262 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K24",
+          "sheet": "Z-Scores",
+          "row": 24,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S023/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S024",
+          "passed": false,
+          "actual": 1.448499,
+          "expected": 1.45,
+          "delta": 0.001501,
+          "description": "test_6 z_score for S024: got 1.448499, expected 1.45 \u2014 delta 0.001501 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K25",
+          "sheet": "Z-Scores",
+          "row": 25,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S024/test_6"
+        },
+        {
+          "check": "assessment_z.test_6.S025",
+          "passed": false,
+          "actual": -0.275905,
+          "expected": -0.28,
+          "delta": 0.004095,
+          "description": "test_6 z_score for S025: got -0.275905, expected -0.28 \u2014 delta 0.004095 \u2014 z = (score - col_mean) / col_std",
+          "cell": "'Z-Scores'!K26",
+          "sheet": "Z-Scores",
+          "row": 26,
+          "column_letter": "K",
+          "column_name": "test_6",
+          "entity": "S025/test_6"
+        }
+      ]
+    },
+    "boundary_cases": {
+      "fraction": "44/64",
+      "score": 0.69,
+      "passed": 44,
+      "total": 64,
+      "passed_checks": [
+        {
+          "check": "student.S001.weighted_average",
+          "actual": 82
+        },
+        {
+          "check": "student.S001.letter_grade",
+          "actual": "B-"
+        },
+        {
+          "check": "student.S001.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S001.rank",
+          "actual": 2
+        },
+        {
+          "check": "student.S002.weighted_average",
+          "actual": 82
+        },
+        {
+          "check": "student.S002.letter_grade",
+          "actual": "B-"
+        },
+        {
+          "check": "student.S002.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S002.rank",
+          "actual": 2
+        },
+        {
+          "check": "student.S003.weighted_average",
+          "actual": 82
+        },
+        {
+          "check": "student.S003.letter_grade",
+          "actual": "B-"
+        },
+        {
+          "check": "student.S003.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S003.rank",
+          "actual": 2
+        },
+        {
+          "check": "student.S004.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S004.rank",
+          "actual": 7
+        },
+        {
+          "check": "student.S005.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S005.rank",
+          "actual": 7
+        },
+        {
+          "check": "student.S006.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S006.rank",
+          "actual": 7
+        },
+        {
+          "check": "student.S007.weighted_average",
+          "actual": 90
+        },
+        {
+          "check": "student.S007.letter_grade",
+          "actual": "A-"
+        },
+        {
+          "check": "student.S007.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S007.rank",
+          "actual": 1
+        },
+        {
+          "check": "student.S008.weighted_average",
+          "actual": 90
+        },
+        {
+          "check": "student.S008.letter_grade",
+          "actual": "A-"
+        },
+        {
+          "check": "student.S008.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S008.rank",
+          "actual": 1
+        },
+        {
+          "check": "student.S009.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S009.rank",
+          "actual": 18
+        },
+        {
+          "check": "student.S009.percentile",
+          "actual": 0
+        },
+        {
+          "check": "student.S010.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S010.rank",
+          "actual": 18
+        },
+        {
+          "check": "student.S010.percentile",
+          "actual": 0
+        },
+        {
+          "check": "student.S011.std_dev",
+          "actual": 0
+        },
+        {
+          "check": "student.S011.rank",
+          "actual": 18
+        },
+        {
+          "check": "student.S011.percentile",
+          "actual": 0
+        },
+        {
+          "check": "student.S012.weighted_average",
+          "actual": 69.783333
+        },
+        {
+          "check": "student.S012.letter_grade",
+          "actual": "C-"
+        },
+        {
+          "check": "student.S016.weighted_average",
+          "actual": 72.85
+        },
+        {
+          "check": "student.S016.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S018.weighted_average",
+          "actual": 72.866667
+        },
+        {
+          "check": "student.S018.letter_grade",
+          "actual": "C"
+        },
+        {
+          "check": "student.S018.percentile",
+          "actual": 25
+        },
+        {
+          "check": "student.S020.weighted_average",
+          "actual": 76.4
+        },
+        {
+          "check": "student.S020.letter_grade",
+          "actual": "C"
+        }
+      ],
+      "failed_checks": [
+        {
+          "check": "student.S001.percentile",
+          "passed": false,
+          "actual": 83.333333,
+          "expected": 83.3,
+          "delta": 0.033333,
+          "description": "S001 percentile: got 83.333333, expected 83.3 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T2",
+          "sheet": "Student Stats",
+          "row": 2,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S001"
+        },
+        {
+          "check": "student.S001.z_score",
+          "passed": false,
+          "actual": 1.118892,
+          "expected": 1.12,
+          "delta": 0.001108,
+          "description": "S001 z_score: got 1.118892, expected 1.12 \u2014 delta 0.001108 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U2",
+          "sheet": "Student Stats",
+          "row": 2,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S001"
+        },
+        {
+          "check": "student.S002.percentile",
+          "passed": false,
+          "actual": 83.333333,
+          "expected": 83.3,
+          "delta": 0.033333,
+          "description": "S002 percentile: got 83.333333, expected 83.3 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T3",
+          "sheet": "Student Stats",
+          "row": 3,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S002"
+        },
+        {
+          "check": "student.S002.z_score",
+          "passed": false,
+          "actual": 1.118892,
+          "expected": 1.12,
+          "delta": 0.001108,
+          "description": "S002 z_score: got 1.118892, expected 1.12 \u2014 delta 0.001108 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U3",
+          "sheet": "Student Stats",
+          "row": 3,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S002"
+        },
+        {
+          "check": "student.S003.percentile",
+          "passed": false,
+          "actual": 83.333333,
+          "expected": 83.3,
+          "delta": 0.033333,
+          "description": "S003 percentile: got 83.333333, expected 83.3 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T4",
+          "sheet": "Student Stats",
+          "row": 4,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S003"
+        },
+        {
+          "check": "student.S003.z_score",
+          "passed": false,
+          "actual": 1.118892,
+          "expected": 1.12,
+          "delta": 0.001108,
+          "description": "S003 z_score: got 1.118892, expected 1.12 \u2014 delta 0.001108 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U4",
+          "sheet": "Student Stats",
+          "row": 4,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S003"
+        },
+        {
+          "check": "student.S004.percentile",
+          "passed": false,
+          "actual": 54.166667,
+          "expected": 54.2,
+          "delta": 0.033333,
+          "description": "S004 percentile: got 54.166667, expected 54.2 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T5",
+          "sheet": "Student Stats",
+          "row": 5,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S004"
+        },
+        {
+          "check": "student.S005.percentile",
+          "passed": false,
+          "actual": 54.166667,
+          "expected": 54.2,
+          "delta": 0.033333,
+          "description": "S005 percentile: got 54.166667, expected 54.2 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T6",
+          "sheet": "Student Stats",
+          "row": 6,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S005"
+        },
+        {
+          "check": "student.S006.percentile",
+          "passed": false,
+          "actual": 54.166667,
+          "expected": 54.2,
+          "delta": 0.033333,
+          "description": "S006 percentile: got 54.166667, expected 54.2 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T7",
+          "sheet": "Student Stats",
+          "row": 7,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S006"
+        },
+        {
+          "check": "student.S007.percentile",
+          "passed": false,
+          "actual": 95.833333,
+          "expected": 95.8,
+          "delta": 0.033333,
+          "description": "S007 percentile: got 95.833333, expected 95.8 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T8",
+          "sheet": "Student Stats",
+          "row": 8,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S007"
+        },
+        {
+          "check": "student.S007.z_score",
+          "passed": false,
+          "actual": 2.477184,
+          "expected": 2.48,
+          "delta": 0.002816,
+          "description": "S007 z_score: got 2.477184, expected 2.48 \u2014 delta 0.002816 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U8",
+          "sheet": "Student Stats",
+          "row": 8,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S007"
+        },
+        {
+          "check": "student.S008.percentile",
+          "passed": false,
+          "actual": 95.833333,
+          "expected": 95.8,
+          "delta": 0.033333,
+          "description": "S008 percentile: got 95.833333, expected 95.8 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T9",
+          "sheet": "Student Stats",
+          "row": 9,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S008"
+        },
+        {
+          "check": "student.S008.z_score",
+          "passed": false,
+          "actual": 2.477184,
+          "expected": 2.48,
+          "delta": 0.002816,
+          "description": "S008 z_score: got 2.477184, expected 2.48 \u2014 delta 0.002816 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U9",
+          "sheet": "Student Stats",
+          "row": 9,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S008"
+        },
+        {
+          "check": "student.S012.percentile",
+          "passed": false,
+          "actual": 16.666667,
+          "expected": 16.7,
+          "delta": 0.033333,
+          "description": "S012 percentile: got 16.666667, expected 16.7 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T13",
+          "sheet": "Student Stats",
+          "row": 13,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S012"
+        },
+        {
+          "check": "student.S012.z_score",
+          "passed": false,
+          "actual": -0.955332,
+          "expected": -0.96,
+          "delta": 0.004668,
+          "description": "S012 z_score: got -0.955332, expected -0.96 \u2014 delta 0.004668 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U13",
+          "sheet": "Student Stats",
+          "row": 13,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S012"
+        },
+        {
+          "check": "student.S016.percentile",
+          "passed": false,
+          "actual": 20.833333,
+          "expected": 20.8,
+          "delta": 0.033333,
+          "description": "S016 percentile: got 20.833333, expected 20.8 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T17",
+          "sheet": "Student Stats",
+          "row": 17,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S016"
+        },
+        {
+          "check": "student.S016.z_score",
+          "passed": false,
+          "actual": -0.434653,
+          "expected": -0.43,
+          "delta": 0.004653,
+          "description": "S016 z_score: got -0.434653, expected -0.43 \u2014 delta 0.004653 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U17",
+          "sheet": "Student Stats",
+          "row": 17,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S016"
+        },
+        {
+          "check": "student.S018.z_score",
+          "passed": false,
+          "actual": -0.431823,
+          "expected": -0.43,
+          "delta": 0.001823,
+          "description": "S018 z_score: got -0.431823, expected -0.43 \u2014 delta 0.001823 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U19",
+          "sheet": "Student Stats",
+          "row": 19,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S018"
+        },
+        {
+          "check": "student.S020.percentile",
+          "passed": false,
+          "actual": 79.166667,
+          "expected": 79.2,
+          "delta": 0.033333,
+          "description": "S020 percentile: got 79.166667, expected 79.2 \u2014 delta 0.033333 \u2014 formula: (count strictly below / (n-1)) * 100",
+          "cell": "'Student Stats'!T21",
+          "sheet": "Student Stats",
+          "row": 21,
+          "column_letter": "T",
+          "column_name": "percentile",
+          "entity": "S020"
+        },
+        {
+          "check": "student.S020.z_score",
+          "passed": false,
+          "actual": 0.168089,
+          "expected": 0.17,
+          "delta": 0.001911,
+          "description": "S020 z_score: got 0.168089, expected 0.17 \u2014 delta 0.001911 \u2014 z = (student_wa - class_wa_mean) / class_wa_sample_std",
+          "cell": "'Student Stats'!U21",
+          "sheet": "Student Stats",
+          "row": 21,
+          "column_letter": "U",
+          "column_name": "z_score",
+          "entity": "S020"
+        }
+      ]
+    }
+  },
+  "failures_by_location": {
+    "Student Stats": {
+      "row_10_S009": [
+        "z_score: expected -1.26 got -1.258117 (delta 0.001883)"
+      ],
+      "row_11_S010": [
+        "z_score: expected -1.26 got -1.258117 (delta 0.001883)"
+      ],
+      "row_12_S011": [
+        "z_score: expected -1.26 got -1.258117 (delta 0.001883)"
+      ],
+      "row_14_S013": [
+        "percentile: expected 29.2 got 29.166667 (delta 0.033333)"
+      ],
+      "row_15_S014": [
+        "percentile: expected 41.7 got 41.666667 (delta 0.033333)",
+        "z_score: expected -0.26 got -0.262037 (delta 0.002037)"
+      ],
+      "row_16_S015": [
+        "z_score: expected -0.3 got -0.304484 (delta 0.004484)"
+      ],
+      "row_18_S017": [
+        "percentile: expected 33.3 got 33.333333 (delta 0.033333)",
+        "z_score: expected -0.36 got -0.361079 (delta 0.001079)"
+      ],
+      "row_20_S019": [
+        "z_score: expected -1.17 got -1.173224 (delta 0.003224)"
+      ],
+      "row_22_S021": [
+        "percentile: expected 66.7 got 66.666667 (delta 0.033333)",
+        "z_score: expected 0.01 got 0.012451 (delta 0.002451)"
+      ],
+      "row_23_S022": [
+        "z_score: expected 0.09 got 0.088855 (delta 0.001145)"
+      ],
+      "row_24_S023": [
+        "percentile: expected 45.8 got 45.833333 (delta 0.033333)",
+        "z_score: expected -0.25 got -0.247888 (delta 0.002112)"
+      ],
+      "row_25_S024": [
+        "percentile: expected 70.8 got 70.833333 (delta 0.033333)"
+      ],
+      "row_26_S025": [
+        "z_score: expected -0.09 got -0.086591 (delta 0.003409)"
+      ],
+      "row_2_S001": [
+        "percentile: expected 83.3 got 83.333333 (delta 0.033333)",
+        "z_score: expected 1.12 got 1.118892 (delta 0.001108)"
+      ],
+      "row_3_S002": [
+        "percentile: expected 83.3 got 83.333333 (delta 0.033333)",
+        "z_score: expected 1.12 got 1.118892 (delta 0.001108)"
+      ],
+      "row_4_S003": [
+        "percentile: expected 83.3 got 83.333333 (delta 0.033333)",
+        "z_score: expected 1.12 got 1.118892 (delta 0.001108)"
+      ],
+      "row_5_S004": [
+        "percentile: expected 54.2 got 54.166667 (delta 0.033333)"
+      ],
+      "row_6_S005": [
+        "percentile: expected 54.2 got 54.166667 (delta 0.033333)"
+      ],
+      "row_7_S006": [
+        "percentile: expected 54.2 got 54.166667 (delta 0.033333)"
+      ],
+      "row_8_S007": [
+        "percentile: expected 95.8 got 95.833333 (delta 0.033333)",
+        "z_score: expected 2.48 got 2.477184 (delta 0.002816)"
+      ],
+      "row_9_S008": [
+        "percentile: expected 95.8 got 95.833333 (delta 0.033333)",
+        "z_score: expected 2.48 got 2.477184 (delta 0.002816)"
+      ],
+      "row_13_S012": [
+        "percentile: expected 16.7 got 16.666667 (delta 0.033333)",
+        "z_score: expected -0.96 got -0.955332 (delta 0.004668)"
+      ],
+      "row_17_S016": [
+        "percentile: expected 20.8 got 20.833333 (delta 0.033333)",
+        "z_score: expected -0.43 got -0.434653 (delta 0.004653)"
+      ],
+      "row_19_S018": [
+        "z_score: expected -0.43 got -0.431823 (delta 0.001823)"
+      ],
+      "row_21_S020": [
+        "percentile: expected 79.2 got 79.166667 (delta 0.033333)",
+        "z_score: expected 0.17 got 0.168089 (delta 0.001911)"
+      ]
+    },
+    "Z-Scores": {
+      "row_2_S001/quiz_1": [
+        "quiz_1: expected 1.04 got 1.037795 (delta 0.002205)"
+      ],
+      "row_3_S002/quiz_1": [
+        "quiz_1: expected 1.04 got 1.037795 (delta 0.002205)"
+      ],
+      "row_4_S003/quiz_1": [
+        "quiz_1: expected 1.04 got 1.037795 (delta 0.002205)"
+      ],
+      "row_5_S004/quiz_1": [
+        "quiz_1: expected 0.25 got 0.254976 (delta 0.004976)"
+      ],
+      "row_6_S005/quiz_1": [
+        "quiz_1: expected 0.25 got 0.254976 (delta 0.004976)"
+      ],
+      "row_7_S006/quiz_1": [
+        "quiz_1: expected 0.25 got 0.254976 (delta 0.004976)"
+      ],
+      "row_8_S007/quiz_1": [
+        "quiz_1: expected 1.93 got 1.932446 (delta 0.002446)"
+      ],
+      "row_9_S008/quiz_1": [
+        "quiz_1: expected 1.93 got 1.932446 (delta 0.002446)"
+      ],
+      "row_10_S009/quiz_1": [
+        "quiz_1: expected -0.53 got -0.527844 (delta 0.002156)"
+      ],
+      "row_11_S010/quiz_1": [
+        "quiz_1: expected -0.53 got -0.527844 (delta 0.002156)"
+      ],
+      "row_12_S011/quiz_1": [
+        "quiz_1: expected -0.53 got -0.527844 (delta 0.002156)"
+      ],
+      "row_14_S013/quiz_1": [
+        "quiz_1: expected -1.09 got -1.087001 (delta 0.002999)"
+      ],
+      "row_15_S014/quiz_1": [
+        "quiz_1: expected 0.25 got 0.254976 (delta 0.004976)"
+      ],
+      "row_16_S015/quiz_1": [
+        "quiz_1: expected -0.19 got -0.19235 (delta 0.00235)"
+      ],
+      "row_21_S020/quiz_1": [
+        "quiz_1: expected -0.42 got -0.416013 (delta 0.003987)"
+      ],
+      "row_22_S021/quiz_1": [
+        "quiz_1: expected -0.86 got -0.863338 (delta 0.003338)"
+      ],
+      "row_23_S022/quiz_1": [
+        "quiz_1: expected 0.7 got 0.702301 (delta 0.002301)"
+      ],
+      "row_24_S023/quiz_1": [
+        "quiz_1: expected -0.3 got -0.304181 (delta 0.004181)"
+      ],
+      "row_25_S024/quiz_1": [
+        "quiz_1: expected 0.37 got 0.366807 (delta 0.003193)"
+      ],
+      "row_2_S001/quiz_2": [
+        "quiz_2: expected 0.57 got 0.566185 (delta 0.003815)"
+      ],
+      "row_3_S002/quiz_2": [
+        "quiz_2: expected 0.57 got 0.566185 (delta 0.003815)"
+      ],
+      "row_4_S003/quiz_2": [
+        "quiz_2: expected 0.57 got 0.566185 (delta 0.003815)"
+      ],
+      "row_5_S004/quiz_2": [
+        "quiz_2: expected -0.1 got -0.103291 (delta 0.003291)"
+      ],
+      "row_6_S005/quiz_2": [
+        "quiz_2: expected -0.1 got -0.103291 (delta 0.003291)"
+      ],
+      "row_7_S006/quiz_2": [
+        "quiz_2: expected -0.1 got -0.103291 (delta 0.003291)"
+      ],
+      "row_8_S007/quiz_2": [
+        "quiz_2: expected 1.33 got 1.331301 (delta 0.001301)"
+      ],
+      "row_9_S008/quiz_2": [
+        "quiz_2: expected 1.33 got 1.331301 (delta 0.001301)"
+      ],
+      "row_10_S009/quiz_2": [
+        "quiz_2: expected -0.77 got -0.772767 (delta 0.002767)"
+      ],
+      "row_11_S010/quiz_2": [
+        "quiz_2: expected -0.77 got -0.772767 (delta 0.002767)"
+      ],
+      "row_12_S011/quiz_2": [
+        "quiz_2: expected -0.77 got -0.772767 (delta 0.002767)"
+      ],
+      "row_13_S012/quiz_2": [
+        "quiz_2: expected -0.49 got -0.485848 (delta 0.004152)"
+      ],
+      "row_14_S013/quiz_2": [
+        "quiz_2: expected 0.95 got 0.948743 (delta 0.001257)"
+      ],
+      "row_15_S014/quiz_2": [
+        "quiz_2: expected 1.04 got 1.044382 (delta 0.004382)"
+      ],
+      "row_16_S015/quiz_2": [
+        "quiz_2: expected 0.76 got 0.757464 (delta 0.002536)"
+      ],
+      "row_17_S016/quiz_2": [
+        "quiz_2: expected -2.11 got -2.111718 (delta 0.001718)"
+      ],
+      "row_18_S017/quiz_2": [
+        "quiz_2: expected -1.54 got -1.537882 (delta 0.002118)"
+      ],
+      "row_19_S018/quiz_2": [
+        "quiz_2: expected 0.57 got 0.566185 (delta 0.003815)"
+      ],
+      "row_22_S021/quiz_2": [
+        "quiz_2: expected 1.62 got 1.618219 (delta 0.001781)"
+      ],
+      "row_23_S022/quiz_2": [
+        "quiz_2: expected -0.29 got -0.294569 (delta 0.004569)"
+      ],
+      "row_24_S023/quiz_2": [
+        "quiz_2: expected 0.57 got 0.566185 (delta 0.003815)"
+      ],
+      "row_25_S024/quiz_2": [
+        "quiz_2: expected -1.16 got -1.155324 (delta 0.004676)"
+      ],
+      "row_2_S001/quiz_3": [
+        "quiz_3: expected 0.66 got 0.664801 (delta 0.004801)"
+      ],
+      "row_3_S002/quiz_3": [
+        "quiz_3: expected 0.66 got 0.664801 (delta 0.004801)"
+      ],
+      "row_4_S003/quiz_3": [
+        "quiz_3: expected 0.66 got 0.664801 (delta 0.004801)"
+      ],
+      "row_5_S004/quiz_3": [
+        "quiz_3: expected -0.06 got -0.057809 (delta 0.002191)"
+      ],
+      "row_6_S005/quiz_3": [
+        "quiz_3: expected -0.06 got -0.057809 (delta 0.002191)"
+      ],
+      "row_7_S006/quiz_3": [
+        "quiz_3: expected -0.06 got -0.057809 (delta 0.002191)"
+      ],
+      "row_13_S012/quiz_3": [
+        "quiz_3: expected -0.99 got -0.986879 (delta 0.003121)"
+      ],
+      "row_14_S013/quiz_3": [
+        "quiz_3: expected -0.88 got -0.883649 (delta 0.003649)"
+      ],
+      "row_16_S015/quiz_3": [
+        "quiz_3: expected 1.28 got 1.284181 (delta 0.004181)"
+      ],
+      "row_17_S016/quiz_3": [
+        "quiz_3: expected -1.81 got -1.812719 (delta 0.002719)"
+      ],
+      "row_18_S017/quiz_3": [
+        "quiz_3: expected 0.87 got 0.871261 (delta 0.001261)"
+      ],
+      "row_19_S018/quiz_3": [
+        "quiz_3: expected 0.56 got 0.561571 (delta 0.001571)"
+      ],
+      "row_21_S020/quiz_3": [
+        "quiz_3: expected 0.15 got 0.148651 (delta 0.001349)"
+      ],
+      "row_22_S021/quiz_3": [
+        "quiz_3: expected -0.37 got -0.367499 (delta 0.002501)"
+      ],
+      "row_23_S022/quiz_3": [
+        "quiz_3: expected -0.99 got -0.986879 (delta 0.003121)"
+      ],
+      "row_24_S023/quiz_3": [
+        "quiz_3: expected 1.08 got 1.077721 (delta 0.002279)"
+      ],
+      "row_25_S024/quiz_3": [
+        "quiz_3: expected -0.06 got -0.057809 (delta 0.002191)"
+      ],
+      "row_2_S001/quiz_4": [
+        "quiz_4: expected 0.73 got 0.725955 (delta 0.004045)"
+      ],
+      "row_3_S002/quiz_4": [
+        "quiz_4: expected 0.73 got 0.725955 (delta 0.004045)"
+      ],
+      "row_4_S003/quiz_4": [
+        "quiz_4: expected 0.73 got 0.725955 (delta 0.004045)"
+      ],
+      "row_5_S004/quiz_4": [
+        "quiz_4: expected -0.06 got -0.058256 (delta 0.001744)"
+      ],
+      "row_6_S005/quiz_4": [
+        "quiz_4: expected -0.06 got -0.058256 (delta 0.001744)"
+      ],
+      "row_7_S006/quiz_4": [
+        "quiz_4: expected -0.06 got -0.058256 (delta 0.001744)"
+      ],
+      "row_8_S007/quiz_4": [
+        "quiz_4: expected 1.62 got 1.622195 (delta 0.002195)"
+      ],
+      "row_9_S008/quiz_4": [
+        "quiz_4: expected 1.62 got 1.622195 (delta 0.002195)"
+      ],
+      "row_10_S009/quiz_4": [
+        "quiz_4: expected -0.84 got -0.842466 (delta 0.002466)"
+      ],
+      "row_11_S010/quiz_4": [
+        "quiz_4: expected -0.84 got -0.842466 (delta 0.002466)"
+      ],
+      "row_12_S011/quiz_4": [
+        "quiz_4: expected -0.84 got -0.842466 (delta 0.002466)"
+      ],
+      "row_13_S012/quiz_4": [
+        "quiz_4: expected 0.17 got 0.165804 (delta 0.004196)"
+      ],
+      "row_14_S013/quiz_4": [
+        "quiz_4: expected 0.73 got 0.725955 (delta 0.004045)"
+      ],
+      "row_15_S014/quiz_4": [
+        "quiz_4: expected -0.06 got -0.058256 (delta 0.001744)"
+      ],
+      "row_17_S016/quiz_4": [
+        "quiz_4: expected -0.28 got -0.282316 (delta 0.002316)"
+      ],
+      "row_18_S017/quiz_4": [
+        "quiz_4: expected -1.96 got -1.962766 (delta 0.002766)"
+      ],
+      "row_19_S018/quiz_4": [
+        "quiz_4: expected 1.17 got 1.174075 (delta 0.004075)"
+      ],
+      "row_20_S019/quiz_4": [
+        "quiz_4: expected -0.28 got -0.282316 (delta 0.002316)"
+      ],
+      "row_21_S020/quiz_4": [
+        "quiz_4: expected -1.51 got -1.514646 (delta 0.004646)"
+      ],
+      "row_23_S022/quiz_4": [
+        "quiz_4: expected 0.73 got 0.725955 (delta 0.004045)"
+      ],
+      "row_24_S023/quiz_4": [
+        "quiz_4: expected -1.18 got -1.178556 (delta 0.001444)"
+      ],
+      "row_25_S024/quiz_4": [
+        "quiz_4: expected 1.62 got 1.622195 (delta 0.002195)"
+      ],
+      "row_26_S025/quiz_4": [
+        "quiz_4: expected 0.17 got 0.165804 (delta 0.004196)"
+      ],
+      "row_2_S001/test_1": [
+        "test_1: expected 0.58 got 0.581979 (delta 0.001979)"
+      ],
+      "row_3_S002/test_1": [
+        "test_1: expected 0.58 got 0.581979 (delta 0.001979)"
+      ],
+      "row_4_S003/test_1": [
+        "test_1: expected 0.58 got 0.581979 (delta 0.001979)"
+      ],
+      "row_5_S004/test_1": [
+        "test_1: expected -0.18 got -0.178068 (delta 0.001932)"
+      ],
+      "row_6_S005/test_1": [
+        "test_1: expected -0.18 got -0.178068 (delta 0.001932)"
+      ],
+      "row_7_S006/test_1": [
+        "test_1: expected -0.18 got -0.178068 (delta 0.001932)"
+      ],
+      "row_10_S009/test_1": [
+        "test_1: expected -0.94 got -0.938115 (delta 0.001885)"
+      ],
+      "row_11_S010/test_1": [
+        "test_1: expected -0.94 got -0.938115 (delta 0.001885)"
+      ],
+      "row_12_S011/test_1": [
+        "test_1: expected -0.94 got -0.938115 (delta 0.001885)"
+      ],
+      "row_13_S012/test_1": [
+        "test_1: expected -1.16 got -1.155271 (delta 0.004729)"
+      ],
+      "row_14_S013/test_1": [
+        "test_1: expected 1.67 got 1.66776 (delta 0.00224)"
+      ],
+      "row_16_S015/test_1": [
+        "test_1: expected 0.15 got 0.147666 (delta 0.002334)"
+      ],
+      "row_17_S016/test_1": [
+        "test_1: expected 0.26 got 0.256244 (delta 0.003756)"
+      ],
+      "row_18_S017/test_1": [
+        "test_1: expected 0.58 got 0.581979 (delta 0.001979)"
+      ],
+      "row_19_S018/test_1": [
+        "test_1: expected -1.48 got -1.481006 (delta 0.001006)"
+      ],
+      "row_20_S019/test_1": [
+        "test_1: expected 0.91 got 0.907713 (delta 0.002287)"
+      ],
+      "row_21_S020/test_1": [
+        "test_1: expected -1.7 got -1.698162 (delta 0.001838)"
+      ],
+      "row_23_S022/test_1": [
+        "test_1: expected 0.15 got 0.147666 (delta 0.002334)"
+      ],
+      "row_24_S023/test_1": [
+        "test_1: expected -0.5 got -0.503802 (delta 0.003802)"
+      ],
+      "row_25_S024/test_1": [
+        "test_1: expected -1.7 got -1.698162 (delta 0.001838)"
+      ],
+      "row_2_S001/test_2": [
+        "test_2: expected 0.5 got 0.501641 (delta 0.001641)"
+      ],
+      "row_3_S002/test_2": [
+        "test_2: expected 0.5 got 0.501641 (delta 0.001641)"
+      ],
+      "row_4_S003/test_2": [
+        "test_2: expected 0.5 got 0.501641 (delta 0.001641)"
+      ],
+      "row_5_S004/test_2": [
+        "test_2: expected -0.18 got -0.17888 (delta 0.00112)"
+      ],
+      "row_6_S005/test_2": [
+        "test_2: expected -0.18 got -0.17888 (delta 0.00112)"
+      ],
+      "row_7_S006/test_2": [
+        "test_2: expected -0.18 got -0.17888 (delta 0.00112)"
+      ],
+      "row_13_S012/test_2": [
+        "test_2: expected 1.18 got 1.182162 (delta 0.002162)"
+      ],
+      "row_14_S013/test_2": [
+        "test_2: expected -1.15 got -1.151053 (delta 0.001053)"
+      ],
+      "row_15_S014/test_2": [
+        "test_2: expected -0.96 got -0.956618 (delta 0.003382)"
+      ],
+      "row_16_S015/test_2": [
+        "test_2: expected -0.57 got -0.567749 (delta 0.002251)"
+      ],
+      "row_17_S016/test_2": [
+        "test_2: expected -0.18 got -0.17888 (delta 0.00112)"
+      ],
+      "row_18_S017/test_2": [
+        "test_2: expected 0.31 got 0.307207 (delta 0.002793)"
+      ],
+      "row_19_S018/test_2": [
+        "test_2: expected -0.08 got -0.081663 (delta 0.001663)"
+      ],
+      "row_20_S019/test_2": [
+        "test_2: expected -1.73 got -1.734356 (delta 0.004356)"
+      ],
+      "row_21_S020/test_2": [
+        "test_2: expected 0.99 got 0.987728 (delta 0.002272)"
+      ],
+      "row_22_S021/test_2": [
+        "test_2: expected 0.5 got 0.501641 (delta 0.001641)"
+      ],
+      "row_24_S023/test_2": [
+        "test_2: expected -1.73 got -1.734356 (delta 0.004356)"
+      ],
+      "row_25_S024/test_2": [
+        "test_2: expected 1.77 got 1.765466 (delta 0.004534)"
+      ],
+      "row_26_S025/test_2": [
+        "test_2: expected 1.57 got 1.571031 (delta 0.001031)"
+      ],
+      "row_2_S001/test_3": [
+        "test_3: expected 1.07 got 1.068918 (delta 0.001082)"
+      ],
+      "row_3_S002/test_3": [
+        "test_3: expected 1.07 got 1.068918 (delta 0.001082)"
+      ],
+      "row_4_S003/test_3": [
+        "test_3: expected 1.07 got 1.068918 (delta 0.001082)"
+      ],
+      "row_5_S004/test_3": [
+        "test_3: expected 0.27 got 0.272915 (delta 0.002915)"
+      ],
+      "row_6_S005/test_3": [
+        "test_3: expected 0.27 got 0.272915 (delta 0.002915)"
+      ],
+      "row_7_S006/test_3": [
+        "test_3: expected 0.27 got 0.272915 (delta 0.002915)"
+      ],
+      "row_8_S007/test_3": [
+        "test_3: expected 1.98 got 1.978636 (delta 0.001364)"
+      ],
+      "row_9_S008/test_3": [
+        "test_3: expected 1.98 got 1.978636 (delta 0.001364)"
+      ],
+      "row_10_S009/test_3": [
+        "test_3: expected -0.52 got -0.523088 (delta 0.003088)"
+      ],
+      "row_11_S010/test_3": [
+        "test_3: expected -0.52 got -0.523088 (delta 0.003088)"
+      ],
+      "row_12_S011/test_3": [
+        "test_3: expected -0.52 got -0.523088 (delta 0.003088)"
+      ],
+      "row_13_S012/test_3": [
+        "test_3: expected -1.09 got -1.091661 (delta 0.001661)"
+      ],
+      "row_15_S014/test_3": [
+        "test_3: expected -0.07 got -0.068229 (delta 0.001771)"
+      ],
+      "row_17_S016/test_3": [
+        "test_3: expected -0.52 got -0.523088 (delta 0.003088)"
+      ],
+      "row_19_S018/test_3": [
+        "test_3: expected 0.05 got 0.045486 (delta 0.004514)"
+      ],
+      "row_20_S019/test_3": [
+        "test_3: expected -0.52 got -0.523088 (delta 0.003088)"
+      ],
+      "row_21_S020/test_3": [
+        "test_3: expected -0.07 got -0.068229 (delta 0.001771)"
+      ],
+      "row_22_S021/test_3": [
+        "test_3: expected 0.61 got 0.614059 (delta 0.004059)"
+      ],
+      "row_23_S022/test_3": [
+        "test_3: expected -0.64 got -0.636802 (delta 0.003198)"
+      ],
+      "row_24_S023/test_3": [
+        "test_3: expected -0.07 got -0.068229 (delta 0.001771)"
+      ],
+      "row_25_S024/test_3": [
+        "test_3: expected 0.05 got 0.045486 (delta 0.004514)"
+      ],
+      "row_2_S001/test_4": [
+        "test_4: expected 0.72 got 0.718045 (delta 0.001955)"
+      ],
+      "row_3_S002/test_4": [
+        "test_4: expected 0.72 got 0.718045 (delta 0.001955)"
+      ],
+      "row_4_S003/test_4": [
+        "test_4: expected 0.72 got 0.718045 (delta 0.001955)"
+      ],
+      "row_5_S004/test_4": [
+        "test_4: expected -0.23 got -0.226751 (delta 0.003249)"
+      ],
+      "row_6_S005/test_4": [
+        "test_4: expected -0.23 got -0.226751 (delta 0.003249)"
+      ],
+      "row_7_S006/test_4": [
+        "test_4: expected -0.23 got -0.226751 (delta 0.003249)"
+      ],
+      "row_8_S007/test_4": [
+        "test_4: expected 1.8 got 1.797813 (delta 0.002187)"
+      ],
+      "row_9_S008/test_4": [
+        "test_4: expected 1.8 got 1.797813 (delta 0.002187)"
+      ],
+      "row_10_S009/test_4": [
+        "test_4: expected -1.17 got -1.171548 (delta 0.001548)"
+      ],
+      "row_11_S010/test_4": [
+        "test_4: expected -1.17 got -1.171548 (delta 0.001548)"
+      ],
+      "row_12_S011/test_4": [
+        "test_4: expected -1.17 got -1.171548 (delta 0.001548)"
+      ],
+      "row_13_S012/test_4": [
+        "test_4: expected -1.85 got -1.846402 (delta 0.003598)"
+      ],
+      "row_14_S013/test_4": [
+        "test_4: expected 0.31 got 0.313133 (delta 0.003133)"
+      ],
+      "row_15_S014/test_4": [
+        "test_4: expected -0.63 got -0.631664 (delta 0.001664)"
+      ],
+      "row_16_S015/test_4": [
+        "test_4: expected 1.53 got 1.527871 (delta 0.002129)"
+      ],
+      "row_17_S016/test_4": [
+        "test_4: expected -0.5 got -0.496693 (delta 0.003307)"
+      ],
+      "row_18_S017/test_4": [
+        "test_4: expected -0.36 got -0.361722 (delta 0.001722)"
+      ],
+      "row_19_S018/test_4": [
+        "test_4: expected 0.85 got 0.853016 (delta 0.003016)"
+      ],
+      "row_20_S019/test_4": [
+        "test_4: expected -1.04 got -1.036577 (delta 0.003423)"
+      ],
+      "row_21_S020/test_4": [
+        "test_4: expected 0.99 got 0.987987 (delta 0.002013)"
+      ],
+      "row_22_S021/test_4": [
+        "test_4: expected -1.04 got -1.036577 (delta 0.003423)"
+      ],
+      "row_23_S022/test_4": [
+        "test_4: expected -0.36 got -0.361722 (delta 0.001722)"
+      ],
+      "row_24_S023/test_4": [
+        "test_4: expected 0.45 got 0.448103 (delta 0.001897)"
+      ],
+      "row_25_S024/test_4": [
+        "test_4: expected -0.63 got -0.631664 (delta 0.001664)"
+      ],
+      "row_26_S025/test_4": [
+        "test_4: expected 0.72 got 0.718045 (delta 0.001955)"
+      ],
+      "row_2_S001/test_5": [
+        "test_5: expected 0.71 got 0.707404 (delta 0.002596)"
+      ],
+      "row_3_S002/test_5": [
+        "test_5: expected 0.71 got 0.707404 (delta 0.002596)"
+      ],
+      "row_4_S003/test_5": [
+        "test_5: expected 0.71 got 0.707404 (delta 0.002596)"
+      ],
+      "row_5_S004/test_5": [
+        "test_5: expected 0.0 got 0.004019 (delta 0.004019)"
+      ],
+      "row_6_S005/test_5": [
+        "test_5: expected 0.0 got 0.004019 (delta 0.004019)"
+      ],
+      "row_7_S006/test_5": [
+        "test_5: expected 0.0 got 0.004019 (delta 0.004019)"
+      ],
+      "row_8_S007/test_5": [
+        "test_5: expected 1.51 got 1.511272 (delta 0.001272)"
+      ],
+      "row_9_S008/test_5": [
+        "test_5: expected 1.51 got 1.511272 (delta 0.001272)"
+      ],
+      "row_13_S012/test_5": [
+        "test_5: expected -1.5 got -1.503233 (delta 0.003233)"
+      ],
+      "row_14_S013/test_5": [
+        "test_5: expected 0.41 got 0.405953 (delta 0.004047)"
+      ],
+      "row_15_S014/test_5": [
+        "test_5: expected 0.91 got 0.908371 (delta 0.001629)"
+      ],
+      "row_16_S015/test_5": [
+        "test_5: expected -1.7 got -1.7042 (delta 0.0042)"
+      ],
+      "row_17_S016/test_5": [
+        "test_5: expected 0.31 got 0.30547 (delta 0.00453)"
+      ],
+      "row_18_S017/test_5": [
+        "test_5: expected 0.51 got 0.506437 (delta 0.003563)"
+      ],
+      "row_19_S018/test_5": [
+        "test_5: expected -0.5 got -0.498398 (delta 0.001602)"
+      ],
+      "row_20_S019/test_5": [
+        "test_5: expected -2.21 got -2.206617 (delta 0.003383)"
+      ],
+      "row_22_S021/test_5": [
+        "test_5: expected 0.71 got 0.707404 (delta 0.002596)"
+      ],
+      "row_23_S022/test_5": [
+        "test_5: expected 0.81 got 0.807887 (delta 0.002113)"
+      ],
+      "row_24_S023/test_5": [
+        "test_5: expected 0.1 got 0.104503 (delta 0.004503)"
+      ],
+      "row_25_S024/test_5": [
+        "test_5: expected -1.1 got -1.101299 (delta 0.001299)"
+      ],
+      "row_2_S001/test_6": [
+        "test_6: expected 0.76 got 0.758738 (delta 0.001262)"
+      ],
+      "row_3_S002/test_6": [
+        "test_6: expected 0.76 got 0.758738 (delta 0.001262)"
+      ],
+      "row_4_S003/test_6": [
+        "test_6: expected 0.76 got 0.758738 (delta 0.001262)"
+      ],
+      "row_5_S004/test_6": [
+        "test_6: expected -0.05 got -0.045984 (delta 0.004016)"
+      ],
+      "row_6_S005/test_6": [
+        "test_6: expected -0.05 got -0.045984 (delta 0.004016)"
+      ],
+      "row_7_S006/test_6": [
+        "test_6: expected -0.05 got -0.045984 (delta 0.004016)"
+      ],
+      "row_8_S007/test_6": [
+        "test_6: expected 1.68 got 1.67842 (delta 0.00158)"
+      ],
+      "row_9_S008/test_6": [
+        "test_6: expected 1.68 got 1.67842 (delta 0.00158)"
+      ],
+      "row_13_S012/test_6": [
+        "test_6: expected 0.18 got 0.183936 (delta 0.003936)"
+      ],
+      "row_15_S014/test_6": [
+        "test_6: expected -2.12 got -2.115269 (delta 0.004731)"
+      ],
+      "row_16_S015/test_6": [
+        "test_6: expected -1.2 got -1.195587 (delta 0.004413)"
+      ],
+      "row_17_S016/test_6": [
+        "test_6: expected 0.18 got 0.183936 (delta 0.003936)"
+      ],
+      "row_18_S017/test_6": [
+        "test_6: expected -0.74 got -0.735746 (delta 0.004254)"
+      ],
+      "row_19_S018/test_6": [
+        "test_6: expected -1.43 got -1.425507 (delta 0.004493)"
+      ],
+      "row_20_S019/test_6": [
+        "test_6: expected 0.18 got 0.183936 (delta 0.003936)"
+      ],
+      "row_21_S020/test_6": [
+        "test_6: expected 0.18 got 0.183936 (delta 0.003936)"
+      ],
+      "row_23_S022/test_6": [
+        "test_6: expected 1.33 got 1.333539 (delta 0.003539)"
+      ],
+      "row_24_S023/test_6": [
+        "test_6: expected 0.76 got 0.758738 (delta 0.001262)"
+      ],
+      "row_25_S024/test_6": [
+        "test_6: expected 1.45 got 1.448499 (delta 0.001501)"
+      ],
+      "row_26_S025/test_6": [
+        "test_6: expected -0.28 got -0.275905 (delta 0.004095)"
+      ]
+    }
+  },
+  "error_pattern_summary": {
+    "column_level_errors": [
+      "test_4 (Z-Scores col I): wrong in 25/25 rows",
+      "quiz_4 (Z-Scores col E): wrong in 23/25 rows",
+      "quiz_2 (Z-Scores col C): wrong in 22/25 rows",
+      "test_3 (Z-Scores col H): wrong in 21/25 rows",
+      "z_score (Student Stats col U): wrong in 20/25 rows",
+      "test_1 (Z-Scores col F): wrong in 20/25 rows",
+      "test_5 (Z-Scores col J): wrong in 20/25 rows",
+      "test_6 (Z-Scores col K): wrong in 20/25 rows"
+    ],
+    "row_level_errors": [
+      "S001/test_6 (row 2 in Z-Scores): 10 errors across quiz_1, quiz_2, quiz_3, quiz_4 \u2014 may indicate a data-parsing or row-level formula issue",
+      "S002/test_6 (row 3 in Z-Scores): 10 errors across quiz_1, quiz_2, quiz_3, quiz_4 \u2014 may indicate a data-parsing or row-level formula issue",
+      "S003/test_6 (row 4 in Z-Scores): 10 errors across quiz_1, quiz_2, quiz_3, quiz_4 \u2014 may indicate a data-parsing or row-level formula issue",
+      "S004/test_6 (row 5 in Z-Scores): 10 errors across quiz_1, quiz_2, quiz_3, quiz_4 \u2014 may indicate a data-parsing or row-level formula issue",
+      "S005/test_6 (row 6 in Z-Scores): 10 errors across quiz_1, quiz_2, quiz_3, quiz_4 \u2014 may indicate a data-parsing or row-level formula issue"
+    ],
+    "isolated_errors": [],
+    "cross_sheet_errors": [],
+    "root_cause_hypotheses": [
+      "Z-Scores!I (test_4): all 25 deltas are tiny (max 0.0036) \u2014 skill is not rounding to 2 dp. Sample: actual=0.718045, expected=0.72",
+      "Z-Scores!E (quiz_4): all 23 deltas are tiny (max 0.0046) \u2014 skill is not rounding to 2 dp. Sample: actual=0.725955, expected=0.73",
+      "Z-Scores!C (quiz_2): all 22 deltas are tiny (max 0.0047) \u2014 skill is not rounding to 2 dp. Sample: actual=0.566185, expected=0.57",
+      "Z-Scores!H (test_3): all 21 deltas are tiny (max 0.0045) \u2014 skill is not rounding to 2 dp. Sample: actual=1.068918, expected=1.07",
+      "Student Stats!U (z_score): all 20 deltas are tiny (max 0.0047) \u2014 skill is not rounding to 2 dp. Sample: actual=-1.258117, expected=-1.26",
+      "Z-Scores!F (test_1): all 20 deltas are tiny (max 0.0047) \u2014 skill is not rounding to 2 dp. Sample: actual=0.581979, expected=0.58",
+      "Z-Scores!J (test_5): 3/20 failures expect z=0.0 \u2014 this assessment has std_dev=0 (all scores identical), skill must return 0.0 when std_dev=0 instead of dividing by zero. Sample actual values: [0.004019, 0.004019, 0.004019]",
+      "Z-Scores!K (test_6): all 20 deltas are tiny (max 0.0047) \u2014 skill is not rounding to 2 dp. Sample: actual=0.758738, expected=0.76",
+      "Z-Scores!B (quiz_1): all 19 deltas are tiny (max 0.0050) \u2014 skill is not rounding to 2 dp. Sample: actual=1.037795, expected=1.04",
+      "Z-Scores!G (test_2): all 19 deltas are tiny (max 0.0045) \u2014 skill is not rounding to 2 dp. Sample: actual=0.501641, expected=0.5",
+      "Student Stats!T (percentile): all 17 deltas are tiny (max 0.0333) and expected values are rounded to 1 dp \u2014 skill is not applying round(value, 1). Sample: actual=29.166667, expected=29.2",
+      "Z-Scores!D (quiz_3): all 17 deltas are tiny (max 0.0048) \u2014 skill is not rounding to 2 dp. Sample: actual=0.664801, expected=0.66"
+    ]
+  }
+}

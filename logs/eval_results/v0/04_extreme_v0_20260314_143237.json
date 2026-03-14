@@ -1,0 +1,47 @@
+{
+  "test_input": "04_extreme.csv",
+  "skill_version": "v0",
+  "timestamp": "20260314_143237",
+  "execution_trace": "The slope for S004 is actually **0.0** \u2014 my earlier hand-calc was wrong. S004 sum_y=200 (not 300), so (5\u00b7600\u221215\u00b7200)/50=(3000\u22123000)/50=**0.0**.\n\n**CORRECTED EXECUTION TRACE:**\n\n**SLOPE FORMULA** \u2014 OLS with x=[1,2,3,4,5], denominator=50\n- S001 sanity: slope = (7500\u22127500)/50 = **0.0** (flat \u2014 all 100s)\n- S004: \u03a3xy=600, \u03a3y=200, slope=(3000\u22123000)/50 = **0.0** (symmetric alternation cancels)\n- All five students \u2192 slope=0.0\n\n**LETTER GRADE BOUNDARIES:**\n- S001: 100.0 \u2192 **A+** (\u226596.5)\n- S002: 0.0 \u2192 **F** (<59.5)\n- S003: 60.0 \u2192 **D-** (59.5\u201362.49) \u26a0\ufe0f FLAG: exactly 0.5 from boundary 59.5\n- S004: 40.0 \u2192 **F** (<59.5) [corrected: avg=40, not 60]\n- S005: 50.0 \u2192 **F** (<59.5)\n\n**RANK TIE-BREAKING** \u2014 Competition rank (highest shared, next skips):\n- **No ties exist** in this dataset.\n- S001\u2192rank 1, S003\u2192rank 2, S005\u2192rank 3, S004\u2192rank 4, S002\u2192rank 5\n\n**STANDARD DEVIATION** \u2014 Sample (ddof=1):\n- S001 sanity: all 100s \u2192 std = **0.0**\n- S003: mean=60, \u03a3sq-dev=12000, var=3000, std = **54.772256**\n\n**CLASS AVERAGE:** (100+0+60+40+50)/5 = **50.0**\n\n**INTERPRETATION CHOICES / EDGE CASES:**\n- S001 (all 100s): perfect scores \u2192 slope=0, std=0, above_avg=True \u2014 handled correctly\n- S002 (all 0s): zero scores \u2192 slope=0, std=0, above_avg=False \u2014 handled correctly\n- S003/S004: alternating 100/0 \u2014 symmetric around mean, so slope=0 by symmetry\n- Most improved/consistent tiebreak: multiple students with slope=0 or std=0 \u2192 tiebreak by highest average \u2192 **S001** in both cases\n- `above_class_average` uses strict `>` (S005 avg=50.0 = class avg 50.0 \u2192 **False**)\n- Grade D- count=1 (only S003=60.0), F count=3 (S002=0, S004=40, S005=50)\n\n---\n\n**Output file written:** `/Users/lucaschen/skillgraph/outputs/v0/04_extreme_output.xlsx` \u2014 sheets: `['Student Stats', 'Test Stats', 'Overall']`\n",
+  "error": "Parse/compare error: 'Workbook' object has no attribute 'get'",
+  "overall": {
+    "fraction": "0/0",
+    "score": 0.0,
+    "passed": 0,
+    "total": 0
+  },
+  "categories": {
+    "student_calculations": {
+      "fraction": "0/0",
+      "score": 0.0,
+      "passed": 0,
+      "total": 0,
+      "passed_checks": [],
+      "failed_checks": []
+    },
+    "test_column_stats": {
+      "fraction": "0/0",
+      "score": 0.0,
+      "passed": 0,
+      "total": 0,
+      "passed_checks": [],
+      "failed_checks": []
+    },
+    "overall_stats": {
+      "fraction": "0/0",
+      "score": 0.0,
+      "passed": 0,
+      "total": 0,
+      "passed_checks": [],
+      "failed_checks": []
+    },
+    "boundary_cases": {
+      "fraction": "0/0",
+      "score": 0.0,
+      "passed": 0,
+      "total": 0,
+      "passed_checks": [],
+      "failed_checks": []
+    }
+  }
+}
