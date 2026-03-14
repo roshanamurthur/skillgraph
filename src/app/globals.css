@@ -150,7 +150,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.15s, border-color 0.15s, right 0.2s ease-out;
 }
 
 .add-node-btn:hover {

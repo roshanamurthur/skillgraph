@@ -255,6 +255,7 @@ export default function GraphCanvas() {
       <button
         onClick={addSkill}
         className="add-node-btn"
+        style={selectedSkill ? { right: 396 } : undefined}
         title={selectedNodeId ? "Add child node" : "Add root node"}
       >
         +
