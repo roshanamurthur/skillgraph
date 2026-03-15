@@ -26,6 +26,11 @@ export async function deleteSkillFromServer(
   return res.json();
 }
 
+export async function resetAllSkills(): Promise<void> {
+  const res = await fetch("/api/skills", { method: "DELETE" });
+  if (!res.ok) throw new Error("Failed to reset skills");
+}
+
 export async function batchSaveSkills(skills: Skill[]): Promise<void> {
   const res = await fetch("/api/skills/batch", {
     method: "PUT",

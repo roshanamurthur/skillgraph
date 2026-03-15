@@ -2,9 +2,8 @@
 
 import { useCallback, useRef, useState } from "react";
 import { v4 as uuid } from "uuid";
-import type { Skill, SkillFile, RunTraceResult } from "@/lib/types";
+import type { Skill, SkillFile } from "@/lib/types";
 import { createSkillFile } from "@/lib/parser";
-import { runSkill } from "@/lib/store/api-client";
 import BenchmarkSection from "./BenchmarkSection";
 
 interface DetailPanelProps {
@@ -77,56 +76,6 @@ function FilePreview({ file }: { file: SkillFile }) {
   );
 }
 
-function TraceView({ trace }: { trace: RunTraceResult }) {
-  const [showReasoning, setShowReasoning] = useState(false);
-
-  return (
-    <div className="trace-view">
-      <div className="trace-meta">
-        <div className="trace-meta-row">
-          <span className="trace-meta-label">Model</span>
-          <span className="trace-meta-value">{trace.model}</span>
-        </div>
-        <div className="trace-meta-row">
-          <span className="trace-meta-label">Tokens</span>
-          <span className="trace-meta-value">
-            {trace.tokenUsage.input} in / {trace.tokenUsage.output} out
-            {trace.tokenUsage.reasoning
-              ? ` / ${trace.tokenUsage.reasoning} reasoning`
-              : ""}
-          </span>
-        </div>
-        <div className="trace-meta-row">
-          <span className="trace-meta-label">Time</span>
-          <span className="trace-meta-value">
-            {new Date(trace.timestamp).toLocaleTimeString()}
-          </span>
-        </div>
-      </div>
-
-      {trace.reasoning && (
-        <div className="trace-section">
-          <button
-            className="trace-section-toggle"
-            onClick={() => setShowReasoning(!showReasoning)}
-          >
-            <span className="trace-section-label">Reasoning</span>
-            <span>{showReasoning ? "\u25B4" : "\u25BE"}</span>
-          </button>
-          {showReasoning && (
-            <pre className="trace-reasoning-pre">{trace.reasoning}</pre>
-          )}
-        </div>
-      )}
-
-      <div className="trace-section">
-        <div className="trace-section-label">Response</div>
-        <div className="trace-response">{trace.content}</div>
-      </div>
-    </div>
-  );
-}
-
 export default function DetailPanel({
   skill,
   onClose,
@@ -136,27 +85,6 @@ export default function DetailPanel({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
-  const [userMessage, setUserMessage] = useState("");
-  const [running, setRunning] = useState(false);
-  const [traceResult, setTraceResult] = useState<RunTraceResult | null>(null);
-  const [runError, setRunError] = useState<string | null>(null);
-
-  const handleRun = useCallback(async () => {
-    if (!userMessage.trim() || running) return;
-    setRunning(true);
-    setRunError(null);
-    setTraceResult(null);
-    try {
-      const result = await runSkill(skill.id, userMessage.trim(), {
-        reasoning: { effort: "medium", summary: "auto" },
-      });
-      setTraceResult(result);
-    } catch (err) {
-      setRunError(err instanceof Error ? err.message : "Run failed");
-    } finally {
-      setRunning(false);
-    }
-  }, [skill.id, userMessage, running]);
 
   const handleFiles = useCallback(
     (fileList: FileList) => {
@@ -298,40 +226,6 @@ export default function DetailPanel({
             </span>
           </div>
         )}
-      </div>
-
-      {/* Run Skill Section */}
-      <div className="detail-panel-section">
-        <div className="detail-panel-section-header">
-          <span>Run</span>
-        </div>
-        <div className="run-section">
-          <textarea
-            className="run-input"
-            placeholder="Enter a message to run against this skill..."
-            value={userMessage}
-            onChange={(e) => setUserMessage(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
-                handleRun();
-              }
-            }}
-            rows={3}
-          />
-          <button
-            className="run-btn"
-            onClick={handleRun}
-            disabled={running || !userMessage.trim()}
-          >
-            {running ? "Running..." : "Run Skill"}
-          </button>
-        </div>
-
-        {runError && (
-          <div className="run-error">{runError}</div>
-        )}
-
-        {traceResult && <TraceView trace={traceResult} />}
       </div>
 
       {/* Benchmark Section */}

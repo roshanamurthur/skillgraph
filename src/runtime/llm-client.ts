@@ -127,13 +127,20 @@ export async function callLLM(request: LLMRequest): Promise<LLMResponse> {
   let body = buildRequestBody(request);
   let res = await sendRequest(url, request.apiKey, body);
 
-  // If the summary was rejected (org not verified), retry without it
-  if (!res.ok && res.status === 400 && request.reasoning?.summary) {
+  // If reasoning param was rejected, retry without it
+  if (!res.ok && res.status === 400 && request.reasoning) {
     try {
       const errJson = JSON.parse(res.text) as ResponsesAPIResponse;
-      if (errJson.error?.message?.includes("verified")) {
+      const msg = errJson.error?.message ?? "";
+      if (msg.includes("verified")) {
+        // Org not verified for summaries — retry without summary
         console.warn("Reasoning summaries require org verification — retrying without summary.");
         body = buildRequestBody(request, true);
+        res = await sendRequest(url, request.apiKey, body);
+      } else if (msg.includes("reasoning") || msg.includes("not supported")) {
+        // Model doesn't support reasoning at all — retry without it
+        console.warn(`Model ${request.model} does not support reasoning — retrying without it.`);
+        body = buildRequestBody({ ...request, reasoning: undefined });
         res = await sendRequest(url, request.apiKey, body);
       }
     } catch {

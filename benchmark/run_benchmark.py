@@ -6,26 +6,24 @@ Usage:
     python3 run_benchmark.py --version v0
 
 For each test input CSV it:
-  1. Invokes the skill via the Claude CLI
-  2. Parses the generated Excel output
-  3. Compares every computed value against the ground truth JSON
-  4. Writes a scored JSON report with exact cell locations per failure
-  5. Prints a human-readable summary table with failure locations
-  6. Diffs against the previous version's results if available
+  1. Sends the skill + CSV data to OpenAI API, gets structured JSON back
+  2. Compares every computed value against the ground truth JSON
+  3. Writes a scored JSON report per test
+  4. Prints a human-readable summary table
+  5. Diffs against the previous version's results if available
 """
 
 import argparse
 import json
+import os
 import re
-import subprocess
 import sys
+import urllib.request
+import urllib.error
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
-
-import openpyxl
-from openpyxl.utils import get_column_letter
 
 # -- Paths ---------------------------------------------------------------------
 ROOT          = Path(__file__).parent.parent
@@ -351,332 +349,244 @@ def build_failures_by_location(categories):
     return {sheet: dict(rows) for sheet, rows in result.items()}
 
 
-# -- Excel parser --------------------------------------------------------------
+# -- OpenAI API caller ---------------------------------------------------------
 
-def parse_excel_output(xlsx_path):
+OUTPUT_SCHEMA = """{
+  "per_student": {
+    "<student_id>": {
+      "simple_average": <number>,
+      "weighted_average": <number>,
+      "letter_grade": "<string>",
+      "slope": <number>,
+      "std_dev": <number>,
+      "highest_score": <number>,
+      "lowest_score": <number>,
+      "rank": <integer>,
+      "percentile": <number>,
+      "z_score": <number>,
+      "above_class_average": <boolean>
+    }
+  },
+  "per_assessment": {
+    "<assessment_name>": {
+      "class_average": <number>,
+      "std_dev": <number>,
+      "highest_score": <number>,
+      "lowest_score": <number>,
+      "per_student_z_scores": { "<student_id>": <number> }
+    }
+  },
+  "overall": {
+    "class_weighted_average": <number>,
+    "class_median": <number>,
+    "grade_distribution": { "A+": <int>, "A": <int>, ..., "F": <int> },
+    "most_improved_student": "<student_id>",
+    "most_consistent_student": "<student_id>"
+  }
+}"""
+
+
+def call_openai(skill_instructions, csv_content, model=None):
     """
-    Parse the skill-generated Excel file.
-    Returns (parsed_data, location_map) where location_map maps
-    each sheet to its column-letter and row-number indexes.
+    Call OpenAI Responses API with skill instructions + CSV data.
+    Returns (parsed_json, reasoning_trace, token_usage) or raises on failure.
     """
-    wb = openpyxl.load_workbook(xlsx_path, data_only=True)
+    api_key  = os.environ.get("OPENAI_API_KEY")
+    base_url = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
+    model    = model or os.environ.get("OPENAI_MODEL", "gpt-4o")
 
-    def build_sheet_location(ws, key_col_idx=0):
-        """Return (col_map, row_map) for a sheet."""
-        rows = list(ws.iter_rows(values_only=True))
-        if not rows:
-            return {}, {}
-        headers = rows[0]
-        col_map = {}
-        for i, h in enumerate(headers):
-            if h is not None:
-                col_map[norm(str(h))] = get_column_letter(i + 1)
-        row_map = {}
-        for r_idx, row in enumerate(rows[1:], start=2):
-            if row and row[key_col_idx] is not None:
-                key_raw  = str(row[key_col_idx])
-                key_norm = norm(key_raw)
-                row_map[key_raw]  = r_idx
-                row_map[key_norm] = r_idx
-        return col_map, row_map
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY not set in environment")
 
-    location_map = {}
+    user_prompt = f"""INPUT CSV:
+{csv_content}
 
-    def sheet_to_records(sheet_name):
-        ws = wb[sheet_name]
-        rows = list(ws.iter_rows(values_only=True))
-        if not rows:
-            return []
-        headers = [norm(h) for h in rows[0]]
-        return [dict(zip(headers, row)) for row in rows[1:] if any(c is not None for c in row)]
+TASK: Follow the skill instructions above to analyze this student grade data.
+Compute ALL metrics described in the skill for EVERY student and EVERY assessment.
+Work through the calculations systematically in your reasoning — process each student one at a time.
 
-    # -- Student Stats ---------------------------------------------------------
-    per_student = {}
-    if "Student Stats" in wb.sheetnames:
-        ws = wb["Student Stats"]
-        col_map, row_map = build_sheet_location(ws, key_col_idx=0)
-        location_map["Student Stats"] = {"columns": col_map, "rows": row_map}
-        for rec in sheet_to_records("Student Stats"):
-            sid = str(rec.get("student_id", rec.get("student", "")))
-            per_student[sid] = {
-                "simple_average":      rec.get("simple_average", rec.get("average")),
-                "weighted_average":    rec.get("weighted_average", rec.get("weighted_avg")),
-                "letter_grade":        rec.get("letter_grade", rec.get("grade")),
-                "slope":               rec.get("slope"),
-                "std_dev":             rec.get("std_dev", rec.get("standard_deviation")),
-                "highest_score":       rec.get("highest_score", rec.get("max")),
-                "lowest_score":        rec.get("lowest_score", rec.get("min")),
-                "rank":                rec.get("rank"),
-                "percentile":          rec.get("percentile"),
-                "z_score":             rec.get("z_score"),
-                "above_class_average": rec.get("above_class_average", rec.get("above_avg")),
-            }
+You MUST return a complete JSON object with this structure:
+{OUTPUT_SCHEMA}
 
-    # -- Assessment Stats ------------------------------------------------------
-    per_assessment = {}
-    assess_sheet = next((s for s in ["Assessment Stats", "Test Stats"] if s in wb.sheetnames), None)
-    if assess_sheet:
-        ws = wb[assess_sheet]
-        col_map, row_map = build_sheet_location(ws, key_col_idx=0)
-        location_map["Assessment Stats"] = {"columns": col_map, "rows": row_map}
-        for rec in sheet_to_records(assess_sheet):
-            aname = str(rec.get("assessment", rec.get("assessment_name",
-                        rec.get("test", rec.get("test_name", "")))))
-            per_assessment[aname] = {
-                "class_average":        rec.get("class_average", rec.get("average")),
-                "std_dev":              rec.get("std_dev", rec.get("standard_deviation")),
-                "highest_score":        rec.get("highest_score", rec.get("max")),
-                "lowest_score":         rec.get("lowest_score", rec.get("min")),
-                "per_student_z_scores": {},
-            }
+Rules:
+- Use the exact student IDs from the CSV (S001, S002, etc.)
+- Use the exact column names as assessment names: quiz_1, quiz_2, quiz_3, quiz_4, test_1, test_2, test_3, test_4, test_5, test_6
+- Compute every value — do NOT use placeholders or dummy numbers
+- Return ONLY the JSON object, no other text"""
 
-    # -- Z-Scores --------------------------------------------------------------
-    if "Z-Scores" in wb.sheetnames:
-        ws = wb["Z-Scores"]
-        col_map, row_map = build_sheet_location(ws, key_col_idx=0)
-        location_map["Z-Scores"] = {"columns": col_map, "rows": row_map}
-        z_rows = list(ws.iter_rows(values_only=True))
-        if z_rows:
-            z_headers = [norm(h) for h in z_rows[0]]
-            for row in z_rows[1:]:
-                if not any(c is not None for c in row):
-                    continue
-                rec = dict(zip(z_headers, row))
-                sid = str(rec.get("student_id", rec.get("student", "")))
-                for col_name in z_headers:
-                    if col_name in ("student_id", "student"):
-                        continue
-                    z_val = rec.get(col_name)
-                    if col_name not in per_assessment:
-                        per_assessment[col_name] = {
-                            "class_average": None, "std_dev": None,
-                            "highest_score": None, "lowest_score": None,
-                            "per_student_z_scores": {},
-                        }
-                    per_assessment[col_name]["per_student_z_scores"][sid] = z_val
-
-    # -- Overall ---------------------------------------------------------------
-    overall_raw = {}
-    if "Overall" in wb.sheetnames:
-        ws = wb["Overall"]
-        # Build row_map keyed by normalised key-column value
-        overall_row_map = {}
-        for r_idx, row in enumerate(ws.iter_rows(values_only=True), start=1):
-            if row and row[0] is not None:
-                k = norm(str(row[0]))
-                overall_raw[k] = row[1] if len(row) > 1 else None
-                overall_row_map[k]        = r_idx
-                overall_row_map[str(row[0])] = r_idx
-        location_map["Overall"] = {
-            "columns": {"key": "A", "value": "B"},
-            "rows":    overall_row_map,
-        }
-
-    grade_dist = {}
-    for g in ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"]:
-        key = norm(f"grade_{g}")
-        if key in overall_raw:
-            grade_dist[g] = overall_raw[key]
-
-    overall = {
-        "class_weighted_average":  overall_raw.get("class_weighted_average",
-                                   overall_raw.get("class_average")),
-        "class_median":            overall_raw.get("class_median"),
-        "grade_distribution":      grade_dist,
-        "most_improved_student":   overall_raw.get("most_improved_student"),
-        "most_consistent_student": overall_raw.get("most_consistent_student"),
+    body = {
+        "model": model,
+        "instructions": skill_instructions,
+        "input": [{"role": "user", "content": user_prompt}],
+        "max_output_tokens": 65536,
     }
 
-    parsed = {"per_student": per_student, "per_assessment": per_assessment, "overall": overall}
-    return parsed, location_map
-
-
-# -- Summary Excel generator ---------------------------------------------------
-
-def generate_summary_excel(version, output_dir, gt_dir_path, logs_dir_path):
-    """
-    Write /logs/eval_results/<version>/benchmark_summary.xlsx with one sheet
-    per test input.  Each row = one student.  Columns = raw scores + expected/
-    actual pairs for every metric + Overall_Pass.
-
-    Row fill:  green  = all per-student checks pass
-               red    = at least one check fails
-    Cell fill: the specific "actual" cells that are wrong get a darker red
-               so the master LLM can spot individual errors at a glance.
-    """
-    from openpyxl import Workbook
-    from openpyxl.styles import PatternFill, Font, Alignment
-
-    GREEN      = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
-    RED_ROW    = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
-    RED_CELL   = PatternFill(start_color="FF9999", end_color="FF9999", fill_type="solid")
-    BOLD       = Font(bold=True)
-    BOLD_RED   = Font(bold=True, color="9C0006")
-    CENTER     = Alignment(horizontal="center")
-
-    # (display header, gt_key, parsed_key)
-    METRIC_COLS = [
-        ("Weighted_Avg", "weighted_average", "weighted_average"),
-        ("Simple_Avg",   "simple_average",   "simple_average"),
-        ("Grade",        "letter_grade",      "letter_grade"),
-        ("Slope",        "slope",             "slope"),
-        ("StdDev",       "std_dev",           "std_dev"),
-        ("Percentile",   "percentile",        "percentile"),
-        ("ZScore",       "z_score",           "z_score"),
-        ("Rank",         "rank",              "rank"),
-    ]
-
-    headers = (
-        ["Student_ID",
-         "Quiz_1", "Quiz_2", "Quiz_3", "Quiz_4",
-         "Test_1", "Test_2", "Test_3", "Test_4", "Test_5", "Test_6"]
-        + [f"{m}_Expected" for m, _, _ in METRIC_COLS]
-        + [f"{m}_Actual"   for m, _, _ in METRIC_COLS]
-        + ["Overall_Pass"]
+    req = urllib.request.Request(
+        f"{base_url.rstrip('/')}/responses",
+        data=json.dumps(body).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        },
     )
 
-    # Column index of first "actual" column (0-based within headers list)
-    first_actual_col = 11 + len(METRIC_COLS)   # after ID + 10 scores + expected cols
-
-    wb = Workbook()
-    wb.remove(wb.active)
-
-    for csv_path in sorted(INPUTS_DIR.glob("*.csv")):
-        gt_path   = gt_dir_path   / (csv_path.stem + ".json")
-        xlsx_path = output_dir    / (csv_path.stem + "_output.xlsx")
-        if not gt_path.exists() or not xlsx_path.exists():
-            continue
-
-        gt = json.loads(gt_path.read_text())
-        try:
-            parsed, _ = parse_excel_output(xlsx_path)
-        except Exception as e:
-            print(f"  [summary] Could not parse {xlsx_path.name}: {e}")
-            continue
-
-        # Sheet name: "01 Clean", "03 Ties", etc.
-        sheet_title = csv_path.stem.replace("_", " ").title()[:31]
-        ws = wb.create_sheet(title=sheet_title)
-
-        # Header row
-        for c_idx, hdr in enumerate(headers, 1):
-            cell = ws.cell(row=1, column=c_idx, value=hdr)
-            cell.font      = BOLD
-            cell.alignment = CENTER
-        ws.freeze_panes = "A2"
-
-        # Data rows
-        for r_idx, (sid, gt_s) in enumerate(gt["per_student"].items(), 2):
-            p_s    = parsed["per_student"].get(sid, {})
-            scores = gt_s["scores"]   # [q1..q4, t1..t6]
-
-            expected_vals = [gt_s.get(gt_k)      for _, gt_k, _ in METRIC_COLS]
-            actual_vals   = [p_s.get(parsed_k)   for _, _, parsed_k in METRIC_COLS]
-
-            # Which actual values fail?
-            fails = [
-                not _close_enough(a, e)
-                for a, e in zip(actual_vals, expected_vals)
-            ]
-            row_pass = not any(fails)
-            row_fill = GREEN if row_pass else RED_ROW
-
-            row_data = (
-                [sid] + scores
-                + expected_vals
-                + actual_vals
-                + ["PASS" if row_pass else "FAIL"]
-            )
-
-            for c_idx, value in enumerate(row_data, 1):
-                cell       = ws.cell(row=r_idx, column=c_idx, value=value)
-                cell.fill  = row_fill
-                cell.alignment = CENTER
-
-                # Darken specific failing "actual" cells
-                actual_offset = c_idx - 1 - (11 + len(METRIC_COLS))  # 0-based
-                if 0 <= actual_offset < len(fails) and fails[actual_offset]:
-                    cell.fill = RED_CELL
-                    cell.font = BOLD_RED
-
-        # Autofit: measure max content width per column
-        for c_idx, hdr in enumerate(headers, 1):
-            col_letter = get_column_letter(c_idx)
-            max_w = len(hdr)
-            for row in ws.iter_rows(min_row=2, min_col=c_idx, max_col=c_idx):
-                for cell in row:
-                    if cell.value is not None:
-                        max_w = max(max_w, len(str(cell.value)))
-            ws.column_dimensions[col_letter].width = min(max_w + 3, 30)
-
-    out_path = logs_dir_path / "benchmark_summary.xlsx"
-    wb.save(out_path)
-    return out_path
-
-
-# -- Skill runner --------------------------------------------------------------
-
-def run_skill(skill_path, csv_path, output_dir):
-    output_dir.mkdir(parents=True, exist_ok=True)
-    xlsx_path = output_dir / (csv_path.stem + "_output.xlsx")
-
-    prompt = f"""You are executing the student grades skill defined in {skill_path}.
-
-Input CSV:        {csv_path}
-Output Excel:     {xlsx_path}
-
-Execute the skill exactly as specified. As you work, produce a detailed execution
-trace by explicitly logging each of the following decision points:
-
-SLOPE FORMULA
-- State the exact formula you are using for slope (OLS, numpy polyfit, or other)
-- Confirm the x-axis values you are using (e.g. [1,2,3,4,5,6,7,8,9,10])
-- Show the computed slope for at least the first student as a sanity check
-
-LETTER GRADE BOUNDARIES
-- List the exact grade boundary thresholds you are applying (including plus/minus)
-- For each student, state which boundary their weighted_average falls into and the grade assigned
-- Flag any student whose weighted_average is within 0.5 points of a boundary
-
-RANK TIE-BREAKING
-- Describe the tie-breaking strategy you are using (dense rank, competition rank, etc.)
-- Identify any tied students and explicitly state the rank assigned to each
-- If no ties exist in this dataset, state that explicitly
-
-STANDARD DEVIATION
-- Confirm whether you are using sample std dev (ddof=1) or population (ddof=0)
-- Show the computed std dev for at least the first student
-
-WEIGHTED AVERAGE
-- State the weights: quizzes = 5% each (4 quizzes = 20% total), tests = 80/6% each (6 tests = 80% total)
-- Show the computed weighted_average for at least the first student
-
-PERCENTILE AND Z-SCORE
-- Explain the percentile formula: (count strictly below / (n-1)) * 100
-- Explain z_score formula: (student_wa - class_wa_mean) / class_wa_sample_std
-
-INTERPRETATION CHOICES
-- Note any point where the skill specification was ambiguous and state your choice
-- Note any edge case in the data (e.g. all-zero scores, perfect scores, missing values)
-  and how you handled it
-
-After completing the Excel output, print a one-line summary confirming the output
-file was written and the sheet names used.
-"""
-
-    trace = ""
+    # Retry once without reasoning if model doesn't support it
     try:
-        result = subprocess.run(
-            ["claude", "-p", prompt, "--allowedTools", "Bash,Write,Read"],
-            capture_output=True, text=True, timeout=600
-        )
-        trace = result.stdout + result.stderr
-        if not xlsx_path.exists():
-            return None, trace
-    except Exception as e:
-        return None, str(e)
+        with urllib.request.urlopen(req, timeout=300) as resp:
+            data = json.loads(resp.read())
+    except urllib.error.HTTPError as e:
+        err_body = e.read().decode("utf-8", errors="replace")
+        if e.code == 400 and ("reasoning" in err_body or "not supported" in err_body):
+            print(f"  Model {model} does not support reasoning — retrying without it.")
+            del body["reasoning"]
+            req = urllib.request.Request(
+                f"{base_url.rstrip('/')}/responses",
+                data=json.dumps(body).encode("utf-8"),
+                headers={
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {api_key}",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=300) as resp:
+                data = json.loads(resp.read())
+        else:
+            raise RuntimeError(f"OpenAI API error {e.code}: {err_body[:500]}")
 
-    return xlsx_path, trace
+    # Extract content and reasoning from response
+    output_items = data.get("output", [])
+    content = ""
+    reasoning_parts = []
+
+    for item in output_items:
+        if item.get("type") == "message":
+            for part in item.get("content", []):
+                if part.get("type") == "output_text":
+                    content += part.get("text", "")
+        elif item.get("type") == "reasoning":
+            for s in item.get("summary", []):
+                if s.get("type") == "summary_text" and s.get("text"):
+                    reasoning_parts.append(s["text"])
+
+    reasoning_trace = "\n\n".join(reasoning_parts) if reasoning_parts else None
+
+    usage = data.get("usage", {})
+    token_usage = {
+        "input":     usage.get("input_tokens", 0),
+        "output":    usage.get("output_tokens", 0),
+        "reasoning": usage.get("output_tokens_details", {}).get("reasoning_tokens", 0),
+    }
+
+    # Parse JSON from content — handle code fences, prose wrapping, or empty content
+    text = content.strip()
+    if not text:
+        raise RuntimeError("LLM returned empty content (all tokens spent on reasoning?)")
+
+    # Strip markdown code fences
+    text = re.sub(r"^```\w*\n?", "", text)
+    text = re.sub(r"\n?```\s*$", "", text)
+    text = text.strip()
+
+    # Try direct parse first
+    parsed = None
+    try:
+        parsed = json.loads(text)
+    except json.JSONDecodeError:
+        # Extract the largest JSON object from mixed prose + JSON
+        # Find the first { and match to the last }
+        first_brace = text.find("{")
+        last_brace = text.rfind("}")
+        if first_brace >= 0 and last_brace > first_brace:
+            json_text = text[first_brace:last_brace + 1]
+            try:
+                parsed = json.loads(json_text)
+            except json.JSONDecodeError:
+                pass
+
+    if parsed is None:
+        raise RuntimeError(f"LLM returned invalid JSON.\nRaw output:\n{text[:1000]}")
+
+    return parsed, reasoning_trace, token_usage
+
+
+def get_reasoning_trace(skill_instructions, csv_content, results_json, failed_checks):
+    """
+    Phase 2: Ask o3-mini to analyze HOW the skill was interpreted and WHY results
+    may be wrong. Returns the reasoning trace string or None.
+    """
+    api_key  = os.environ.get("OPENAI_API_KEY")
+    base_url = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
+
+    if not api_key:
+        return None
+
+    # Summarize failures concisely
+    failure_summary = "\n".join(f"- {fc}" for fc in failed_checks[:20])
+    if len(failed_checks) > 20:
+        failure_summary += f"\n... and {len(failed_checks) - 20} more failures"
+
+    prompt = f"""You are analyzing a skill's performance on a student grades benchmark.
+
+SKILL INSTRUCTIONS GIVEN TO THE MODEL:
+{skill_instructions}
+
+SAMPLE OF MODEL OUTPUT (first 3 students):
+{json.dumps({k: results_json.get("per_student", {}).get(k) for k in list(results_json.get("per_student", {}).keys())[:3]}, indent=2)}
+
+FAILED CHECKS:
+{failure_summary}
+
+Analyze:
+1. What calculation decisions did the model make based on the skill instructions?
+2. Where were the instructions ambiguous or wrong, causing incorrect results?
+3. What specific improvements to the skill instructions would fix the most failures?
+
+Be specific — reference exact fields and values."""
+
+    body = {
+        "model": "o3-mini",
+        "input": [{"role": "user", "content": prompt}],
+        "max_output_tokens": 16384,
+        "reasoning": {"effort": "medium", "summary": "auto"},
+    }
+
+    try:
+        req = urllib.request.Request(
+            f"{base_url.rstrip('/')}/responses",
+            data=json.dumps(body).encode("utf-8"),
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {api_key}",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            data = json.loads(resp.read())
+
+        parts = []
+        for item in data.get("output", []):
+            if item.get("type") == "reasoning":
+                for s in item.get("summary", []):
+                    if s.get("type") == "summary_text" and s.get("text"):
+                        parts.append(s["text"])
+            elif item.get("type") == "message":
+                for part in item.get("content", []):
+                    if part.get("type") == "output_text" and part.get("text"):
+                        parts.append(part["text"])
+
+        return "\n\n".join(parts) if parts else None
+    except Exception as e:
+        print(f"  Warning: reasoning trace call failed: {e}")
+        return None
+
+
+def run_skill(skill_path, csv_path):
+    """Run the skill against a CSV via OpenAI API. Returns (parsed_data, reasoning_trace, token_usage)."""
+    skill_content = skill_path.read_text()
+    csv_content   = csv_path.read_text()
+    return call_openai(skill_content, csv_content)
+
+
+# -- REMOVED: parse_excel_output (no longer needed — LLM returns JSON directly)
+# -- REMOVED: generate_summary_excel (no longer needed — no Excel output)
 
 
 # -- Version diff --------------------------------------------------------------
@@ -793,55 +703,43 @@ def print_diff(diff):
 
 # -- Main ----------------------------------------------------------------------
 
-def _run_single_test(csv_path, gt, skill_path, version, timestamp, output_dir, logs_dir):
-    """Run a single test case. Returns the report dict. Safe to call from a thread."""
+def _run_single_test(csv_path, gt, skill_path, version, timestamp, logs_dir):
+    """Run a single test case via OpenAI API. Returns the report dict."""
     import traceback as tb
     try:
         print(f"\n[{datetime.now().strftime('%H:%M:%S')}] Starting: {csv_path.name}")
-        xlsx_path, trace = run_skill(skill_path, csv_path, output_dir)
+        parsed, reasoning_trace, token_usage = run_skill(skill_path, csv_path)
 
-        if xlsx_path is None:
-            categories = {k: make_category([], []) for k in CATEGORY_LABELS}
-            report = {
-                "test_input":      csv_path.name,
-                "skill_version":   version,
-                "timestamp":       timestamp,
-                "execution_trace": trace,
-                "error":           "Skill did not produce Excel output.",
-                "overall":         {"fraction": "0/0", "score": 0.0, "passed": 0, "total": 0},
-                "categories":      categories,
-            }
-        else:
-            try:
-                parsed, location_map = parse_excel_output(xlsx_path)
-                categories           = compare(parsed, gt, location_map)
-                total_p = sum(c["passed"] for c in categories.values())
-                total_t = sum(c["total"]  for c in categories.values())
-                report = {
-                    "test_input":      csv_path.name,
-                    "skill_version":   version,
-                    "timestamp":       timestamp,
-                    "execution_trace": trace,
-                    "overall": {
-                        "fraction": fraction(total_p, total_t),
-                        "score":    score(total_p, total_t),
-                        "passed":   total_p,
-                        "total":    total_t,
-                    },
-                    "categories":             categories,
-                    "failures_by_location":   build_failures_by_location(categories),
-                }
-            except Exception as e:
-                categories = {k: make_category([], []) for k in CATEGORY_LABELS}
-                report = {
-                    "test_input":      csv_path.name,
-                    "skill_version":   version,
-                    "timestamp":       timestamp,
-                    "execution_trace": trace,
-                    "error":           f"Parse/compare error: {e}\n{tb.format_exc()}",
-                    "overall":         {"fraction": "0/0", "score": 0.0, "passed": 0, "total": 0},
-                    "categories":      categories,
-                }
+        categories = compare(parsed, gt)
+        total_p = sum(c["passed"] for c in categories.values())
+        total_t = sum(c["total"]  for c in categories.values())
+
+        # Phase 2: get reasoning trace from o3-mini analyzing the results
+        all_failures = []
+        for cat in categories.values():
+            for fc in cat["failed_checks"]:
+                all_failures.append(fc.get("description", fc["check"]))
+        if all_failures:
+            print(f"[{datetime.now().strftime('%H:%M:%S')}] Getting reasoning trace for {csv_path.name}...")
+            skill_content = skill_path.read_text()
+            csv_content = csv_path.read_text()
+            reasoning_trace = get_reasoning_trace(skill_content, csv_content, parsed, all_failures)
+
+        report = {
+            "test_input":       csv_path.name,
+            "skill_version":    version,
+            "timestamp":        timestamp,
+            "reasoning_trace":  reasoning_trace,
+            "token_usage":      token_usage,
+            "overall": {
+                "fraction": fraction(total_p, total_t),
+                "score":    score(total_p, total_t),
+                "passed":   total_p,
+                "total":    total_t,
+            },
+            "categories":             categories,
+            "failures_by_location":   build_failures_by_location(categories),
+        }
 
         prev_report = load_previous_report(csv_path.stem, version)
         if prev_report:
@@ -851,7 +749,8 @@ def _run_single_test(csv_path, gt, skill_path, version, timestamp, output_dir, l
         with open(out_file, "w") as f:
             json.dump(report, f, indent=2, default=str)
 
-        print(f"[{datetime.now().strftime('%H:%M:%S')}] Finished: {csv_path.name}")
+        print(f"[{datetime.now().strftime('%H:%M:%S')}] Finished: {csv_path.name} — "
+              f"{fraction(total_p, total_t)} ({token_usage['input']}+{token_usage['output']} tokens)")
         return report
 
     except Exception as e:
@@ -861,7 +760,7 @@ def _run_single_test(csv_path, gt, skill_path, version, timestamp, output_dir, l
             "test_input":      csv_path.name,
             "skill_version":   version,
             "timestamp":       timestamp,
-            "error":           f"Unhandled error: {e}\n{tb.format_exc()}",
+            "error":           f"Error: {e}\n{tb.format_exc()}",
             "overall":         {"fraction": "0/0", "score": 0.0, "passed": 0, "total": 0},
             "categories":      categories,
         }
@@ -877,11 +776,10 @@ def run_benchmark(version):
         print(f"Skill file not found: {skill_path}")
         sys.exit(1)
 
-    output_dir = ROOT / "outputs" / version
-    logs_dir   = LOGS_BASE / version
+    logs_dir = LOGS_BASE / version
     logs_dir.mkdir(parents=True, exist_ok=True)
-    csv_files  = sorted(INPUTS_DIR.glob("*.csv"))
-    timestamp  = datetime.now().strftime("%Y%m%d_%H%M%S")
+    csv_files = sorted(INPUTS_DIR.glob("*.csv"))
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     all_summaries = []
 
     # Build list of (csv_path, gt) pairs
@@ -896,13 +794,13 @@ def run_benchmark(version):
         test_cases.append((csv_path, gt))
 
     # Run all tests in parallel
-    print(f"\nRunning {len(test_cases)} tests in parallel...")
+    print(f"\nRunning {len(test_cases)} tests in parallel via OpenAI API...")
     with ThreadPoolExecutor(max_workers=len(test_cases)) as pool:
         futures = {}
         for csv_path, gt in test_cases:
             fut = pool.submit(
                 _run_single_test,
-                csv_path, gt, skill_path, version, timestamp, output_dir, logs_dir,
+                csv_path, gt, skill_path, version, timestamp, logs_dir,
             )
             futures[fut] = csv_path
 
@@ -930,9 +828,6 @@ def run_benchmark(version):
         agg_p = sum(r["overall"]["passed"] for r in all_summaries)
         agg_t = sum(r["overall"]["total"]  for r in all_summaries)
         print(f"  Total: {fraction(agg_p, agg_t)}  ({score(agg_p, agg_t):.2f})")
-
-        summary_path = generate_summary_excel(version, output_dir, GT_DIR, logs_dir)
-        print(f"  Summary Excel: {summary_path}")
 
 
 if __name__ == "__main__":
