@@ -1,11 +1,13 @@
 import { readdir, readFile, writeFile, unlink, mkdir } from "fs/promises";
 import { join } from "path";
-import type { Skill, Benchmark, EvalCase } from "@/lib/types";
+import type { Skill, Benchmark, EvalCase, BenchmarkRunResult, PyBenchmarkReport } from "@/lib/types";
 
 const DATA_ROOT = join(process.cwd(), "skillgraph-data");
 const SKILLS_DIR = join(DATA_ROOT, "skills");
 const BENCHMARKS_DIR = join(DATA_ROOT, "benchmarks");
 const TRACES_DIR = join(DATA_ROOT, "traces");
+const SKILL_FILES_DIR = join(process.cwd(), "skill");
+const EVAL_RESULTS_DIR = join(process.cwd(), "logs", "eval_results");
 
 export async function ensureDataDirs(): Promise<void> {
   await mkdir(SKILLS_DIR, { recursive: true });
@@ -162,4 +164,133 @@ export async function appendEvalCase(
     join(tasksDir, `${evalCase.id}.json`),
     JSON.stringify(evalCase, null, 2),
   );
+}
+
+// --- Traces ---
+
+export async function writeRunResult(
+  result: BenchmarkRunResult,
+): Promise<void> {
+  const dir = join(TRACES_DIR, result.runId);
+  await mkdir(dir, { recursive: true });
+  await writeFile(join(dir, "result.json"), JSON.stringify(result, null, 2));
+}
+
+export async function readRunResult(
+  runId: string,
+): Promise<BenchmarkRunResult | null> {
+  try {
+    const raw = await readFile(
+      join(TRACES_DIR, runId, "result.json"),
+      "utf-8",
+    );
+    return JSON.parse(raw) as BenchmarkRunResult;
+  } catch {
+    return null;
+  }
+}
+
+export async function readRunResultsForSkill(
+  skillId: string,
+): Promise<BenchmarkRunResult[]> {
+  await ensureDataDirs();
+  let entries: string[];
+  try {
+    entries = await readdir(TRACES_DIR);
+  } catch {
+    return [];
+  }
+  const results: BenchmarkRunResult[] = [];
+  for (const entry of entries) {
+    try {
+      const raw = await readFile(
+        join(TRACES_DIR, entry, "result.json"),
+        "utf-8",
+      );
+      const result = JSON.parse(raw) as BenchmarkRunResult;
+      if (result.skillId === skillId) {
+        results.push(result);
+      }
+    } catch {
+      // skip entries without result.json
+    }
+  }
+  return results;
+}
+
+// --- Skill file sync (for Python benchmark) ---
+
+export async function syncSkillFile(skill: Skill): Promise<string | null> {
+  const mdFile = skill.files.find(
+    (f) => f.name.endsWith(".md") || f.name.endsWith(".skill"),
+  );
+  if (!mdFile) return null;
+
+  await mkdir(SKILL_FILES_DIR, { recursive: true });
+
+  let content: string;
+  if (mdFile.parsed) {
+    const fmEntries = Object.entries(mdFile.parsed.frontmatter);
+    if (fmEntries.length > 0) {
+      const fmLines = fmEntries.map(
+        ([k, v]) => `${k}: ${typeof v === "object" ? JSON.stringify(v) : v}`,
+      );
+      content = `---\n${fmLines.join("\n")}\n---\n\n${mdFile.parsed.body}`;
+    } else {
+      content = mdFile.parsed.body;
+    }
+  } else {
+    content = mdFile.content;
+  }
+
+  const filename = `skill_v${skill.version}.md`;
+  const filepath = join(SKILL_FILES_DIR, filename);
+  await writeFile(filepath, content, "utf-8");
+  return filepath;
+}
+
+// --- Python benchmark results ---
+
+export async function readPyBenchmarkReports(
+  version: string,
+): Promise<PyBenchmarkReport[]> {
+  const dir = join(EVAL_RESULTS_DIR, version);
+  let entries: string[];
+  try {
+    entries = await readdir(dir);
+  } catch {
+    return [];
+  }
+
+  // Filter: only timestamped JSON files, skip _located.json and _reparsed.json
+  const timestampPattern = /_\d{8}_\d{6}\.json$/;
+  const jsonFiles = entries
+    .filter(
+      (f) =>
+        f.endsWith(".json") &&
+        timestampPattern.test(f) &&
+        !f.includes("_located") &&
+        !f.includes("_reparsed"),
+    )
+    .sort();
+
+  // Group by test_input, keep latest per test
+  const latestByTest = new Map<string, string>();
+  for (const f of jsonFiles) {
+    // e.g. "01_clean_v0_20260314_161410.json" -> test prefix "01_clean"
+    const match = f.match(/^(.+?)_v\d+_\d{8}_\d{6}\.json$/);
+    const testKey = match ? match[1] : f;
+    latestByTest.set(testKey, f); // last one wins (sorted ascending)
+  }
+
+  const reports: PyBenchmarkReport[] = [];
+  for (const filename of latestByTest.values()) {
+    try {
+      const raw = await readFile(join(dir, filename), "utf-8");
+      reports.push(JSON.parse(raw) as PyBenchmarkReport);
+    } catch {
+      // skip unparseable files
+    }
+  }
+  return reports;
 }

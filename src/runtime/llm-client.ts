@@ -223,7 +223,7 @@ export async function callLLM(request: LLMRequest): Promise<LLMResponse> {
       ...(typeof reasoningTokens === "number" &&
         reasoningTokens >= 0 && { reasoning: reasoningTokens }),
     },
-    outputItems: output as LLMInputItem[],
+    outputItems: output as unknown as LLMInputItem[],
     rawResponse: data,
     ...(toolCalls.length > 0 && { toolCalls }),
   };
