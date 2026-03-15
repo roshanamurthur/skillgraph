@@ -202,6 +202,20 @@ export default function BenchmarkSection({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [version]);
 
+  // Auto-trigger benchmark when skill has .md file but no results yet
+  const hasTriggeredRef = useRef(false);
+  useEffect(() => {
+    if (hasTriggeredRef.current || running || reports.length > 0) return;
+    const hasMdFile = skill.files.some(
+      (f) => f.name.endsWith(".md") || f.name.endsWith(".skill"),
+    );
+    if (hasMdFile) {
+      hasTriggeredRef.current = true;
+      handleRun();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [skill.files, reports.length, running]);
+
   useEffect(() => {
     return () => {
       if (pollRef.current) clearInterval(pollRef.current);
@@ -253,15 +267,11 @@ export default function BenchmarkSection({
         <span>Benchmark {version}</span>
       </div>
 
-      <div className="py-bm-controls">
-        <button
-          className="benchmark-run-btn"
-          onClick={handleRun}
-          disabled={running}
-        >
-          {running ? "Running..." : "Run Benchmark"}
-        </button>
-      </div>
+      {running && (
+        <div className="py-bm-controls">
+          <span className="py-bm-running-indicator">Benchmarking...</span>
+        </div>
+      )}
 
       {statusMsg && <div className="py-bm-status">{statusMsg}</div>}
       {error && <div className="benchmark-error">{error}</div>}

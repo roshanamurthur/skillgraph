@@ -24,6 +24,11 @@ export interface Skill {
   score: number | null;
   files: SkillFile[];
   createdAt: string;
+  status?: "active" | "pruned";
+  hypothesisId?: string;
+  targetCriteria?: string;
+  hypothesis?: string;
+  changeSummary?: string;
 }
 
 export interface SkillNodeData {

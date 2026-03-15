@@ -14,24 +14,32 @@ const DEPTH_COLORS = [
   "#84cc16", // 7 — lime
 ];
 
+const PRUNED_COLOR = "#666";
+
 function colorForDepth(depth: number): string {
   return DEPTH_COLORS[depth % DEPTH_COLORS.length];
 }
 
 export default function SkillNode({ data, selected }: NodeProps) {
   const { skill, depth } = data as SkillNodeData;
-  const color = colorForDepth(depth);
+  const isPruned = skill.status === "pruned";
+  const color = isPruned ? PRUNED_COLOR : colorForDepth(depth);
   const hasFiles = skill.files.length > 0;
 
   return (
     <div
-      className="skill-circle"
+      className={`skill-circle ${isPruned ? "skill-circle-pruned" : ""}`}
       style={{
         borderColor: selected ? "#fff" : color,
-        boxShadow: selected
-          ? `0 0 0 2px #fff, 0 0 20px ${color}80`
-          : `0 0 16px ${color}40`,
-        background: `radial-gradient(circle at 35% 35%, ${color}30, ${color}10 70%, transparent)`,
+        boxShadow: isPruned
+          ? "none"
+          : selected
+            ? `0 0 0 2px #fff, 0 0 20px ${color}80`
+            : `0 0 16px ${color}40`,
+        background: isPruned
+          ? `radial-gradient(circle at 35% 35%, ${color}20, transparent 70%)`
+          : `radial-gradient(circle at 35% 35%, ${color}30, ${color}10 70%, transparent)`,
+        opacity: isPruned ? 0.5 : 1,
       }}
     >
       <Handle type="target" position={Position.Top} className="circle-handle" />
@@ -41,7 +49,11 @@ export default function SkillNode({ data, selected }: NodeProps) {
         style={{ backgroundColor: color }}
       />
 
-      {hasFiles && (
+      {isPruned && (
+        <div className="skill-circle-pruned-label">pruned</div>
+      )}
+
+      {hasFiles && !isPruned && (
         <div className="skill-circle-files" style={{ borderColor: color }}>
           {skill.files.length}
         </div>

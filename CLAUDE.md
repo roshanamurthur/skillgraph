@@ -4,9 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SkillGraph is a node-graph LLM skill optimization system. It loads "Agent Skills" (SKILL.md files), runs them against benchmarks via LLM APIs, traces execution, scores results, generates improvement hypotheses, and iteratively creates better skill variants. See ARCHITECTURE.md for the full system design.
-
-**Status:** Runtime layer (LLM client, skill loader, skill runner, script executor) is implemented. Graph engine, pipeline nodes, metrics, store, and CLI are stubs awaiting implementation.
+SkillGraph is a node-graph LLM skill optimization system. It loads skills (markdown instruction files), runs them against benchmarks via LLM APIs, and uses a "master LLM" (xAI Grok) to iteratively optimize skills by generating hypotheses, creating variant child nodes, benchmarking them in parallel, and pruning losers.
 
 ## Commands
 
@@ -14,39 +12,58 @@ SkillGraph is a node-graph LLM skill optimization system. It loads "Agent Skills
 npm run dev          # Next.js dev server
 npm run build        # Production build
 npm run lint         # ESLint
-npm run test:deepseek  # Integration test (runs tests/test-gpt.ts via tsx with dotenv)
-```
-
-Run a single test file directly:
-```bash
-npx tsx tests/test-gpt.ts [skill-directory] [user-message]
+python3 benchmark/run_benchmark.py --version v0  # Run Python benchmark
 ```
 
 ## Architecture
 
-### Core Pipeline (from ARCHITECTURE.md)
-LoadSkill → LoadBenchmark → BenchmarkFanOut → RunSkill → TraceCollector → Scorer → Analyzer → HypothesisGenerator → VariantGenerator → Selector
+### Optimization Loop
+1. User drops a skill `.md` file into a node → benchmark auto-runs
+2. Master LLM (xAI Grok) analyzes benchmark results, ranks errors by importance
+3. For the most important error, generates up to 5 hypotheses
+4. Creates child nodes (one per hypothesis) with modified skill
+5. Benchmarks all variants in parallel
+6. Winner stays active, losers marked "pruned" (grayed out but visible)
+7. Repeats from winner for next error category
 
 ### Key Directories
-- `src/runtime/` — **Implemented**: LLM client (OpenAI Responses API), skill loader (SKILL.md parser), skill runner (orchestrator with tool loop), script executor (sandboxed Python/Shell/JS/TS)
-- `src/types/` — Core interfaces: `Trace`, `TraceTurn`, `LoadedAgentSkill`
-- `src/lib/` — **Stubs only**: graph/, nodes/, metrics/, store/, human/
-- `skills/` — Agent Skills format: each skill is a directory with SKILL.md (YAML frontmatter + body) and optional references/, scripts/, assets/
-- `tests/` — Integration tests using tsx
-- `benchmarks/` — Placeholder for evaluation cases
+- `src/lib/optimization/` — Master LLM orchestration: error-analyzer, hypothesis-generator, variant-generator, selector, master-llm (async generator), xai-client
+- `src/runtime/` — LLM client (OpenAI Responses API), skill loader, skill runner, script executor
+- `src/lib/store/` — Filesystem persistence (skills, benchmarks, traces, py-benchmark results)
+- `src/lib/types/` — Core interfaces (Skill, PyBenchmarkReport, etc.)
+- `src/app/components/` — React Flow graph UI (GraphCanvas, DetailPanel, SkillNode, BenchmarkSection)
+- `src/app/api/` — API routes: skills CRUD, py-benchmark, optimize (SSE streaming)
+- `benchmark/` — Python benchmark runner with ground truth, test inputs, scoring
+- `skill/` — Skill `.md` files synced for Python benchmark
+- `logs/eval_results/` — Benchmark result JSONs with per-check location-pinpointed failures
 
-### Agent Skills Format
-Each skill directory contains a `SKILL.md` with YAML frontmatter (name, description) and markdown body used as LLM instructions. Optional subdirectories: `scripts/`, `references/`, `assets/`.
+### Benchmark System
+- Python benchmark (`benchmark/run_benchmark.py`) runs skills via Claude CLI
+- 5 test inputs (01_clean through 05_large), 5 scoring categories
+- Each failed check includes: exact Excel cell location, expected/actual/delta, diagnostic hint
+- Reports stored as `PyBenchmarkReport` JSON with `failures_by_location` grouping
+
+### Skill Type
+```typescript
+interface Skill {
+  id, name, version, parentId, prompt, model, score, files, createdAt,
+  status?: "active" | "pruned",
+  hypothesis?, changeSummary?, hypothesisId?, targetCriteria?
+}
+```
 
 ## Tech Stack
 - Next.js 16 (App Router), React 19, TypeScript 5 (strict), Tailwind CSS 4
-- OpenAI Responses API (primary LLM integration in src/runtime/llm-client.ts)
-- Anthropic SDK available but not currently used in runtime code
-- Zod for validation, tsx for running TypeScript directly
+- OpenAI Responses API for skill execution (`src/runtime/llm-client.ts`)
+- xAI Grok (`grok-4.20-beta-0309-reasoning`) for master LLM via same Responses API format
+- React Flow (`@xyflow/react`) for graph visualization
 - Path alias: `@/*` → `./src/*`
+- Env vars: `OPENAI_API_KEY`, `XAI_API_KEY`, `DEEPSEEK_API_KEY`
 
 ## Key Patterns
-- The LLM client uses the OpenAI **Responses API** (not Chat Completions) — response parsing handles `reasoning_summary`, `function_call`, and extended output items
-- Script execution is sandboxed: scripts must live under `scripts/`, no `..` path traversal, 30s timeout
-- Skill runner supports up to 10 tool rounds per invocation by default
-- Runtime data stored in `skillgraph-data/` (gitignored)
+- The LLM client uses OpenAI **Responses API** (`/responses` endpoint) — works for both OpenAI and xAI
+- Master LLM uses function tools for structured output (error ranking, hypothesis submission, variant generation)
+- Optimization runs as async generator yielding SSE events via `POST /api/optimize`
+- Pruned nodes remain visible (grayed out) with hypothesis info viewable in DetailPanel
+- Benchmarks auto-trigger when a skill file is dropped into a node (no manual button)
+- Runtime data: `skillgraph-data/` (gitignored), benchmark results: `logs/eval_results/`

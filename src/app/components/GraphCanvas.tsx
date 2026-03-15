@@ -344,6 +344,17 @@ export default function GraphCanvas() {
     setSelectedNodeId(null);
   }, []);
 
+  const refreshGraph = useCallback(async () => {
+    try {
+      const serverSkills = await fetchAllSkills();
+      if (serverSkills.length > 0) {
+        syncGraph(serverSkills.map((s) => ({ ...s, files: s.files ?? [] })));
+      }
+    } catch {
+      // ignore
+    }
+  }, [syncGraph]);
+
   const selectedSkill = selectedNodeId
     ? skills.find((s) => s.id === selectedNodeId) ?? null
     : null;
@@ -409,6 +420,7 @@ export default function GraphCanvas() {
           onClose={() => setSelectedNodeId(null)}
           onUpdateSkill={updateSkill}
           onDeleteSkill={deleteSkillNode}
+          onRefreshGraph={refreshGraph}
         />
       )}
     </div>
