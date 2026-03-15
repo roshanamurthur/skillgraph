@@ -418,7 +418,7 @@ Rules:
         "model": model,
         "instructions": skill_instructions,
         "input": [{"role": "user", "content": user_prompt}],
-        "max_output_tokens": 16384,
+        "max_output_tokens": 65536,
     }
 
     req = urllib.request.Request(
@@ -506,6 +506,76 @@ Rules:
         raise RuntimeError(f"LLM returned invalid JSON.\nRaw output:\n{text[:1000]}")
 
     return parsed, reasoning_trace, token_usage
+
+
+def get_reasoning_trace(skill_instructions, csv_content, results_json, failed_checks):
+    """
+    Phase 2: Ask o3-mini to analyze HOW the skill was interpreted and WHY results
+    may be wrong. Returns the reasoning trace string or None.
+    """
+    api_key  = os.environ.get("OPENAI_API_KEY")
+    base_url = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
+
+    if not api_key:
+        return None
+
+    # Summarize failures concisely
+    failure_summary = "\n".join(f"- {fc}" for fc in failed_checks[:20])
+    if len(failed_checks) > 20:
+        failure_summary += f"\n... and {len(failed_checks) - 20} more failures"
+
+    prompt = f"""You are analyzing a skill's performance on a student grades benchmark.
+
+SKILL INSTRUCTIONS GIVEN TO THE MODEL:
+{skill_instructions}
+
+SAMPLE OF MODEL OUTPUT (first 3 students):
+{json.dumps({k: results_json.get("per_student", {}).get(k) for k in list(results_json.get("per_student", {}).keys())[:3]}, indent=2)}
+
+FAILED CHECKS:
+{failure_summary}
+
+Analyze:
+1. What calculation decisions did the model make based on the skill instructions?
+2. Where were the instructions ambiguous or wrong, causing incorrect results?
+3. What specific improvements to the skill instructions would fix the most failures?
+
+Be specific — reference exact fields and values."""
+
+    body = {
+        "model": "o3-mini",
+        "input": [{"role": "user", "content": prompt}],
+        "max_output_tokens": 16384,
+        "reasoning": {"effort": "medium", "summary": "auto"},
+    }
+
+    try:
+        req = urllib.request.Request(
+            f"{base_url.rstrip('/')}/responses",
+            data=json.dumps(body).encode("utf-8"),
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {api_key}",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            data = json.loads(resp.read())
+
+        parts = []
+        for item in data.get("output", []):
+            if item.get("type") == "reasoning":
+                for s in item.get("summary", []):
+                    if s.get("type") == "summary_text" and s.get("text"):
+                        parts.append(s["text"])
+            elif item.get("type") == "message":
+                for part in item.get("content", []):
+                    if part.get("type") == "output_text" and part.get("text"):
+                        parts.append(part["text"])
+
+        return "\n\n".join(parts) if parts else None
+    except Exception as e:
+        print(f"  Warning: reasoning trace call failed: {e}")
+        return None
 
 
 def run_skill(skill_path, csv_path):
@@ -643,6 +713,18 @@ def _run_single_test(csv_path, gt, skill_path, version, timestamp, logs_dir):
         categories = compare(parsed, gt)
         total_p = sum(c["passed"] for c in categories.values())
         total_t = sum(c["total"]  for c in categories.values())
+
+        # Phase 2: get reasoning trace from o3-mini analyzing the results
+        all_failures = []
+        for cat in categories.values():
+            for fc in cat["failed_checks"]:
+                all_failures.append(fc.get("description", fc["check"]))
+        if all_failures:
+            print(f"[{datetime.now().strftime('%H:%M:%S')}] Getting reasoning trace for {csv_path.name}...")
+            skill_content = skill_path.read_text()
+            csv_content = csv_path.read_text()
+            reasoning_trace = get_reasoning_trace(skill_content, csv_content, parsed, all_failures)
+
         report = {
             "test_input":       csv_path.name,
             "skill_version":    version,
