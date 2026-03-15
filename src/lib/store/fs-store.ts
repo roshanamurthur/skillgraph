@@ -1,12 +1,13 @@
 import { readdir, readFile, writeFile, unlink, mkdir, rm } from "fs/promises";
 import { join } from "path";
+import { tmpdir } from "os";
 import type { Skill, Benchmark, EvalCase, BenchmarkRunResult, PyBenchmarkReport } from "@/lib/types";
 
 const DATA_ROOT = join(process.cwd(), "skillgraph-data");
 const SKILLS_DIR = join(DATA_ROOT, "skills");
 const BENCHMARKS_DIR = join(DATA_ROOT, "benchmarks");
 const TRACES_DIR = join(DATA_ROOT, "traces");
-const SKILL_FILES_DIR = join(process.cwd(), "skill");
+const SKILL_FILES_DIR = join(tmpdir(), "skillgraph");
 const EVAL_RESULTS_DIR = join(process.cwd(), "logs", "eval_results");
 
 export async function ensureDataDirs(): Promise<void> {

@@ -18,6 +18,7 @@ import json
 import os
 import re
 import sys
+import tempfile
 import urllib.request
 import urllib.error
 from collections import defaultdict
@@ -30,7 +31,7 @@ ROOT          = Path(__file__).parent.parent
 BENCHMARK_DIR = Path(__file__).parent
 INPUTS_DIR    = BENCHMARK_DIR / "test_inputs"
 GT_DIR        = BENCHMARK_DIR / "ground_truth"
-SKILL_DIR     = ROOT / "skill"
+SKILL_DIR     = Path(tempfile.gettempdir()) / "skillgraph"
 LOGS_BASE     = ROOT / "logs" / "eval_results"
 LOGS_BASE.mkdir(parents=True, exist_ok=True)
 

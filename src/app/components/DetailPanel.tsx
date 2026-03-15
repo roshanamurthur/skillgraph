@@ -11,6 +11,7 @@ interface DetailPanelProps {
   onClose: () => void;
   onUpdateSkill: (skill: Skill) => void;
   onDeleteSkill: (id: string, mode: "subtree" | "reparent") => void;
+  onRefreshGraph?: () => void;
 }
 
 function FileTypeIcon({ type }: { type: SkillFile["type"] }) {
@@ -81,10 +82,77 @@ export default function DetailPanel({
   onClose,
   onUpdateSkill,
   onDeleteSkill,
+  onRefreshGraph,
 }: DetailPanelProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const [optimizing, setOptimizing] = useState(false);
+  const [optimizeStatus, setOptimizeStatus] = useState<string | null>(null);
+
+  const handleOptimize = useCallback(async () => {
+    if (optimizing) return;
+    setOptimizing(true);
+    setOptimizeStatus("Starting optimization...");
+    try {
+      const res = await fetch("/api/optimize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ skillId: skill.id }),
+      });
+      if (!res.ok) throw new Error("Failed to start optimization");
+      const reader = res.body?.getReader();
+      if (!reader) throw new Error("No response stream");
+      const decoder = new TextDecoder();
+      let buffer = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n\n");
+        buffer = lines.pop() || "";
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          const event = JSON.parse(line.slice(6));
+          switch (event.type) {
+            case "errors_ranked":
+              setOptimizeStatus(`Ranked ${event.errors.length} error categories`);
+              break;
+            case "generating_hypotheses":
+              setOptimizeStatus(`Generating hypotheses for ${event.category}...`);
+              break;
+            case "hypotheses_generated":
+              setOptimizeStatus(`Generated ${event.hypotheses.length} hypotheses`);
+              break;
+            case "variant_created":
+              setOptimizeStatus(`Created variant: ${event.hypothesis.description.slice(0, 50)}...`);
+              onRefreshGraph?.();
+              break;
+            case "variant_benchmarking":
+              setOptimizeStatus("Benchmarking variants...");
+              break;
+            case "iteration_complete":
+              setOptimizeStatus(`Completed ${event.category}: winner selected, ${event.prunedIds.length} pruned`);
+              onRefreshGraph?.();
+              break;
+            case "completed":
+              setOptimizeStatus(`Optimization complete! Best score: ${Math.round(event.bestScore * 100)}%`);
+              onRefreshGraph?.();
+              break;
+            case "error":
+              setOptimizeStatus(`Error: ${event.message}`);
+              break;
+          }
+        }
+      }
+    } catch (err) {
+      setOptimizeStatus(
+        `Failed: ${err instanceof Error ? err.message : "Unknown error"}`,
+      );
+    } finally {
+      setOptimizing(false);
+    }
+  }, [skill.id, optimizing, onRefreshGraph]);
 
   const handleFiles = useCallback(
     (fileList: FileList) => {
@@ -227,6 +295,51 @@ export default function DetailPanel({
           </div>
         )}
       </div>
+
+      {/* Pruned badge */}
+      {skill.status === "pruned" && (
+        <div className="pruned-badge">
+          Pruned
+          {skill.targetCriteria && (
+            <span className="pruned-criteria"> — lost on {skill.targetCriteria}</span>
+          )}
+        </div>
+      )}
+
+      {/* Hypothesis info (for hypothesis-generated nodes) */}
+      {skill.hypothesis && (
+        <div className="detail-panel-section hypothesis-section">
+          <div className="detail-panel-section-header">
+            <span>Hypothesis</span>
+          </div>
+          <div className="hypothesis-content">
+            <p className="hypothesis-description">{skill.hypothesis}</p>
+            {skill.changeSummary && (
+              <div className="hypothesis-change">
+                <span className="hypothesis-change-label">Change:</span>
+                <span>{skill.changeSummary}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Optimize button */}
+      {skill.status !== "pruned" && (
+        <div className="detail-panel-section">
+          <button
+            className="optimize-btn"
+            onClick={handleOptimize}
+            disabled={optimizing || skill.files.length === 0}
+          >
+            {optimizing ? "Optimizing..." : "Optimize"}
+          </button>
+          {optimizeStatus && (
+            <div className="optimize-status">{optimizeStatus}</div>
+          )}
+        </div>
+      )}
+
 
       {/* Benchmark Section */}
       <BenchmarkSection skill={skill} onUpdateSkill={onUpdateSkill} />
