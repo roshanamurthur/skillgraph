@@ -393,7 +393,7 @@ def call_openai(skill_instructions, csv_content, model=None):
     """
     api_key  = os.environ.get("OPENAI_API_KEY")
     base_url = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
-    model    = model or os.environ.get("OPENAI_MODEL", "o3-mini")
+    model    = model or os.environ.get("OPENAI_MODEL", "gpt-4o")
 
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY not set in environment")
@@ -401,48 +401,24 @@ def call_openai(skill_instructions, csv_content, model=None):
     user_prompt = f"""INPUT CSV:
 {csv_content}
 
-TASK: Compute student grade statistics and return a single JSON object. No prose, no explanation, no markdown — ONLY the JSON object.
+TASK: Follow the skill instructions above to analyze this student grade data.
+Compute ALL metrics described in the skill for EVERY student and EVERY assessment.
+Work through the calculations systematically in your reasoning — process each student one at a time.
 
-CALCULATIONS (use ALL 10 score columns: quiz_1, quiz_2, quiz_3, quiz_4, test_1, test_2, test_3, test_4, test_5, test_6):
-
-per_student (for each student):
-- simple_average: mean of all 10 scores
-- weighted_average: (sum of 4 quizzes / 4) * 0.20 + (sum of 6 tests / 6) * 0.80
-- letter_grade: based on weighted_average using boundaries: A+ >= 96.5, A >= 92.5, A- >= 89.5, B+ >= 86.5, B >= 82.5, B- >= 79.5, C+ >= 76.5, C >= 72.5, C- >= 69.5, D+ >= 66.5, D >= 62.5, D- >= 59.5, F < 59.5
-- slope: OLS regression slope with x=[1,2,3,4,5,6,7,8,9,10], y=[quiz_1,quiz_2,quiz_3,quiz_4,test_1,...,test_6]
-- std_dev: sample standard deviation of all 10 scores (ddof=1)
-- highest_score: max of all 10 scores
-- lowest_score: min of all 10 scores
-- rank: competition rank by weighted_average descending (tied students share highest rank)
-- percentile: (count of students with strictly lower weighted_average) / (n-1) * 100
-- z_score: (student_weighted_avg - mean_of_all_weighted_avgs) / sample_std_of_all_weighted_avgs, rounded to 2 decimals
-- above_class_average: true if weighted_average > mean_of_all_weighted_avgs (strict >)
-
-per_assessment (for each of quiz_1, quiz_2, quiz_3, quiz_4, test_1, test_2, test_3, test_4, test_5, test_6):
-- class_average: mean of all students' scores on this assessment
-- std_dev: sample std dev (ddof=1)
-- highest_score: max score
-- lowest_score: min score
-- per_student_z_scores: for each student, (score - class_average) / std_dev, rounded to 2 decimals
-
-overall:
-- class_weighted_average: mean of all students' weighted_averages
-- class_median: median of all students' weighted_averages
-- grade_distribution: count of students per letter grade (keys: A+, A, A-, B+, B, B-, C+, C, C-, D+, D, D-, F)
-- most_improved_student: student_id with highest slope
-- most_consistent_student: student_id with lowest std_dev
-
-REQUIRED OUTPUT FORMAT:
+You MUST return a complete JSON object with this structure:
 {OUTPUT_SCHEMA}
 
-RESPOND WITH ONLY THE JSON OBJECT. NO OTHER TEXT."""
+Rules:
+- Use the exact student IDs from the CSV (S001, S002, etc.)
+- Use the exact column names as assessment names: quiz_1, quiz_2, quiz_3, quiz_4, test_1, test_2, test_3, test_4, test_5, test_6
+- Compute every value — do NOT use placeholders or dummy numbers
+- Return ONLY the JSON object, no other text"""
 
     body = {
         "model": model,
         "instructions": skill_instructions,
         "input": [{"role": "user", "content": user_prompt}],
-        "max_output_tokens": 100000,
-        "reasoning": {"effort": "low", "summary": "auto"},
+        "max_output_tokens": 16384,
     }
 
     req = urllib.request.Request(
