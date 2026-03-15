@@ -1,4 +1,4 @@
-import { readdir, readFile, writeFile, unlink, mkdir } from "fs/promises";
+import { readdir, readFile, writeFile, unlink, mkdir, rm } from "fs/promises";
 import { join } from "path";
 import type { Skill, Benchmark, EvalCase, BenchmarkRunResult, PyBenchmarkReport } from "@/lib/types";
 
@@ -49,6 +49,41 @@ export async function writeSkill(skill: Skill): Promise<void> {
     join(SKILLS_DIR, `${skill.id}.json`),
     JSON.stringify(skill, null, 2),
   );
+}
+
+export async function removeAllSkills(): Promise<void> {
+  await ensureDataDirs();
+  // Remove skill JSON files
+  try {
+    const entries = await readdir(SKILLS_DIR);
+    for (const entry of entries) {
+      if (entry.endsWith(".json")) {
+        await unlink(join(SKILLS_DIR, entry));
+      }
+    }
+  } catch { /* dir may not exist */ }
+
+  // Remove benchmark results (logs/eval_results/)
+  try {
+    await rm(EVAL_RESULTS_DIR, { recursive: true, force: true });
+  } catch { /* may not exist */ }
+
+  // Remove benchmark outputs (outputs/)
+  const OUTPUTS_DIR = join(process.cwd(), "outputs");
+  try {
+    await rm(OUTPUTS_DIR, { recursive: true, force: true });
+  } catch { /* may not exist */ }
+
+  // Remove traces
+  try {
+    await rm(TRACES_DIR, { recursive: true, force: true });
+    await mkdir(TRACES_DIR, { recursive: true });
+  } catch { /* may not exist */ }
+
+  // Remove generated skill files (skill/)
+  try {
+    await rm(SKILL_FILES_DIR, { recursive: true, force: true });
+  } catch { /* may not exist */ }
 }
 
 export async function removeSkill(id: string): Promise<void> {

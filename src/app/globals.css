@@ -158,6 +158,70 @@ body {
   border-color: var(--edge-color);
 }
 
+/* ── Reset button ── */
+.reset-btn-group {
+  position: absolute;
+  top: 64px;
+  right: 16px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: right 0.2s ease-out;
+}
+
+.reset-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--node-border);
+  background: var(--node-bg);
+  color: #888;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.reset-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.reset-confirm-label {
+  font-size: 11px;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.reset-confirm-yes,
+.reset-confirm-no {
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--node-border);
+  font-size: 11px;
+  cursor: pointer;
+  background: var(--node-bg);
+}
+
+.reset-confirm-yes {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.reset-confirm-yes:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.reset-confirm-no {
+  color: #888;
+}
+
+.reset-confirm-no:hover {
+  border-color: #666;
+  color: #ccc;
+}
+
 /* ── Detail panel (right drawer) ── */
 .detail-panel {
   position: absolute;
@@ -1238,5 +1302,54 @@ body {
   color: #555;
   font-family: var(--font-geist-mono), monospace;
   margin-top: 1px;
+}
+
+/* ── Execution trace ── */
+.py-bm-trace {
+  border-top: 1px solid var(--panel-border);
+  margin-top: 8px;
+}
+
+.py-bm-trace-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a5a5b5;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.py-bm-trace-toggle:hover {
+  color: #e2e2e8;
+}
+
+.py-bm-trace-tokens {
+  font-weight: 400;
+  font-size: 10px;
+  color: #888;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.py-bm-trace-content {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  color: #9090a0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  padding: 8px;
+  background: #0a0a12;
+  border-radius: 6px;
+  max-height: 400px;
+  overflow-y: auto;
+  line-height: 1.5;
 }
 

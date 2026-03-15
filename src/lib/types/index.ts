@@ -123,7 +123,8 @@ export interface PyBenchmarkReport {
   test_input: string;
   skill_version: string;
   timestamp: string;
-  execution_trace?: string;
+  reasoning_trace?: string | null;
+  token_usage?: { input: number; output: number; reasoning: number };
   error?: string;
   overall: { fraction: string; score: number; passed: number; total: number };
   categories: Record<string, PyBenchmarkCategory>;

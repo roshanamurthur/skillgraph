@@ -37,7 +37,7 @@ export async function POST(
   }
 
   const instructions = buildInstructionsFromSkill(skill);
-  const model = skill.model || "gpt-4o";
+  const model = skill.model || "o3-mini";
   const baseUrl = process.env.OPENAI_BASE_URL ?? "https://api.openai.com/v1";
   const runId = uuidv4();
 

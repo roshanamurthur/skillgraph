@@ -111,6 +111,32 @@ function CategoryRow({
   );
 }
 
+function ReasoningTrace({ trace, tokenUsage }: { trace: string; tokenUsage?: { input: number; output: number; reasoning: number } }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div className="py-bm-trace">
+      <button
+        className="py-bm-trace-toggle"
+        onClick={() => setExpanded(!expanded)}
+      >
+        <span>
+          Reasoning Trace
+          {tokenUsage && (
+            <span className="py-bm-trace-tokens">
+              {tokenUsage.reasoning > 0 ? ` (${tokenUsage.reasoning} reasoning tokens)` : ""}
+            </span>
+          )}
+        </span>
+        <span>{expanded ? "\u25B4" : "\u25BE"}</span>
+      </button>
+      {expanded && (
+        <pre className="py-bm-trace-content">{trace}</pre>
+      )}
+    </div>
+  );
+}
+
 function ReportView({ report }: { report: PyBenchmarkReport }) {
   const categoryEntries = Object.entries(report.categories);
 
@@ -126,6 +152,14 @@ function ReportView({ report }: { report: PyBenchmarkReport }) {
           <CategoryRow key={name} name={name} cat={cat} />
         ))}
       </div>
+
+      {report.error && (
+        <div className="benchmark-error">{report.error}</div>
+      )}
+
+      {report.reasoning_trace && (
+        <ReasoningTrace trace={report.reasoning_trace} tokenUsage={report.token_usage} />
+      )}
     </div>
   );
 }

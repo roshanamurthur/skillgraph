@@ -10,7 +10,6 @@
     "test:deepseek": "tsx tests/test-deepseek.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.78.0",
     "@types/js-yaml": "^4.0.9",
     "@xyflow/react": "^12.10.1",
     "idb": "^8.0.3",

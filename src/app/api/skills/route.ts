@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { readAllSkills, writeSkill, syncSkillFile } from "@/lib/store/fs-store";
+import { readAllSkills, writeSkill, syncSkillFile, removeAllSkills } from "@/lib/store/fs-store";
 import type { Skill } from "@/lib/types";
 
 export async function GET() {
@@ -12,4 +12,9 @@ export async function POST(request: Request) {
   await writeSkill(skill);
   await syncSkillFile(skill);
   return NextResponse.json(skill, { status: 201 });
+}
+
+export async function DELETE() {
+  await removeAllSkills();
+  return NextResponse.json({ ok: true });
 }

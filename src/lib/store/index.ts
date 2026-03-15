@@ -43,3 +43,8 @@ export async function deleteSkill(id: string): Promise<void> {
   const db = await getDb();
   await db.delete(STORE_NAME, id);
 }
+
+export async function clearAllSkills(): Promise<void> {
+  const db = await getDb();
+  await db.clear(STORE_NAME);
+}

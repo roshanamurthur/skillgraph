@@ -15,12 +15,13 @@ import {
 } from "@xyflow/react";
 import { v4 as uuid } from "uuid";
 import type { Skill, SkillNodeData } from "@/lib/types";
-import { loadSkills, saveSkill, saveAllSkills, deleteSkill as deleteSkillIdb } from "@/lib/store";
+import { loadSkills, saveSkill, saveAllSkills, deleteSkill as deleteSkillIdb, clearAllSkills } from "@/lib/store";
 import {
   fetchAllSkills,
   saveSkillToServer,
   deleteSkillFromServer,
   batchSaveSkills,
+  resetAllSkills,
 } from "@/lib/store/api-client";
 import SkillNode from "./SkillNode";
 import DetailPanel from "./DetailPanel";
@@ -141,7 +142,7 @@ function makeSkill(parentId: string | null): Skill {
     version: 1, // placeholder — recalcVersions will fix it
     parentId,
     prompt: "",
-    model: "claude-sonnet-4-6",
+    model: "o3-mini",
     score: null,
     files: [],
     createdAt: new Date().toISOString(),
@@ -313,6 +314,28 @@ export default function GraphCanvas() {
     [skills, setEdges, syncGraph],
   );
 
+  const [confirmReset, setConfirmReset] = useState(false);
+
+  const handleReset = useCallback(async () => {
+    try {
+      await resetAllSkills();
+      await clearAllSkills();
+      setSkills([]);
+      setNodes([]);
+      setEdges([]);
+      setSelectedNodeId(null);
+      setConfirmReset(false);
+    } catch {
+      // If server reset fails, still clear client
+      await clearAllSkills();
+      setSkills([]);
+      setNodes([]);
+      setEdges([]);
+      setSelectedNodeId(null);
+      setConfirmReset(false);
+    }
+  }, [setNodes, setEdges]);
+
   const onNodeClick = useCallback((_: React.MouseEvent, node: Node) => {
     setSelectedNodeId(node.id);
   }, []);
@@ -359,6 +382,26 @@ export default function GraphCanvas() {
       >
         +
       </button>
+
+      {skills.length > 0 && (
+        <div className="reset-btn-group" style={selectedSkill ? { right: 396 } : undefined}>
+          {confirmReset ? (
+            <>
+              <span className="reset-confirm-label">Reset all?</span>
+              <button className="reset-confirm-yes" onClick={handleReset}>Yes</button>
+              <button className="reset-confirm-no" onClick={() => setConfirmReset(false)}>No</button>
+            </>
+          ) : (
+            <button
+              className="reset-btn"
+              onClick={() => setConfirmReset(true)}
+              title="Reset all skills and nodes"
+            >
+              Reset
+            </button>
+          )}
+        </div>
+      )}
 
       {selectedSkill && (
         <DetailPanel
