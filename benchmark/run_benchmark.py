@@ -20,6 +20,7 @@ import re
 import subprocess
 import sys
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
@@ -350,196 +351,6 @@ def build_failures_by_location(categories):
     return {sheet: dict(rows) for sheet, rows in result.items()}
 
 
-# -- Post-processing: error pattern summary ------------------------------------
-
-def _diagnose_column(col_name, sheet, col_letter, fails, gt):
-    """
-    Return a specific root-cause hypothesis string for a column with multiple failures,
-    or None if no clear pattern is detectable.
-    """
-    n        = len(fails)
-    actuals  = [f.get("actual")   for f in fails]
-    expecteds= [f.get("expected") for f in fails]
-    deltas   = [f.get("delta")    for f in fails if f.get("delta") is not None]
-    ref      = f"{sheet}!{col_letter} ({col_name})"
-
-    # --- None / missing column ------------------------------------------------
-    none_count = sum(1 for a in actuals if a is None)
-    if none_count == n:
-        return (f"{ref}: ALL {n} values are None — column is missing from the sheet "
-                f"or skill crashed before writing it")
-    if none_count >= n * 0.6:
-        return (f"{ref}: {none_count}/{n} values are None — skill likely crashing "
-                f"partway through (divide-by-zero or missing column)")
-
-    # --- Zero-std-dev z-score (all expected = 0.0, actual ≠ 0.0) -------------
-    if col_name in ("z_score",) or sheet == "Z-Scores":
-        zero_exp = [f for f in fails if f.get("expected") == 0.0]
-        if len(zero_exp) >= 3:
-            sample_actuals = [f.get("actual") for f in zero_exp[:3]]
-            return (f"{ref}: {len(zero_exp)}/{n} failures expect z=0.0 — this assessment "
-                    f"has std_dev=0 (all scores identical), skill must return 0.0 when "
-                    f"std_dev=0 instead of dividing by zero. "
-                    f"Sample actual values: {sample_actuals}")
-
-    # --- Rounding issue (all deltas tiny, expected has fewer decimal places) --
-    if deltas and max(deltas) < 0.11:
-        exp_clean = [e for e in expecteds if e is not None]
-        all_rounded = exp_clean and all(
-            abs(round(float(e), 1) - float(e)) < 0.0001 for e in exp_clean
-        )
-        if all_rounded:
-            return (f"{ref}: all {n} deltas are tiny (max {max(deltas):.4f}) and expected "
-                    f"values are rounded to 1 dp — skill is not applying round(value, 1). "
-                    f"Sample: actual={actuals[0]}, expected={expecteds[0]}")
-        # Generic rounding with 2dp
-        all_rounded_2 = exp_clean and all(
-            abs(round(float(e), 2) - float(e)) < 0.0001 for e in exp_clean
-        )
-        if all_rounded_2:
-            return (f"{ref}: all {n} deltas are tiny (max {max(deltas):.4f}) — skill "
-                    f"is not rounding to 2 dp. Sample: actual={actuals[0]}, expected={expecteds[0]}")
-
-    # --- Systematic offset (all deltas same sign, similar magnitude) ----------
-    if deltas and len(deltas) >= 3:
-        signed = []
-        for f in fails:
-            try:
-                signed.append(float(f["actual"]) - float(f["expected"]))
-            except (TypeError, ValueError):
-                pass
-        if signed:
-            all_pos = all(s > 0 for s in signed)
-            all_neg = all(s < 0 for s in signed)
-            if all_pos or all_neg:
-                avg_off = sum(signed) / len(signed)
-                direction = "consistently high" if all_pos else "consistently low"
-                return (f"{ref}: actual values are {direction} by ~{abs(avg_off):.4f} "
-                        f"on average across all {n} rows — likely a wrong constant, "
-                        f"wrong denominator, or off-by-one in the formula")
-
-    # --- Sign flip (actual ≈ -expected) ---------------------------------------
-    sign_flips = 0
-    for f in fails:
-        try:
-            if abs(float(f["actual"]) + float(f["expected"])) < 0.01:
-                sign_flips += 1
-        except (TypeError, ValueError):
-            pass
-    if sign_flips >= n * 0.5:
-        return (f"{ref}: {sign_flips}/{n} actual values appear to be the sign-opposite "
-                f"of expected — OLS slope formula likely has a sign error (numerator or "
-                f"denominator negated)")
-
-    # --- Constant actual (skill writing same value to every row) --------------
-    non_none = [a for a in actuals if a is not None]
-    if non_none and len(set(str(a) for a in non_none)) == 1:
-        return (f"{ref}: skill wrote the same value ({non_none[0]}) to all {n} rows — "
-                f"likely computing a scalar once and not iterating per-student/per-assessment")
-
-    # --- Wrong denominator for percentile (actual ≈ expected * n/(n-1)) ------
-    if col_name == "percentile" and deltas:
-        n_students = len(gt.get("per_student", {}))
-        scale_errors = 0
-        for f in fails:
-            try:
-                ratio = float(f["actual"]) / float(f["expected"])
-                if abs(ratio - n_students / (n_students - 1)) < 0.01:
-                    scale_errors += 1
-            except (TypeError, ValueError, ZeroDivisionError):
-                pass
-        if scale_errors >= n * 0.5:
-            return (f"{ref}: {scale_errors}/{n} actual values match the pattern of "
-                    f"dividing by n ({n_students}) instead of (n-1) ({n_students-1}) — "
-                    f"fix: use (count_below / (n-1)) * 100, not (count_below / n) * 100")
-
-    return None
-
-
-def build_error_pattern_summary(categories, gt):
-    n_students    = len(gt.get("per_student", {}))
-    n_assessments = len(gt.get("per_assessment", {}))
-
-    col_errors = defaultdict(list)
-    row_errors = defaultdict(lambda: {"sheet": "", "row": None, "entity": "", "fields": []})
-
-    for cat in categories.values():
-        for fc in cat["failed_checks"]:
-            sheet    = fc.get("sheet", "Unknown")
-            col      = fc.get("column_letter", "?")
-            col_name = fc.get("column_name", "?")
-            row      = fc.get("row")
-            entity   = fc.get("entity", "?")
-            col_errors[(sheet, col, col_name)].append(fc)
-            rk = f"{sheet}__row_{row}"
-            row_errors[rk]["sheet"]  = sheet
-            row_errors[rk]["row"]    = row
-            row_errors[rk]["entity"] = entity
-            row_errors[rk]["fields"].append(col_name)
-
-    column_level, row_level, isolated = [], [], []
-    root_cause_hypotheses = []
-
-    for (sheet, col, col_name), fails in sorted(col_errors.items(), key=lambda x: -len(x[1])):
-        n     = len(fails)
-        denom = n_students if sheet in ("Student Stats", "Z-Scores") else n_assessments
-        summary = f"{col_name} ({sheet} col {col}): wrong in {n}/{denom} rows"
-        if n >= 3:
-            column_level.append(summary)
-            hypothesis = _diagnose_column(col_name, sheet, col, fails, gt)
-            if hypothesis:
-                root_cause_hypotheses.append(hypothesis)
-        elif n == 1:
-            entity = fails[0].get("entity", "?")
-            isolated.append(f"{col_name} ({sheet} col {col}): single error for {entity} — "
-                            f"actual={fails[0].get('actual')}, expected={fails[0].get('expected')}")
-
-    for rk, info in sorted(row_errors.items(), key=lambda x: -len(x[1]["fields"])):
-        n = len(info["fields"])
-        if n >= 3:
-            row_level.append(
-                f"{info['entity']} (row {info['row']} in {info['sheet']}): "
-                f"{n} errors across {', '.join(info['fields'][:4])} — "
-                f"may indicate a data-parsing or row-level formula issue"
-            )
-
-    # Cross-sheet correlations
-    cross_sheet = []
-    wa_errors, z_errors, grade_errors = set(), set(), set()
-    for cat in categories.values():
-        for fc in cat["failed_checks"]:
-            parts = fc["check"].split(".")
-            if len(parts) == 3 and parts[0] == "student":
-                sid, field = parts[1], parts[2]
-                if field == "weighted_average": wa_errors.add(sid)
-                elif field == "z_score":        z_errors.add(sid)
-                elif field == "letter_grade":   grade_errors.add(sid)
-
-    if wa_errors & z_errors:
-        cross_sheet.append(
-            f"weighted_average errors propagate to z_score for {len(wa_errors & z_errors)} "
-            f"student(s) — fix weighted_average first to resolve downstream z_score failures"
-        )
-    if wa_errors & grade_errors:
-        cross_sheet.append(
-            f"weighted_average errors causing letter_grade errors in "
-            f"{len(wa_errors & grade_errors)} row(s) — same students affected in both columns"
-        )
-    if wa_errors:
-        cross_sheet.append(
-            f"weighted_average errors in {len(wa_errors)} rows will also corrupt "
-            f"overall.class_weighted_average, percentile, and rank downstream"
-        )
-
-    return {
-        "column_level_errors":    column_level[:8],
-        "row_level_errors":       row_level[:5],
-        "isolated_errors":        isolated[:6],
-        "cross_sheet_errors":     cross_sheet,
-        "root_cause_hypotheses":  root_cause_hypotheses,
-    }
-
-
 # -- Excel parser --------------------------------------------------------------
 
 def parse_excel_output(xlsx_path):
@@ -857,7 +668,7 @@ file was written and the sheet names used.
     try:
         result = subprocess.run(
             ["claude", "-p", prompt, "--allowedTools", "Bash,Write,Read"],
-            capture_output=True, text=True, timeout=300
+            capture_output=True, text=True, timeout=600
         )
         trace = result.stdout + result.stderr
         if not xlsx_path.exists():
@@ -982,29 +793,11 @@ def print_diff(diff):
 
 # -- Main ----------------------------------------------------------------------
 
-def run_benchmark(version):
-    skill_path = SKILL_DIR / f"skill_{version}.md"
-    if not skill_path.exists():
-        print(f"Skill file not found: {skill_path}")
-        sys.exit(1)
-
-    output_dir = ROOT / "outputs" / version
-    logs_dir   = LOGS_BASE / version
-    logs_dir.mkdir(parents=True, exist_ok=True)
-    csv_files  = sorted(INPUTS_DIR.glob("*.csv"))
-    timestamp  = datetime.now().strftime("%Y%m%d_%H%M%S")
-    all_summaries = []
-
-    for csv_path in csv_files:
-        gt_path = GT_DIR / (csv_path.stem + ".json")
-        if not gt_path.exists():
-            print(f"No ground truth for {csv_path.name}, skipping.")
-            continue
-
-        with open(gt_path) as f:
-            gt = json.load(f)
-
-        print(f"\nRunning: {csv_path.name} ...")
+def _run_single_test(csv_path, gt, skill_path, version, timestamp, output_dir, logs_dir):
+    """Run a single test case. Returns the report dict. Safe to call from a thread."""
+    import traceback as tb
+    try:
+        print(f"\n[{datetime.now().strftime('%H:%M:%S')}] Starting: {csv_path.name}")
         xlsx_path, trace = run_skill(skill_path, csv_path, output_dir)
 
         if xlsx_path is None:
@@ -1017,8 +810,6 @@ def run_benchmark(version):
                 "error":           "Skill did not produce Excel output.",
                 "overall":         {"fraction": "0/0", "score": 0.0, "passed": 0, "total": 0},
                 "categories":      categories,
-                "failures_by_location":  {},
-                "error_pattern_summary": {},
             }
         else:
             try:
@@ -1039,21 +830,17 @@ def run_benchmark(version):
                     },
                     "categories":             categories,
                     "failures_by_location":   build_failures_by_location(categories),
-                    "error_pattern_summary":  build_error_pattern_summary(categories, gt),
                 }
             except Exception as e:
-                import traceback
                 categories = {k: make_category([], []) for k in CATEGORY_LABELS}
                 report = {
                     "test_input":      csv_path.name,
                     "skill_version":   version,
                     "timestamp":       timestamp,
                     "execution_trace": trace,
-                    "error":           f"Parse/compare error: {e}\n{traceback.format_exc()}",
+                    "error":           f"Parse/compare error: {e}\n{tb.format_exc()}",
                     "overall":         {"fraction": "0/0", "score": 0.0, "passed": 0, "total": 0},
                     "categories":      categories,
-                    "failures_by_location":  {},
-                    "error_pattern_summary": {},
                 }
 
         prev_report = load_previous_report(csv_path.stem, version)
@@ -1064,16 +851,77 @@ def run_benchmark(version):
         with open(out_file, "w") as f:
             json.dump(report, f, indent=2, default=str)
 
-        print_summary_table(csv_path.name, report["categories"])
-        hypotheses = report.get("error_pattern_summary", {}).get("root_cause_hypotheses", [])
-        if hypotheses:
-            print(f"\n  Root cause hypotheses:")
-            for h in hypotheses:
-                print(f"    !! {h}")
-        if prev_report and "version_diff" in report:
-            print_diff(report["version_diff"])
+        print(f"[{datetime.now().strftime('%H:%M:%S')}] Finished: {csv_path.name}")
+        return report
 
-        all_summaries.append(report)
+    except Exception as e:
+        print(f"[{datetime.now().strftime('%H:%M:%S')}] FAILED: {csv_path.name}: {e}")
+        categories = {k: make_category([], []) for k in CATEGORY_LABELS}
+        report = {
+            "test_input":      csv_path.name,
+            "skill_version":   version,
+            "timestamp":       timestamp,
+            "error":           f"Unhandled error: {e}\n{tb.format_exc()}",
+            "overall":         {"fraction": "0/0", "score": 0.0, "passed": 0, "total": 0},
+            "categories":      categories,
+        }
+        out_file = logs_dir / f"{csv_path.stem}_{version}_{timestamp}.json"
+        with open(out_file, "w") as f:
+            json.dump(report, f, indent=2, default=str)
+        return report
+
+
+def run_benchmark(version):
+    skill_path = SKILL_DIR / f"skill_{version}.md"
+    if not skill_path.exists():
+        print(f"Skill file not found: {skill_path}")
+        sys.exit(1)
+
+    output_dir = ROOT / "outputs" / version
+    logs_dir   = LOGS_BASE / version
+    logs_dir.mkdir(parents=True, exist_ok=True)
+    csv_files  = sorted(INPUTS_DIR.glob("*.csv"))
+    timestamp  = datetime.now().strftime("%Y%m%d_%H%M%S")
+    all_summaries = []
+
+    # Build list of (csv_path, gt) pairs
+    test_cases = []
+    for csv_path in csv_files:
+        gt_path = GT_DIR / (csv_path.stem + ".json")
+        if not gt_path.exists():
+            print(f"No ground truth for {csv_path.name}, skipping.")
+            continue
+        with open(gt_path) as f:
+            gt = json.load(f)
+        test_cases.append((csv_path, gt))
+
+    # Run all tests in parallel
+    print(f"\nRunning {len(test_cases)} tests in parallel...")
+    with ThreadPoolExecutor(max_workers=len(test_cases)) as pool:
+        futures = {}
+        for csv_path, gt in test_cases:
+            fut = pool.submit(
+                _run_single_test,
+                csv_path, gt, skill_path, version, timestamp, output_dir, logs_dir,
+            )
+            futures[fut] = csv_path
+
+        for fut in as_completed(futures):
+            csv_path = futures[fut]
+            try:
+                report = fut.result()
+                all_summaries.append(report)
+            except Exception as e:
+                print(f"Error collecting result for {csv_path.name}: {e}")
+
+    # Sort by test name for consistent output
+    all_summaries.sort(key=lambda r: r["test_input"])
+
+    # Print summaries after all tests complete
+    for report in all_summaries:
+        print_summary_table(report["test_input"], report["categories"])
+        if "version_diff" in report:
+            print_diff(report["version_diff"])
 
     if all_summaries:
         print(f"\n{'=' * 52}")

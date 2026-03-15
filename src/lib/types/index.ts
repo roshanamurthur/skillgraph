@@ -60,3 +60,81 @@ export interface DeleteResult {
   deleted: string[];
   reparented?: string[];
 }
+
+export interface RunTraceResult {
+  content: string;
+  reasoning: string | null;
+  tokenUsage: { input: number; output: number; reasoning?: number };
+  model: string;
+  skillId: string;
+  timestamp: string;
+  error?: string;
+}
+
+export interface BenchmarkCaseResult {
+  evalCaseId: string;
+  input: string;
+  expected: string;
+  actual: string;
+  passed: boolean;
+  reasoning: string | null;
+  tokenUsage: { input: number; output: number; reasoning?: number };
+  wallClockMs: number;
+}
+
+export interface BenchmarkRunResult {
+  runId: string;
+  skillId: string;
+  benchmarkId: string;
+  timestamp: string;
+  results: BenchmarkCaseResult[];
+  score: number;
+  totalTokens: number;
+  totalWallClockMs: number;
+}
+
+// --- Python benchmark report types ---
+
+export interface PyBenchmarkCheck {
+  check: string;
+  passed?: boolean;
+  actual: number | string | boolean;
+  expected?: number | string | boolean;
+  delta?: number | null;
+  description?: string;
+  cell?: string;
+  sheet?: string;
+  row?: number;
+  column_letter?: string;
+  column_name?: string;
+  entity?: string;
+}
+
+export interface PyBenchmarkCategory {
+  fraction: string;
+  score: number;
+  passed: number;
+  total: number;
+  passed_checks: PyBenchmarkCheck[];
+  failed_checks: PyBenchmarkCheck[];
+}
+
+export interface PyBenchmarkReport {
+  test_input: string;
+  skill_version: string;
+  timestamp: string;
+  execution_trace?: string;
+  error?: string;
+  overall: { fraction: string; score: number; passed: number; total: number };
+  categories: Record<string, PyBenchmarkCategory>;
+  failures_by_location?: Record<string, Record<string, string[]>>;
+}
+
+export interface PyBenchmarkRunStatus {
+  runId: string;
+  version: string;
+  status: "running" | "completed" | "failed";
+  startedAt: string;
+  error?: string;
+  progress?: string;
+}
